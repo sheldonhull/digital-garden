@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "github>sheldonhull/renovate:default.json5"
+  ]
+}
