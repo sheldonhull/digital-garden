@@ -10,7 +10,7 @@ permissions: read-all
 jobs:
   cache:
     name: Cache Trunk
-    runs-on: ubuntu-latest
+    runs-on: ub#untu-latest
     timeout-minutes: 10
     permissions:
       actions: write
