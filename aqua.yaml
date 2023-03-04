@@ -8,9 +8,9 @@
 #   supported_envs:
 #   - all
 registries:
-- type: standard
-  ref: v3.139.0 # renovate: depName=aquaproj/aqua-registry
+  - type: standard
+    ref: v3.139.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-- name: magefile/mage@v1.14.0
-- name: golang/go@go1.20.1
-- name: direnv/direnv@v2.32.2
+  - name: magefile/mage@v1.14.0
+  - name: golang/go@go1.20.1
+  - name: direnv/direnv@v2.32.2
