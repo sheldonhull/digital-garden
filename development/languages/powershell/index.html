@@ -1,0 +1,1950 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../go/">
+      
+      
+        <link rel="next" href="../shell/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.0">
+    
+    
+      
+        <title>powershell - digital garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/gist.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code-highlighting.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requirements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="digital garden" class="md-header__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/icons/regular_expression_light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            digital garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              powershell
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../career/communication/" class="md-tabs__link">
+        Career
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Development
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="digital garden" class="md-nav__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/icons/regular_expression_light.svg" alt="logo">
+
+    </a>
+    digital garden
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Career
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Career
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/communication/" class="md-nav__link">
+        Communication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Languages</a>
+          
+            <label for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go/" class="md-nav__link">
+        go
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        powershell
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#psframework" class="md-nav__link">
+    PSFramework
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-optional" class="md-nav__link">
+    Development (Optional)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-formatting" class="md-nav__link">
+    String Formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math-number-conversions" class="md-nav__link">
+    Math &amp; Number Conversions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-time-conversion" class="md-nav__link">
+    Date &amp; Time Conversion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-management" class="md-nav__link">
+    Credential Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Credential Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-basic-authorization-with-rest" class="md-nav__link">
+    Using Basic Authorization With REST
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-functions-from-a-folder" class="md-nav__link">
+    Load Functions from a Folder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-object-manipulation" class="md-nav__link">
+    Select Object Manipulation
+  </a>
+  
+    <nav class="md-nav" aria-label="Select Object Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expanding-nested-objects" class="md-nav__link">
+    Expanding Nested Objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-set-accessors-in-powershell" class="md-nav__link">
+    Get / Set Accessors in PowerShell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-tips-tricks" class="md-nav__link">
+    Parallel Tips &amp; Tricks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-various-iteration-methods-possible" class="md-nav__link">
+    The Various Iteration Methods Possible
+  </a>
+  
+    <nav class="md-nav" aria-label="The Various Iteration Methods Possible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach-object" class="md-nav__link">
+    ForEach-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach-magic-operator" class="md-nav__link">
+    ForEach Magic Operator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach-loop" class="md-nav__link">
+    foreach loop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linq" class="md-nav__link">
+    Linq
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cool-tricks" class="md-nav__link">
+    Cool Tricks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puzzles-fizz-buzz" class="md-nav__link">
+    Puzzles - Fizz Buzz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syncing-files-using-s5cmd" class="md-nav__link">
+    Syncing Files Using S5Cmd
+  </a>
+  
+    <nav class="md-nav" aria-label="Syncing Files Using S5Cmd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-s5cmd" class="md-nav__link">
+    Get S5Cmd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-s5cmd-for-windows" class="md-nav__link">
+    Install S5Cmd For Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-sync-a-directory-from-to-local" class="md-nav__link">
+    Windows Sync A Directory From To Local
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-tools" class="md-nav__link">
+    AWS Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-awstools" class="md-nav__link">
+    Install AWS.Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-systems-manager-parameters-ssm-to-create-a-pscredential" class="md-nav__link">
+    Using Systems Manager Parameters (SSM) To Create A PSCredential
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-aws-secrets-manager-to-create-a-pscredential" class="md-nav__link">
+    Using AWS Secrets Manager To Create a PSCredential
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-temporary-key" class="md-nav__link">
+    Generate a Temporary Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-ssm-agent-manually" class="md-nav__link">
+    Install SSM Agent Manually
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-powershell-specific-cheatsheets" class="md-nav__link">
+    AWS PowerShell Specific Cheatsheets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pester" class="md-nav__link">
+    Pester
+  </a>
+  
+    <nav class="md-nav" aria-label="Pester">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beforeall-and-beforediscovery" class="md-nav__link">
+    BeforeAll And BeforeDiscovery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pester-container-to-help-setup-data-driven-tests" class="md-nav__link">
+    Pester Container To Help Setup Data Driven Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pester-configuration-object" class="md-nav__link">
+    Pester Configuration Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invoke-pester" class="md-nav__link">
+    Invoke Pester
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-test-artifacts" class="md-nav__link">
+    Use Test Artifacts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-pipelines-tips" class="md-nav__link">
+    Azure Pipelines Tips
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Pipelines Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-link-to-a-pipeline-run" class="md-nav__link">
+    Dynamic Link to a Pipeline Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helper-function-for-reporting-progress-on-task" class="md-nav__link">
+    Helper Function for Reporting Progress on Task
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-manipulation" class="md-nav__link">
+    File Manipulation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare-seperate-machine-files" class="md-nav__link">
+    Compare Seperate Machine Files
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell/" class="md-nav__link">
+        shell
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Libraries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dagger/" class="md-nav__link">
+        Dagger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dbatools/" class="md-nav__link">
+        dbatools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Tooling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tooling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/docker/" class="md-nav__link">
+        docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/git/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/precommit/" class="md-nav__link">
+        precommit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/task/" class="md-nav__link">
+        task
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">development</span>
+      
+    
+      
+      
+        <span class="md-tag">powershell</span>
+      
+    
+  </nav>
+
+
+
+  
+  
+
+
+  <h1>powershell</h1>
+
+<div class="admonition info">
+<p class="admonition-title">Any requests?</p>
+<p>If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
+I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
+Cheers! 👍</p>
+</div>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">🔗</a></h2>
+<ul>
+<li>Going forward most examples will focus on Powershell (&gt;= v7), the modern successor to Windows PowerShell &amp; PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run <code>choco upgrade powershell powershell-core -y --source chocolatey</code> and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already. Linux has it's own set of directions.</li>
+<li>Anything manipulating system might need admin, so run as admin in prompt.</li>
+<li><code>Install-Module PSFramework</code> // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular <code>Write-Verbose</code> commands and just use the <code>Write-PSFMessage -Level Verbose -Message 'TacoBear'</code> instead.</li>
+</ul>
+<h3 id="psframework">PSFramework<a class="headerlink" href="#psframework" title="Permanent link">🔗</a></h3>
+<p>I use <a href="http://bit.ly/2LHNpkE">PSFramework</a> on all my instances, as it's fantastic expansion to some core areas with PowerShell. This great module (along with other ancillary supporting ones like <code>PSModuleDevelopment</code> are well tested and usable for solving some issues in a much more elegant and robust manner than what is natively offered.</p>
+<p>A few key elements it can help with are:</p>
+<ul>
+<li>Improving Configuration and variable handling without complex scope issues</li>
+<li>Improving overall logging and troubleshooting</li>
+<li>Improving object manipulation</li>
+<li>Runspace usability enhancements</li>
+<li>Scripted properties</li>
+</ul>
+<h2 id="development-optional">Development (Optional)<a class="headerlink" href="#development-optional" title="Permanent link">🔗</a></h2>
+<ol>
+<li>Install VSCode (Users)</li>
+<li><code>choco upgrade vscode-powershell -y</code> or install in extension panel in VSCode. If you are using ISE primarily.... move on already.</li>
+</ol>
+<h2 id="string-formatting">String Formatting<a class="headerlink" href="#string-formatting" title="Permanent link">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>Output</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Formatting Switch</td>
+<td>'select {0} from sys.tables' -f 'name'</td>
+<td>select name from sys.tables</td>
+<td>Same concept as .NET [string]::Format(). Token based replacement</td>
+</tr>
+<tr>
+<td>.NET String Format</td>
+<td>[string]::Format('select {0} from sys.tables','name')</td>
+<td>select name from sys.tables</td>
+<td>Why would you do this? Because you want to showoff your .NET chops?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="math-number-conversions">Math &amp; Number Conversions<a class="headerlink" href="#math-number-conversions" title="Permanent link">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>Example</th>
+<th>Output</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scientific notation</td>
+<td>Decimal</td>
+<td>2.19095E+08 / 1MB</td>
+<td>208.945274353027 MB</td>
+<td>Native PowerShell, supports 1MB, 1KB, 1GB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="date-time-conversion">Date &amp; Time Conversion<a class="headerlink" href="#date-time-conversion" title="Permanent link">🔗</a></h2>
+<p>Converting dates to Unix Epoc time can be challenging without using the correct .NET classes. There is some built in functionality for converting dates such as <code>(Get-Date).ToUniversalTime() -UFormat '%s'</code> but this can have problems with time zone offsets. A more consistent approach would be to leverage the following. This was very helpful to me in working with Grafana and InfluxDb which commonly leverage Unix Epoc time format with seconds or milliseconds precision.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$CurrentTime</span> <span class="p">=</span> <span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="no">[datetime]</span><span class="p">::</span><span class="n">now</span><span class="p">,</span><span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">Now</span><span class="p">.</span><span class="n">Offset</span><span class="p">);</span>
+
+<span class="c"># Unix Epoc time starts from this date</span>
+<span class="nv">$UnixStartTime</span> <span class="p">=</span> <span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">1970</span><span class="p">,</span> <span class="n">1</span><span class="p">,</span> <span class="n">1</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span><span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">Now</span><span class="p">.</span><span class="n">Offset</span><span class="p">);</span>
+
+<span class="c"># To Use This Now On Timestamp you could run the following</span>
+<span class="nv">$UnixTimeInMilliseconds</span> <span class="p">=</span> <span class="no">[Math]</span><span class="p">::</span><span class="n">Floor</span><span class="p">(</span> <span class="p">((</span><span class="nb">get-date</span> <span class="nv">$CurrentTime</span><span class="p">)</span> <span class="p">-</span> <span class="nv">$UnixStartTime</span><span class="p">).</span><span class="n">TotalMilliseconds</span><span class="p">)</span>
+
+<span class="c"># To Use with Different Time just change the `$CurrentTime` to another value like so</span>
+<span class="nv">$UnixTimeInMilliseconds</span> <span class="p">=</span> <span class="no">[Math]</span><span class="p">::</span><span class="n">Floor</span><span class="p">(</span> <span class="p">((</span><span class="nb">get-date</span> <span class="nv">$MyDateValue</span><span class="p">)</span> <span class="p">-</span> <span class="nv">$UnixStartTime</span><span class="p">).</span><span class="n">TotalMilliseconds</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="credential-management">Credential Management<a class="headerlink" href="#credential-management" title="Permanent link">🔗</a></h2>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">🔗</a></h3>
+<p>Look at <a href="https://github.com/PowerShell/SecretManagement">SecretsManagement</a>.</p>
+<p>SecureString should be considered deprecated.
+It provides a false illusion of security mostly, and it's better to approach with other methods.</p>
+<ul>
+<li><a href="https://github.com/dotnet/runtime/issues/30612#issuecomment-523534346">Obsolete the SecureString Type Discussion</a></li>
+<li><a href="https://github.com/dotnet/platform-compat/blob/master/docs/DE0001.md">DE0001</a></li>
+</ul>
+<p>Depending on your technology stack, the best way handle this is to authenticate using a credential library.</p>
+<p>For example, if pulling service account credentials for SQL Server in AWS, you could put these in AWS Secrets Manager and use something like:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Import-module</span> <span class="n">AWS</span><span class="p">.</span><span class="n">Tools</span><span class="p">.</span><span class="n">SecretsManager</span>
+<span class="nb">Write-Warning</span> <span class="s2">&quot;Poor Example&quot;</span>
+<span class="nb">Write-Warning</span> <span class="s2">&quot;This exposes the credential in local memory and potentionally logging. It is for demo purposes&quot;</span>
+<span class="nv">$SecretString</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-SECSecretValue</span> <span class="s1">&#39;service-accounts/sql-admin&#39;</span> <span class="n">-ProfileName</span> <span class="s1">&#39;myprofile&#39;</span><span class="p">).</span><span class="n">SecretString</span> <span class="p">|</span> <span class="nb">ConvertFrom-Json</span> <span class="n">-Depth</span> <span class="n">1</span>
+<span class="nv">$SecretString</span><span class="p">.</span><span class="n">UserName</span>
+<span class="nv">$SecretString</span><span class="p">.</span><span class="n">Password</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;A better way, you could use this to directly create a secure credential object without creating a variable to store the plain text&quot;</span>
+<span class="p">(</span><span class="nb">Get-SECSecretValue</span> <span class="s1">&#39;service-accounts/sql-admin&#39;</span> <span class="n">-ProfileName</span> <span class="s1">&#39;myprofile&#39;</span><span class="p">).</span><span class="n">SecretString</span> <span class="p">|</span>
+<span class="nb">ConvertFrom-Json</span> <span class="n">-Depth</span> <span class="n">1</span> <span class="p">|</span>
+<span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+    <span class="no">[pscredential]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span> <span class="nv">$_</span><span class="p">.</span><span class="n">username</span><span class="p">,</span> <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">password</span> <span class="p">|</span> <span class="nb">ConvertTo-SecureString</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The SecretsManagement powershell module supports a variety of backends such as 1Password, Thycotic Secrets Server, Lastpass, and more.</p>
+<p><a href="https://www.powershellgallery.com/packages?q=Tags%3A%22SecretManagement%22">↗️ List of Secrets Management Modules</a></p>
+<h3 id="using-basic-authorization-with-rest">Using Basic Authorization With REST<a class="headerlink" href="#using-basic-authorization-with-rest" title="Permanent link">🔗</a></h3>
+<p>When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests.</p>
+<div class="highlight"><pre><span></span><code><span class="c">#seems to work for both version 5.1 and 6.1</span>
+<span class="k">param</span><span class="p">(</span>
+    <span class="nv">$Uri</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+<span class="p">)</span>
+<span class="c"># Load From SecretsManagement module ideally</span>
+<span class="nv">$AccessId</span> <span class="p">=</span> <span class="nv">$cred</span><span class="p">.</span><span class="n">GetNetworkCredential</span><span class="p">().</span><span class="n">UserName</span>
+<span class="nv">$AccessKey</span> <span class="p">=</span> <span class="nv">$cred</span><span class="p">.</span><span class="n">GetNetworkCredential</span><span class="p">().</span><span class="n">Password</span>
+<span class="nv">$Headers</span> <span class="p">=</span> <span class="p">@{</span>
+    <span class="n">Authorization</span> <span class="p">=</span> <span class="s1">&#39;Basic &#39;</span> <span class="p">+</span> <span class="no">[Convert]</span><span class="p">::</span><span class="n">ToBase64String</span><span class="p">(</span><span class="no">[Text.Encoding]</span><span class="p">::</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;{0}:{1}&#39;</span> <span class="o">-f</span> <span class="nv">$AccessId</span><span class="p">,</span> <span class="nv">$AccessKey</span><span class="p">)</span> <span class="p">))</span>
+<span class="p">}</span>
+<span class="nv">$results</span> <span class="p">=</span> <span class="nb">Invoke-RestMethod</span> <span class="n">-Uri</span> <span class="nv">$Uri</span> <span class="n">-Header</span> <span class="nv">$Headers</span>
+<span class="nv">$results</span>
+</code></pre></div>
+<h2 id="load-functions-from-a-folder">Load Functions from a Folder<a class="headerlink" href="#load-functions-from-a-folder" title="Permanent link">🔗</a></h2>
+<p>Prefer to use modules, but for quick adhoc work, you can organize your work in a folder and use a subfolder called functions. I find this better than trying to create one large script file with multiple functions in it.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$FunctionsFolder</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$toolsDir</span> <span class="s1">&#39;functions&#39;</span>
+<span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$FunctionsFolder</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ps1</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+    <span class="nb">Write-PSFMessage</span> <span class="n">-Level</span> <span class="n">Verbose</span> <span class="n">-Message</span> <span class="s2">&quot;Loading: </span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span><span class="s2">&quot;</span>
+    <span class="p">.</span> <span class="s2">&quot;</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="select-object-manipulation">Select Object Manipulation<a class="headerlink" href="#select-object-manipulation" title="Permanent link">🔗</a></h2>
+<h3 id="expanding-nested-objects">Expanding Nested Objects<a class="headerlink" href="#expanding-nested-objects" title="Permanent link">🔗</a></h3>
+<p>One thing that I've had challenges with is expanding nested objects with AWSPowershell, as a lot of the types aren't formatted for easy usage without expansion.
+For example, when expanding the basic results of <code>Get-EC2Instance</code> you can try to parse out the state, but it won't behave as expected.</p>
+<p>For example, if you run:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">Get-EC2Instance</span> <span class="n">-Filter</span> <span class="nv">$ec2Filter</span><span class="p">).</span><span class="n">Instances</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">InstanceId</span><span class="p">,</span> <span class="n">State</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>InstanceId</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i-taco1</td>
+<td>Amazon.EC2.Model.InstanceState</td>
+</tr>
+<tr>
+<td>i-taco2</td>
+<td>Amazon.EC2.Model.InstanceState</td>
+</tr>
+<tr>
+<td>i-taco3</td>
+<td>Amazon.EC2.Model.InstanceState</td>
+</tr>
+</tbody>
+</table>
+<p>Trying to expand gets you the state, but now you don't have the original object alongside it.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>16</td>
+<td>running</td>
+</tr>
+</tbody>
+</table>
+<p>PSFramework makes this easy to work with by simply referencing the object properties for parsing in the <code>Select-PSFObject</code> statement.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">Get-EC2Instance</span> <span class="n">-Filter</span> <span class="nv">$ec2Filter</span><span class="p">).</span><span class="n">Instances</span> <span class="p">|</span> <span class="nb">Select-PSFObject</span> <span class="n">InstanceId</span><span class="p">,</span> <span class="s1">&#39;State.Code as StateCode&#39;</span><span class="p">,</span> <span class="s1">&#39;State.Name as StateName&#39;</span>
+</code></pre></div>
+<p>The result is exactly you'd you need to work with</p>
+<table>
+<thead>
+<tr>
+<th>InstanceId</th>
+<th>StateCode</th>
+<th>StateName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i-taco1</td>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>i-taco2</td>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>i-taco3</td>
+<td>16</td>
+<td>running</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-set-accessors-in-powershell">Get / Set Accessors in PowerShell<a class="headerlink" href="#get-set-accessors-in-powershell" title="Permanent link">🔗</a></h3>
+<p>In C# you use get/set accessors to have more control over your properties. In PowerShell, thanks to PSFramework, you can simplify object pipelines by using <code>Select-PSFObject</code> to do the equivalent and have a scripted property that handles a script block to provide a scripted property on your object.</p>
+<p>For example, in leveraging AWS Profiles, I wanted to get a region name mapped to a specific profile as a default region. You can do this in a couple steps using <code>ForEach-Object</code> and leverage <code>[pscustomobject]</code>, or you can simplify it greatly by running <code>Select-PSFObject</code> like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-AWSCredentials</span> <span class="n">-ListProfileDetail</span>  <span class="p">|</span>  <span class="nb">Select-PSFObject</span> <span class="n">-Property</span> <span class="n">ProfileName</span> <span class="n">-ScriptProperty</span> <span class="p">@{</span>
+    <span class="n">region</span> <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">get</span> <span class="p">=</span> <span class="p">{</span>
+            <span class="k">switch</span> <span class="p">(</span><span class="nv">$this</span><span class="p">.</span><span class="n">ProfileName</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;taco1&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+                <span class="s1">&#39;taco2&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+                <span class="s1">&#39;taco3&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+                <span class="s1">&#39;taco4&#39;</span> <span class="p">{</span><span class="s1">&#39;eu-west-1&#39;</span><span class="p">}</span>
+                <span class="s1">&#39;taco5&#39;</span> <span class="p">{</span><span class="s1">&#39;us-west-2&#39;</span><span class="p">}</span>
+                <span class="s1">&#39;taco6&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+                <span class="k">default</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Another good example might be the desire to parse out the final key section from S3, to determine what the file name would actually be for easier filtering or searching. In this case, a simple script property could parse out the name, and then return the last item in the array using Powershell's shortcut of <code>$array[-1]</code> to get the last item.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-S3Object</span> <span class="n">-BucketName</span> <span class="s1">&#39;tacoland&#39;</span> <span class="p">|</span> <span class="nb">Select-PSFObject</span> <span class="n">-ScriptProperty</span> <span class="p">@{</span>
+    <span class="n">BaseName</span> <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">get</span>  <span class="p">=</span> <span class="p">{</span>
+            <span class="p">((</span><span class="nv">$this</span><span class="p">.</span><span class="n">Name</span>  <span class="n">-split</span> <span class="s1">&#39;/&#39;</span><span class="p">)[-</span><span class="n">1</span><span class="p">])</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="parallel-tips-tricks">Parallel Tips &amp; Tricks<a class="headerlink" href="#parallel-tips-tricks" title="Permanent link">🔗</a></h2>
+<p>If you are using <code>-Parallel</code> with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on.
+In my case, I wanted to be able to see the progress for build process running in parallel and found using the synchronized hashtable I was able to do this.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$hash</span> <span class="p">=</span> <span class="no">[hashtable]</span><span class="p">::</span><span class="n">Synchronized</span><span class="p">(@{})</span>
+<span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span> <span class="p">=</span> <span class="n">1</span>
+<span class="p">@(</span><span class="n">1</span><span class="p">..</span><span class="n">100</span><span class="p">)</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="n">-Throttle</span> <span class="n">8</span> <span class="n">-Parallel</span> <span class="p">{</span>
+    <span class="nv">$hash</span> <span class="p">=</span> <span class="nv">$using</span><span class="p">:</span><span class="n">hash</span>
+    <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span><span class="p">++</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;Progress: </span><span class="p">$(</span><span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span><span class="p">)</span><span class="s2">&quot;</span>
+    <span class="nb">Start-Sleep</span> <span class="n">-Milliseconds</span> <span class="p">(</span><span class="nb">Get-Random</span> <span class="n">-Minimum</span> <span class="n">1</span> <span class="n">-Maximum</span> <span class="n">10</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span>
+</code></pre></div>
+<p>I put the delay in there to show that the asynchronous nature doesn't mean 1-100, it could do some faster than others and this shows on the output with content like:</p>
+<div class="highlight"><pre><span></span><code>Progress: 1
+Progress: 2
+Progress: 3
+Progress: 4
+Progress: 6 &lt;---- parallel, no promise of which runspace finishes first
+Progress: 5
+</code></pre></div>
+<p>A more advanced way to use this might be to help guage how long something might take to complete when running parallel SQL Server queries.</p>
+<div class="highlight"><pre><span></span><code><span class="c">#################################################################</span>
+<span class="c"># Quick Estimate of Pipeline Completion with Parallel Runspaces #</span>
+<span class="c">#################################################################</span>
+
+<span class="nv">$TotalToProcess</span> <span class="p">=</span> <span class="n">150</span>
+<span class="nv">$StopwatchProcess</span> <span class="p">=</span> <span class="no">[diagnostics.stopwatch]</span><span class="p">::</span><span class="n">StartNew</span><span class="p">()</span>
+
+<span class="nv">$hash</span> <span class="p">=</span> <span class="no">[hashtable]</span><span class="p">::</span><span class="n">Synchronized</span><span class="p">(@{</span> <span class="p">})</span>
+<span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span> <span class="p">=</span> <span class="n">1</span>
+
+
+
+<span class="p">@(</span><span class="n">1</span><span class="p">..</span><span class="nv">$TotalToProcess</span> <span class="p">)</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="n">-Throttle</span> <span class="n">8</span> <span class="n">-Parallel</span> <span class="p">{</span>
+    <span class="nv">$d</span> <span class="p">=</span> <span class="nv">$_</span>
+    <span class="nv">$PerItemStopwatch</span> <span class="p">=</span> <span class="no">[diagnostics.stopwatch]</span><span class="p">::</span><span class="n">StartNew</span><span class="p">()</span>
+    <span class="nv">$hash</span> <span class="p">=</span> <span class="nv">$using</span><span class="p">:</span><span class="n">hash</span>
+
+    <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span><span class="p">++</span>
+    <span class="nv">$x</span> <span class="p">=</span> <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span>
+
+    <span class="nv">$ApproxSecondsEachSoFar</span> <span class="p">=</span> <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span> <span class="p">/</span> <span class="nv">$using</span><span class="p">:</span><span class="n">StopwatchProcess</span><span class="p">.</span><span class="n">Elapsed</span><span class="p">.</span><span class="n">TotalSeconds</span>
+    <span class="nv">$RemainingCount</span> <span class="p">=</span> <span class="nv">$using</span><span class="p">:</span><span class="n">TotalToProcess</span> <span class="p">-</span> <span class="nv">$x</span>
+    <span class="nv">$ApproxRemainingTime</span> <span class="p">=</span>  <span class="nv">$RemainingCount</span> <span class="p">*</span> <span class="nv">$ApproxSecondsEachSoFar</span>
+    <span class="nb">Write-Host</span> <span class="p">(</span> <span class="s2">&quot;{0:hh\:mm\:ss\.fff} | {1} | $x of $using:TotalToProcess | remaining time {3} | {2}&quot;</span> <span class="o">-f</span> <span class="nv">$PerItemStopwatch</span><span class="p">.</span><span class="n">Elapsed</span><span class="p">,</span> <span class="s1">&#39;Run-ThisStuff&#39;</span><span class="p">,</span> <span class="nv">$d</span><span class="p">,</span> <span class="no">[timespan]</span><span class="p">::</span><span class="n">FromSeconds</span><span class="p">(</span><span class="nv">$ApproxRemainingTime</span><span class="p">).</span><span class="n">ToString</span><span class="p">())</span>
+    <span class="nb">Start-Sleep</span> <span class="n">-Milliseconds</span> <span class="p">(</span><span class="nb">Get-Random</span> <span class="n">-Minimum</span> <span class="n">1</span> <span class="n">-Maximum</span> <span class="n">1500</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="the-various-iteration-methods-possible">The Various Iteration Methods Possible<a class="headerlink" href="#the-various-iteration-methods-possible" title="Permanent link">🔗</a></h2>
+<p>PowerShell supports a wide range of iteration options.
+Not all are idiomatic to the language, but can be useful to know about.</p>
+<p>I recommend when possible to default to <code>$Items | ForEach-Object { }</code> as your default approach.
+This ensures a pipeline driven solution that can be enhanced later or piped to other cmdlets that are compatible with the pipeline.</p>
+<div class="admonition warning">
+<p class="admonition-title">Gotcha</p>
+<p>This is a cmdlet, not a PowerShell language feature. This means that the behavior of break, continue, and return all operate differently in this ForEach-Object process block than when doing a <code>foreach</code> loop.</p>
+</div>
+<p>These are ranked in the order I recommend using by default.</p>
+<p>Setup the results to test with.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$Items</span> <span class="p">=</span> <span class="nb">Get-ChildItem</span>
+</code></pre></div>
+<h3 id="foreach-object">ForEach-Object<a class="headerlink" href="#foreach-object" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">$Items</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>The default go to for major loop work.</li>
+<li>Default first positional argument is <code>-Process {}</code> but mostly that is not provided and just the curly braces.</li>
+<li>It is by default the slowest on a scale of raw performance.</li>
+<li>Each item is loaded into memory, and it frees memory as it goes through pipeline.</li>
+<li>Pipelines can be chained passing input as the pipeline progresses.</li>
+<li>
+<p>Break, continue, return behave differently as you are using a function, not a language operator.</p>
+</li>
+<li>
+<p>Magic operator.</p>
+</li>
+<li>Seriously, I've seen it called that.</li>
+<li>It's only in version &gt;= 4 <a href="https://bit.ly/3l1i3Vn">Magic Operators</a>.</li>
+<li>Loads all results into memory before running, so can be great performance boost for certain scenarios that a <code>ForEach-Object</code> would be slower at.</li>
+</ul>
+<h3 id="foreach-magic-operator">ForEach Magic Operator<a class="headerlink" href="#foreach-magic-operator" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">$Items</span><span class="p">.</span><span class="k">ForEach</span><span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>This is the standard <code>foreach</code> loop.</li>
+<li>It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with <code>ForEach-Object</code> as your default for idiomatic PowerShell if you are learning.</li>
+<li>Standard break, continue, return behavior is a bit easier to understand.</li>
+</ul>
+<h3 id="foreach-loop">foreach loop<a class="headerlink" href="#foreach-loop" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">foreach</span> <span class="p">(</span><span class="nv">$item</span> <span class="k">in</span> <span class="nv">$Items</span><span class="p">)</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div>
+<h3 id="linq">Linq<a class="headerlink" href="#linq" title="Permanent link">🔗</a></h3>
+<p>If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$f</span> <span class="p">=</span> <span class="no">[System.Func[string, string]]</span> <span class="p">{</span> <span class="k">param</span><span class="p">(</span><span class="nv">$i</span><span class="p">)</span> <span class="nv">$i</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+<span class="nv">$f</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="nv">$Items</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="cool-tricks">Cool Tricks<a class="headerlink" href="#cool-tricks" title="Permanent link">🔗</a></h2>
+<p>Output the results of your code into a Console GUI Gridview.
+This recent module provides a fantastic solution to allowing filtering and selection of results passed into it.</p>
+<p>Install it with: <code>Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser -Confirm:$false</code></p>
+<div class="highlight"><pre><span></span><code><span class="c"># Gather filtered list of EC2 Instances from AWS and then provide a console gui to select and filter the results further</span>
+<span class="nv">$Filters</span> <span class="p">=</span> <span class="p">@(</span><span class="no">[Amazon.EC2.Model.Filter]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;tag:{{TAGHERE}}&#39;</span><span class="p">,</span><span class="s1">&#39;{{TAG VALUE}}&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">Get-EC2Instance</span> <span class="n">-Filter</span> <span class="nv">$Filters</span><span class="p">)).</span><span class="n">Instances</span><span class="p">|</span> <span class="nb">Select-PSFObject</span> <span class="n">InstanceId</span><span class="p">,</span> <span class="n">PublicIpAddress</span><span class="p">,</span><span class="n">PrivateIpAddress</span><span class="p">,</span><span class="n">Tags</span><span class="p">,</span><span class="s1">&#39;State.Code as StateCode&#39;</span><span class="p">,</span> <span class="s1">&#39;State.Name as StateName&#39;</span>  <span class="n">-ScriptProperty</span> <span class="p">@{</span>
+    <span class="n">Name</span> <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">get</span>  <span class="p">=</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="p">.</span><span class="n">Tags</span><span class="p">.</span><span class="n">GetEnumerator</span><span class="p">().</span><span class="n">Where</span><span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Key</span> <span class="o">-eq</span> <span class="s1">&#39;Name&#39;</span><span class="p">}.</span><span class="n">Value</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">|</span> <span class="nb">Out-ConsoleGridView</span>
+</code></pre></div>
+<p>For quick access, save this to a Visual Studio Code snippet like below:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;ec2-filtered-list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ec2-filtered-list&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Get EC2 Filtered results and output to interactive ConsoleGridView&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;# Gather filtered list of EC2 Instances from AWS and then provide a console gui to select and filter the results further&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;\\$Filters = @([Amazon.EC2.Model.Filter]::new(&#39;tag:${1:TagKey}&#39;,&#39;${2:TagValue}&#39;)&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;(Get-EC2Instance -Filter \\$Filters)).Instances| Select-PSFObject InstanceId, PublicIpAddress,PrivateIpAddress,Tags,&#39;State.Code as StateCode&#39;, &#39;State.Name as StateName&#39;  -ScriptProperty @{&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;    Name = @{&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;        get  = {&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;            \\$this.Tags.GetEnumerator().Where{\\$_.Key -eq &#39;Name&#39;}.Value&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;        }&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;    }&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;} | Out-ConsoleGridView&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="puzzles-fizz-buzz">Puzzles - Fizz Buzz<a class="headerlink" href="#puzzles-fizz-buzz" title="Permanent link">🔗</a></h2>
+<p>I did this to participate in Code Golf, and felt pretty good that I landed in 112 🤣 with this.
+Really pains me to write in the code-golf style.</p>
+<p>{{&lt; gist sheldonhull  "3ea6fd6cafe210edb1d71b5e8d3d1696" &gt;}}</p>
+<h2 id="syncing-files-using-s5cmd">Syncing Files Using S5Cmd<a class="headerlink" href="#syncing-files-using-s5cmd" title="Permanent link">🔗</a></h2>
+<h3 id="get-s5cmd">Get S5Cmd<a class="headerlink" href="#get-s5cmd" title="Permanent link">🔗</a></h3>
+<p>Older versions of PowerShell (4.0) and the older AWSTools don't have the required ability to sync down a folder from a key prefix.
+This also performs much more quickly for a quick sync of files like backups to a local directory for initiating restores against.</p>
+<p>In testing down by the tool creator, they showed this could saturate a network for an EC2 with full download speed and be up to 40x faster than using CLI with the benefit of being a small self-contained Go binary as well.</p>
+<p>Once the download of the tooling is complete you can run a copy from s3 down to a local directory by doing something similar to this, assuming you have rights to the bucket.
+If you don't have rights, you'll want to set environment variables for the access key and secret key such as:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Import-Module</span> <span class="n">aws</span><span class="p">.</span><span class="n">tools</span><span class="p">.</span><span class="n">common</span><span class="p">,</span> <span class="n">aws</span><span class="p">.</span><span class="n">tools</span><span class="p">.</span><span class="n">SecurityToken</span>
+<span class="nb">Set-AWSCredential</span> <span class="n">-ProfileName</span> <span class="s1">&#39;MyProfileName&#39;</span> <span class="n">-Scope</span> <span class="n">Global</span>
+<span class="nv">$cred</span> <span class="p">=</span> <span class="nb">Get-STSSessionToken</span> <span class="n">-DurationInSeconds</span> <span class="p">(</span><span class="no">[timespan]</span><span class="p">::</span><span class="n">FromHours</span><span class="p">(</span><span class="n">8</span><span class="p">).</span><span class="n">TotalSeconds</span><span class="p">)</span>
+<span class="sh">@&quot;</span>
+<span class="sh">`$ENV:AWS_ACCESS_KEY_ID = &#39;</span><span class="p">$(</span><span class="nv">$cred</span><span class="p">.</span><span class="n">AccessKeyId</span><span class="p">)</span><span class="sh">&#39;</span>
+<span class="sh">`$ENV:AWS_SECRET_ACCESS_KEY = &#39;</span><span class="p">$(</span><span class="nv">$cred</span><span class="p">.</span><span class="n">SecretAccessKey</span><span class="p">)</span><span class="sh">&#39;</span>
+<span class="sh">`$ENV:AWS_SESSION_TOKEN  = &#39;</span><span class="p">$(</span><span class="nv">$cred</span><span class="p">.</span><span class="n">SessionToken</span><span class="p">)</span><span class="sh">&#39;</span>
+<span class="sh">&quot;@</span>
+</code></pre></div>
+<p>You can copy that string into your remote session to get the access tokens recognized by the s5cmd tool and allow you to grab files from another AWS account S3 bucket.</p>
+<blockquote>
+<p>NOTE: To sync a full "directory" in s3, you need to leave the asteriks at the end of the key as demonstrated.</p>
+</blockquote>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">🔗</a></h3>
+<h4 id="install-s5cmd-for-windows">Install S5Cmd For Windows<a class="headerlink" href="#install-s5cmd-for-windows" title="Permanent link">🔗</a></h4>
+<div class="highlight"><pre><span></span><code><span class="no">[Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="p">=</span> <span class="no">[Net.SecurityProtocolType]</span><span class="p">::</span><span class="n">Tls12</span>
+<span class="nv">$ToolsDir</span> <span class="p">=</span> <span class="s1">&#39;C:\tools&#39;</span>
+<span class="nv">$ProgressPreference</span> <span class="p">=</span> <span class="s1">&#39;SilentlyContinue&#39;</span>
+<span class="nv">$OutZip</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$ToolsDir</span> <span class="s1">&#39;s5cmd.zip&#39;</span>
+<span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s1">&#39;https://github.com/peak/s5cmd/releases/download/v1.2.1/s5cmd_1.2.1_Windows-64bit.zip&#39;</span> <span class="n">-UseBasicParsing</span> <span class="n">-OutFile</span> <span class="nv">$OutZip</span>
+
+<span class="c"># Not available on 4.0 Expand-Archive $OutZip -DestinationPath $ToolsDir</span>
+
+<span class="nb">Add-Type</span> <span class="n">-assembly</span> <span class="s1">&#39;system.io.compression.filesystem&#39;</span>
+<span class="no">[io.compression.zipfile]</span><span class="p">::</span><span class="n">ExtractToDirectory</span><span class="p">(</span><span class="nv">$OutZip</span><span class="p">,</span> <span class="nv">$ToolsDir</span><span class="p">)</span>
+<span class="nv">$s5cmd</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$ToolsDir</span> <span class="s1">&#39;s5cmd.exe&#39;</span>
+<span class="p">&amp;</span><span class="nv">$s5cmd</span> <span class="n">version</span>
+</code></pre></div>
+<h4 id="windows-sync-a-directory-from-to-local">Windows Sync A Directory From To Local<a class="headerlink" href="#windows-sync-a-directory-from-to-local" title="Permanent link">🔗</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="s1">&#39;Stop&#39;</span>
+<span class="nv">$BucketName</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+<span class="nv">$KeyPrefix</span> <span class="p">=</span> <span class="s1">&#39;mykeyprefix/anothersubkey/*&#39;</span>
+
+<span class="nv">$Directory</span> <span class="p">=</span> <span class="s2">&quot;C:\temp\adhoc-s3-sync-</span><span class="p">$(</span><span class="nb">Get-Date</span> <span class="n">-Format</span> <span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">)</span><span class="s2">\$KeyPrefix&quot;</span>
+<span class="nb">New-Item</span> <span class="nv">$Directory</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+<span class="nv">$s5cmd</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$ToolsDir</span> <span class="s1">&#39;s5cmd.exe&#39;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;This is what is going to run: </span><span class="se">`n</span><span class="s2">&amp;$s5cmd cp </span><span class="se">`&quot;</span><span class="s2">s3://$bucketname/$KeyPrefix</span><span class="se">`&quot;</span><span class="s2"> $Directory&quot;</span>
+<span class="nb">Read-Host</span> <span class="s1">&#39;Enter to continue if this makes sense, or cancel (ctrl+c)&#39;</span>
+
+
+<span class="p">&amp;</span><span class="nv">$s5cmd</span> <span class="nb">cp </span><span class="s2">&quot;s3://$bucketname/$KeyPrefix&quot;</span> <span class="nv">$Directory</span>
+</code></pre></div>
+<h2 id="aws-tools">AWS Tools<a class="headerlink" href="#aws-tools" title="Permanent link">🔗</a></h2>
+<h3 id="install-awstools">Install AWS.Tools<a class="headerlink" href="#install-awstools" title="Permanent link">🔗</a></h3>
+<p>Going forward, use AWS.Tools modules for newer development.
+It's much faster to import and definitely a better development experience in alignment with .NET SDK namespace approach.</p>
+<p>Use their installer module to simplify versioning and avoid conflicts with automatic cleanup of prior SDK versions.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">install-module</span> <span class="s1">&#39;AWS.Tools.Installer&#39;</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+
+<span class="nv">$modules</span> <span class="p">=</span> <span class="p">@(</span>
+    <span class="s1">&#39;AWS.Tools.Common&#39;</span>
+    <span class="s1">&#39;AWS.Tools.CostExplorer&#39;</span>
+    <span class="s1">&#39;AWS.Tools.EC2&#39;</span>
+    <span class="s1">&#39;AWS.Tools.Installer&#39;</span>
+    <span class="s1">&#39;AWS.Tools.RDS&#39;</span>
+    <span class="s1">&#39;AWS.Tools.S3&#39;</span>
+    <span class="s1">&#39;AWS.Tools.SecretsManager&#39;</span>
+    <span class="s1">&#39;AWS.Tools.SecurityToken&#39;</span>
+    <span class="s1">&#39;AWS.Tools.SimpleSystemsManagement&#39;</span>
+<span class="p">)</span>
+
+<span class="nb">Install-AWSToolsModule</span> <span class="nv">$modules</span> <span class="n">-Cleanup</span> <span class="n">-Force</span>
+</code></pre></div>
+<h3 id="using-systems-manager-parameters-ssm-to-create-a-pscredential">Using Systems Manager Parameters (SSM) To Create A PSCredential<a class="headerlink" href="#using-systems-manager-parameters-ssm-to-create-a-pscredential" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">$script:SqlLoginName</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-SSMParameterValue</span> <span class="n">-Name</span> <span class="nv">$SSMParamLogin</span> <span class="n">-WithDecryption</span> <span class="nv">$true</span><span class="p">).</span><span class="n">Parameters</span><span class="p">[</span><span class="n">0</span><span class="p">].</span><span class="n">Value</span>
+<span class="nv">$script:SqlPassword</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-SSMParameterValue</span> <span class="n">-Name</span> <span class="nv">$SSMParamPassword</span> <span class="n">-WithDecryption</span> <span class="nv">$true</span><span class="p">).</span><span class="n">Parameters</span><span class="p">[</span><span class="n">0</span><span class="p">].</span><span class="n">Value</span> <span class="p">|</span> <span class="nb">ConvertTo-SecureString</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span>
+<span class="nv">$script:SqlCredential</span> <span class="p">=</span> <span class="no">[pscredential]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="nv">$script:SqlLoginName</span><span class="p">,</span> <span class="nv">$script:SqlPassword</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="using-aws-secrets-manager-to-create-a-pscredential">Using AWS Secrets Manager To Create a PSCredential<a class="headerlink" href="#using-aws-secrets-manager-to-create-a-pscredential" title="Permanent link">🔗</a></h3>
+<p>Note that this can vary in how you read it based on the format.
+The normal format for entries like databases seems to be: <code>{"username":"password"}</code> or similar.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$Secret</span> <span class="p">=</span> <span class="nb">Get-SECSecretValue</span> <span class="n">-SecretId</span> <span class="s1">&#39;service-accounts/my-secret-id&#39;</span> <span class="n">-ProfileName</span> <span class="nv">$ProfileName</span>
+</code></pre></div>
+<h3 id="generate-a-temporary-key">Generate a Temporary Key<a class="headerlink" href="#generate-a-temporary-key" title="Permanent link">🔗</a></h3>
+<p>Useful for needing to generate some time sensitive access credentials when connected via SSM Session and needing to access another account's resources.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Import-Module</span> <span class="n">aws</span><span class="p">.</span><span class="n">tools</span><span class="p">.</span><span class="n">common</span><span class="p">,</span> <span class="n">aws</span><span class="p">.</span><span class="n">tools</span><span class="p">.</span><span class="n">SecurityToken</span>
+<span class="nb">Set-AWSCredential</span> <span class="n">-ProfileName</span> <span class="s1">&#39;ProfileName&#39;</span> <span class="n">-scope</span> <span class="n">Global</span>
+<span class="nv">$cred</span> <span class="p">=</span> <span class="nb">Get-STSSessionToken</span> <span class="n">-DurationInSeconds</span> <span class="p">(</span><span class="no">[timespan]</span><span class="p">::</span><span class="n">FromHours</span><span class="p">(</span><span class="n">8</span><span class="p">).</span><span class="n">TotalSeconds</span><span class="p">)</span>
+<span class="sh">@&quot;</span>
+<span class="sh">`$ENV:AWS_ACCESS_KEY_ID = &#39;</span><span class="p">$(</span><span class="nv">$cred</span><span class="p">.</span><span class="n">AccessKeyId</span><span class="p">)</span><span class="sh">&#39;</span>
+<span class="sh">`$ENV:AWS_SECRET_ACCESS_KEY = &#39;</span><span class="p">$(</span><span class="nv">$cred</span><span class="p">.</span><span class="n">SecretAccessKey</span><span class="p">)</span><span class="sh">&#39;</span>
+<span class="sh">`$ENV:AWS_SESSION_TOKEN  = &#39;</span><span class="p">$(</span><span class="nv">$cred</span><span class="p">.</span><span class="n">SessionToken</span><span class="p">)</span><span class="sh">&#39;</span>
+<span class="sh">&quot;@</span>
+</code></pre></div>
+<h3 id="install-ssm-agent-manually">Install SSM Agent Manually<a class="headerlink" href="#install-ssm-agent-manually" title="Permanent link">🔗</a></h3>
+<p>This is based on the AWS install commands, but with a few enhancements to better work on older Windows servers.</p>
+<div class="highlight"><pre><span></span><code><span class="c"># https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-win.html</span>
+<span class="nv">$ProgressPreference</span> <span class="p">=</span> <span class="s1">&#39;SilentlyContinue&#39;</span>
+<span class="no">[Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="p">=</span> <span class="no">[Net.SecurityProtocolType]</span><span class="p">::</span><span class="n">Tls12</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Downloading installer&quot;</span>
+<span class="nv">$InstallerFile</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$env:USERPROFILE</span> <span class="s1">&#39;Downloads\SSMAgent_latest.exe&#39;</span>
+<span class="nv">$invokeWebRequestSplat</span> <span class="p">=</span> <span class="p">@{</span>
+    <span class="n">Uri</span> <span class="p">=</span> <span class="s1">&#39;https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe&#39;</span>
+    <span class="n">OutFile</span> <span class="p">=</span> <span class="nv">$InstallerFile</span>
+<span class="p">}</span>
+<span class="nb">Invoke-WebRequest</span> <span class="nv">@invokeWebRequestSplat</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;Installing SSM Agent&quot;</span>
+<span class="nv">$startProcessSplat</span> <span class="p">=</span> <span class="p">@{</span>
+    <span class="n">FilePath</span>     <span class="p">=</span> <span class="nv">$InstallerFile</span>
+    <span class="n">ArgumentList</span> <span class="p">=</span> <span class="s1">&#39;/S&#39;</span>
+<span class="p">}</span>
+<span class="nb">Start-Process</span> <span class="nv">@startProcessSplat</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;Cleaning up ssmagent download&quot;</span>
+<span class="nb">Remove-Item</span> <span class="nv">$InstallerFile</span> <span class="n">-Force</span>
+<span class="nb">Restart-Service</span> <span class="n">AmazonSSMAgent</span>
+</code></pre></div>
+<h3 id="aws-powershell-specific-cheatsheets">AWS PowerShell Specific Cheatsheets<a class="headerlink" href="#aws-powershell-specific-cheatsheets" title="Permanent link">🔗</a></h3>
+<p>{{&lt; gist sheldonhull  "9534958236fbc3973e704f648cec27e7" &gt;}}</p>
+<h2 id="pester">Pester<a class="headerlink" href="#pester" title="Permanent link">🔗</a></h2>
+<p>Many changes occurred after version 5.
+This provides a few examples on how to leverage Pester for data driven tests with this new format.</p>
+<h3 id="beforeall-and-beforediscovery">BeforeAll And BeforeDiscovery<a class="headerlink" href="#beforeall-and-beforediscovery" title="Permanent link">🔗</a></h3>
+<p>One big change was the two scopes.
+Read the Pester docs for more details.</p>
+<p>The basic gist is that BeforeAll is in the "run" scope, while the test generation is BeforeDiscovery.
+While older versions of Pester would allow a lot more <code>foreach</code> type loops, this should be in the discovery phase now, and then <code>-Foreach</code> (aka <code>-TestCases</code>) hashtable can be used to iterate more easily now through result sets.</p>
+<!-- ### Using Inline Script With PesterContainer -->
+
+<h3 id="pester-container-to-help-setup-data-driven-tests">Pester Container To Help Setup Data Driven Tests<a class="headerlink" href="#pester-container-to-help-setup-data-driven-tests" title="Permanent link">🔗</a></h3>
+<p>Example of setting up inputs for the test script from your InvokeBuild job.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$pc</span> <span class="p">=</span> <span class="nb">New-PesterContainer</span> <span class="n">-Path</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$BuildRoot</span> <span class="s1">&#39;tests\configuration.tests.ps1&#39;</span><span class="p">)</span> <span class="n">-Data</span> <span class="p">@{</span>
+    <span class="n">credential_user1</span> <span class="p">=</span> <span class="nb">Get-PSFConfigValue</span> <span class="s2">&quot;Project.$ENV:GROUP.credential.user1&quot;</span> <span class="n">-NotNull</span>
+    <span class="n">credential_user2</span> <span class="p">=</span> <span class="nb">Get-PSFConfigValue</span> <span class="s2">&quot;Project.$ENV:GROUP.credential.user2&quot;</span> <span class="n">-NotNull</span>
+    <span class="n">sql_instance</span>     <span class="p">=</span> <span class="nb">Get-PSFConfigValue</span> <span class="s2">&quot;Project.$ENV:GROUP.instance_address&quot;</span> <span class="n">-NotNull</span>
+    <span class="n">database_list</span>    <span class="p">=</span> <span class="nv">$DatabaseList</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="pester-configuration-object">Pester Configuration Object<a class="headerlink" href="#pester-configuration-object" title="Permanent link">🔗</a></h3>
+<p>Now, you'd add this <code>PesterContainer</code> object to the <code>PesterConfiguration</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Explore PesterConfiguration</p>
+<p>If you want to explore the pester configuration try navigating through it with: <code>PesterConfiguration]::Default</code> and then explore sub-properties with actions like: <code>[PesterConfiguration]::Default.Run | Get-Member</code>.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">$configuration</span> <span class="p">=</span> <span class="no">[PesterConfiguration]</span><span class="p">@{</span>
+    <span class="n">Run</span>        <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">Path</span>        <span class="p">=</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$BuildRoot</span> <span class="s1">&#39;tests\configuration.tests.ps1&#39;</span><span class="p">)</span>
+        <span class="n">ExcludePath</span> <span class="p">=</span> <span class="s1">&#39;*PSFramework*&#39;</span><span class="p">,</span> <span class="s1">&#39;*_tmp*&#39;</span>
+        <span class="n">PassThru</span>    <span class="p">=</span> <span class="nv">$True</span>
+        <span class="n">Container</span>   <span class="p">=</span> <span class="nv">$pc</span>
+    <span class="p">}</span>
+    <span class="n">Should</span>     <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">ErrorAction</span> <span class="p">=</span> <span class="s1">&#39;Continue&#39;</span>
+    <span class="p">}</span>
+    <span class="n">TestResult</span> <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">Enabled</span>      <span class="p">=</span> <span class="nv">$true</span>
+        <span class="n">OutputPath</span>   <span class="p">=</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$ArtifactsDirectory</span> <span class="s1">&#39;TEST-configuration-results.xml&#39;</span><span class="p">)</span>
+        <span class="n">OutputFormat</span> <span class="p">=</span> <span class="s1">&#39;NUnitXml&#39;</span>
+
+    <span class="p">}</span>
+    <span class="n">Output</span>     <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">Verbosity</span> <span class="p">=</span> <span class="s1">&#39;Diagnostic&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This pester configuration is a big shift from the parameterized arguments provided in version &lt; 5.</p>
+<h3 id="invoke-pester">Invoke Pester<a class="headerlink" href="#invoke-pester" title="Permanent link">🔗</a></h3>
+<p>Run this with: <code>Invoke-Pester -Configuration $Configuration</code></p>
+<p>To improve the output, I took a page from <code>PSFramework</code> and used the summary counts here, which could be linked to a chatops message.
+Otherwise the diagnostic output should be fine.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$testresults</span> <span class="p">=</span> <span class="p">@()</span>
+<span class="nv">$testresults</span> <span class="p">+=</span>  <span class="nb">Invoke-Pester</span> <span class="n">-Configuration</span> <span class="nv">$Configuration</span>
+
+
+<span class="nb">Write-Host</span> <span class="s1">&#39;======= TEST RESULT OBJECT =======&#39;</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span> <span class="k">in</span> <span class="nv">$testresults</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$totalRun</span> <span class="p">+=</span> <span class="nv">$result</span><span class="p">.</span><span class="n">TotalCount</span>
+    <span class="nv">$totalFailed</span> <span class="p">+=</span> <span class="nv">$result</span><span class="p">.</span><span class="n">FailedCount</span>
+    <span class="c"># -NE &#39;Passed&#39;</span>
+    <span class="nv">$result</span><span class="p">.</span><span class="n">Tests</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="n">Result</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+        <span class="nv">$testresults</span> <span class="p">+=</span> <span class="no">[pscustomobject]</span><span class="p">@{</span>
+            <span class="n">Block</span>   <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Block</span>
+            <span class="n">Name</span>    <span class="p">=</span> <span class="s2">&quot;It </span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span><span class="s2">&quot;</span>
+            <span class="n">Result</span>  <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Result</span>
+            <span class="n">Message</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">ErrorRecord</span><span class="p">.</span><span class="n">DisplayErrorMessage</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">#$testresults | Sort-Object Describe, Context, Name, Result, Message | Format-List</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$totalFailed</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span> <span class="nb">Write-Build</span> <span class="n">Green</span> <span class="s2">&quot;All $totalRun tests executed without a single failure!&quot;</span> <span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span> <span class="nb">Write-Build</span> <span class="n">Red</span> <span class="s2">&quot;$totalFailed tests out of $totalRun tests failed!&quot;</span> <span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$totalFailed</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">throw</span> <span class="s2">&quot;$totalFailed / $totalRun tests failed!&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="use-test-artifacts">Use Test Artifacts<a class="headerlink" href="#use-test-artifacts" title="Permanent link">🔗</a></h3>
+<p>Use the artifact generated in the Azure Pipelines yaml to publish pipeline test results.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## Using Invoke Build for running</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PowerShell@2</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Pester Tests</span>
+<span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">filePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build.ps1</span>
+<span class="w">    </span><span class="nt">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;-Task</span><span class="nv"> </span><span class="s">PesterTest</span><span class="nv"> </span><span class="s">-Configuration</span><span class="nv"> </span><span class="s">$(Configuration)&#39;</span>
+<span class="w">    </span><span class="nt">errorActionPreference</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Continue&#39;</span>
+<span class="w">    </span><span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">failOnStderr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">SYSTEM_ACCESSTOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(System.AccessToken)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublishTestResults@2</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish Pester Tests</span>
+<span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">testResultsFormat</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;NUnit&#39;</span>
+<span class="w">    </span><span class="nt">testResultsFiles</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;**/TEST-*.xml&#39;</span><span class="w"> </span><span class="c1"># &lt;---------  MATCHES MULTIPLE TEST FILES AND UPLOADED</span>
+<span class="w">    </span><span class="nt">failTaskOnFailedTests</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">alwaysRun</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># &lt;---------  Or it won&#39;t upload if test fails</span>
+</code></pre></div>
+<h2 id="azure-pipelines-tips">Azure Pipelines Tips<a class="headerlink" href="#azure-pipelines-tips" title="Permanent link">🔗</a></h2>
+<h3 id="dynamic-link-to-a-pipeline-run">Dynamic Link to a Pipeline Run<a class="headerlink" href="#dynamic-link-to-a-pipeline-run" title="Permanent link">🔗</a></h3>
+<p>Create a link to a pipeline for your chatops.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$button</span> <span class="p">=</span> <span class="s2">&quot;${ENV:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}${ENV:SYSTEM_TEAMPROJECT}/_build/results?buildId=</span><span class="p">$(</span><span class="nv">$ENV:BUILD_BUILDID</span><span class="p">)</span><span class="s2">&amp;view=logs&quot;</span>
+</code></pre></div>
+<h3 id="helper-function-for-reporting-progress-on-task">Helper Function for Reporting Progress on Task<a class="headerlink" href="#helper-function-for-reporting-progress-on-task" title="Permanent link">🔗</a></h3>
+<p>This is an ugly function, but hopefully useful as a jump start when in a hurry. 😁</p>
+<p>This primarily allows you to quickly report:</p>
+<ul>
+<li>ETA</li>
+<li>Percent complete on a task</li>
+<li>Log output on current task</li>
+</ul>
+<p>Needs more refinement and probably should just be an invoke build function, but for now it's semi-useful for some long-running tasks</p>
+<p>Setup up your variables like demonstrated.
+This doesn't handle nested task creation, so parentid won't be useful for anything other than local progress bar nesting.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$ProgressId</span> <span class="p">=</span>  <span class="no">[int]</span><span class="nv">$RANDOM</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="n">1</span><span class="p">,</span> <span class="n">1000</span><span class="p">)</span>
+<span class="nv">$ProgressCounter</span> <span class="p">=</span> <span class="n">0</span>
+<span class="nv">$ProgressTotalToProcess</span> <span class="p">=</span> <span class="n">1000</span>
+<span class="nv">$ProgressStopwatch</span> <span class="p">=</span>  <span class="no">[diagnostics.stopwatch]</span><span class="p">::</span><span class="n">new</span><span class="p">()</span>
+<span class="nv">$ProgressStopwatch</span><span class="p">.</span><span class="n">Start</span><span class="p">()</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$i</span> <span class="k">in</span> <span class="nv">$List</span><span class="p">.</span><span class="n">Items</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$ProgressCounter</span><span class="p">++</span>
+        <span class="nv">$ProgressSplat</span> <span class="p">=</span> <span class="p">@{</span>
+        <span class="n">Activity</span>       <span class="p">=</span>  <span class="s1">&#39;&gt;&gt;&gt; Tacos&#39;</span>
+        <span class="n">StatusMessage</span>  <span class="p">=</span>  <span class="s2">&quot;</span><span class="p">$(</span><span class="nv">$i</span><span class="p">.</span><span class="n">Foo</span><span class="p">)</span><span class="s2">.</span><span class="p">$(</span><span class="nv">$i</span><span class="p">.</span><span class="n">Bar</span><span class="p">)</span><span class="s2">&quot;</span>
+        <span class="n">ProgressId</span>     <span class="p">=</span>  <span class="nv">$ProgressId</span>
+        <span class="n">Counter</span>        <span class="p">=</span>  <span class="nv">$Counter</span>
+        <span class="n">TotalToProcess</span> <span class="p">=</span>  <span class="nv">$ProgressTotalToProcess</span>
+        <span class="n">Stopwatch</span>      <span class="p">=</span>  <span class="nv">$ProgressStopwatch</span>
+        <span class="c"># ParentId       =  $ParentProgressId</span>
+        <span class="n">BuildOutput</span>    <span class="p">=</span> <span class="nv">$true</span> <span class="c"># for write-host special commands to show task progress in pipelines</span>
+    <span class="p">}</span>
+    <span class="nb">Write-BuildProgressInfo</span> <span class="nv">@ProgressSplat</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Include this function in InvokeBuild job.
+If not using InvokeBuild, you'll need to change <code>Write-Build</code> to <code>Write-Host</code> and remove the color attribute.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nb">Write-BuildProgressInfo</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="k">cmdletbinding</span><span class="p">()]</span>
+    <span class="k">param</span><span class="p">(</span>
+        <span class="no">[string]</span><span class="nv">$Activity</span><span class="p">=</span><span class="s1">&#39;doing stuff&#39;</span><span class="p">,</span>
+        <span class="no">[string]</span><span class="nv">$StatusMessage</span><span class="p">,</span>
+        <span class="no">[int]</span><span class="nv">$ProgressId</span><span class="p">,</span>
+        <span class="no">[int]</span><span class="nv">$Counter</span><span class="p">,</span>
+        <span class="no">[int]</span><span class="nv">$TotalToProcess</span><span class="p">,</span>
+        <span class="nv">$StopWatch</span><span class="p">,</span>
+        <span class="nv">$ParentId</span><span class="p">,</span>
+        <span class="no">[switch]</span><span class="nv">$Complete</span><span class="p">,</span>
+        <span class="no">[switch]</span><span class="nv">$BuildOutput</span>
+    <span class="p">)</span>
+    <span class="no">[hashtable]</span><span class="nv">$writeProgressSplat</span> <span class="p">=</span> <span class="p">@{}</span>
+    <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;Id&#39;</span><span class="p">,</span> <span class="nv">$ProgressId</span><span class="p">)</span>
+    <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;Activity&#39;</span>  <span class="p">,</span> <span class="nv">$Activity</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$ParentId</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;ParentId&#39;</span><span class="p">,</span> <span class="nv">$ParentId</span> <span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c"># Write-Debug($PSBoundParameters.GetEnumerator() | Format-Table -AutoSize| Out-String)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$Counter</span> <span class="o">-lt</span> <span class="nv">$TotalToProcess</span> <span class="o">-and</span> <span class="nv">$Complete</span> <span class="o">-eq</span> <span class="nv">$false</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c">#still processing</span>
+        <span class="no">[int]</span><span class="nv">$PercentComplete</span> <span class="p">=</span> <span class="no">[math]</span><span class="p">::</span><span class="n">Ceiling</span><span class="p">((</span><span class="nv">$counter</span><span class="p">/</span><span class="nv">$TotalToProcess</span><span class="p">)*</span><span class="n">100</span><span class="p">)</span>
+        <span class="k">try</span> <span class="p">{</span> <span class="no">[int]</span><span class="nv">$AvgTimeMs</span> <span class="p">=</span> <span class="no">[math]</span><span class="p">::</span><span class="n">Ceiling</span><span class="p">((</span><span class="nv">$StopWatch</span><span class="p">.</span><span class="n">ElapsedMilliseconds</span> <span class="p">/</span> <span class="nv">$counter</span><span class="p">))</span> <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="no">[int]</span><span class="nv">$AvgTimeMs</span><span class="p">=</span><span class="n">0</span> <span class="p">}</span> <span class="c">#StopWatch from beginning of process</span>
+
+        <span class="no">[int]</span><span class="nv">$RemainingTimeSec</span> <span class="p">=</span> <span class="no">[math]</span><span class="p">::</span><span class="n">Ceiling</span><span class="p">(</span> <span class="p">(</span><span class="nv">$TotalToProcess</span> <span class="p">-</span> <span class="nv">$counter</span><span class="p">)</span> <span class="p">*</span> <span class="nv">$AvgTimeMs</span><span class="p">/</span><span class="n">1000</span><span class="p">)</span>
+        <span class="no">[string]</span><span class="nv">$Elapsed</span> <span class="p">=</span> <span class="s1">&#39;{0:hh\:mm\:ss}&#39;</span> <span class="o">-f</span> <span class="nv">$StopWatch</span><span class="p">.</span><span class="n">Elapsed</span>
+
+        <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;Batches: ($counter of $TotalToProcess) | Average MS: </span><span class="p">$(</span><span class="nv">$AvgTimeMs</span><span class="p">)</span><span class="s2">ms | Elapsed Secs: $Elapsed | </span><span class="p">$(</span><span class="nv">$StatusMessage</span><span class="p">)</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;PercentComplete&#39;</span><span class="p">,</span> <span class="nv">$PercentComplete</span><span class="p">)</span>
+        <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;SecondsRemaining&#39;</span><span class="p">,</span> <span class="nv">$RemainingTimeSec</span><span class="p">)</span>
+        <span class="nb">Write-Progress</span> <span class="nv">@writeProgressSplat</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$BuildOutput</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nb">Write-Build</span> <span class="n">DarkGray</span> <span class="p">(</span><span class="s2">&quot;$Activity | $PercentComplete | ETA: </span><span class="p">$(</span><span class="s1">&#39;{0:hh\:mm\:ss\.fff}&#39;</span> <span class="o">-f</span> <span class="no">[timespan]</span><span class="p">::</span><span class="n">FromSeconds</span><span class="p">(</span><span class="nv">$RemainingTimeSec</span><span class="p">))</span><span class="s2"> |  Batches: ($counter of $TotalToProcess) | Average MS: </span><span class="p">$(</span><span class="nv">$AvgTimeMs</span><span class="p">)</span><span class="s2">ms | Elapsed Secs: $Elapsed | </span><span class="p">$(</span><span class="nv">$StatusMessage</span><span class="p">)</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">Write-Build</span> <span class="n">DarkGray</span> <span class="s2">&quot;##vso[task.setprogress value=$PercentComplete;]$Activity&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="no">[int]</span><span class="nv">$PercentComplete</span> <span class="p">=</span> <span class="n">100</span>
+        <span class="k">try</span> <span class="p">{</span> <span class="no">[int]</span><span class="nv">$AvgTimeMs</span> <span class="p">=</span> <span class="no">[math]</span><span class="p">::</span><span class="n">Ceiling</span><span class="p">((</span><span class="nv">$StopWatch</span><span class="p">.</span><span class="n">ElapsedMilliseconds</span> <span class="p">/</span> <span class="nv">$TotalToProcess</span><span class="p">))</span> <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="no">[int]</span><span class="nv">$AvgTimeMs</span><span class="p">=</span><span class="n">0</span> <span class="p">}</span> <span class="c">#StopWatch from beginning of process</span>
+        <span class="no">[string]</span><span class="nv">$Elapsed</span> <span class="p">=</span> <span class="s1">&#39;{0:hh\:mm\:ss}&#39;</span> <span class="o">-f</span> <span class="nv">$StopWatch</span><span class="p">.</span><span class="n">Elapsed</span>
+
+        <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;Completed&#39;</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
+        <span class="nv">$writeProgressSplat</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;Percent Complete: 100% </span><span class="se">`n</span><span class="s2">Average MS: </span><span class="p">$(</span><span class="nv">$AvgTimeMs</span><span class="p">)</span><span class="s2">ms</span><span class="se">`n</span><span class="s2">Elapsed: $Elapsed&quot;</span><span class="p">))</span>
+        <span class="nb">Write-Progress</span> <span class="nv">@writeProgressSplat</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$BuildOutput</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nb">Write-Build</span> <span class="n">DarkGray</span> <span class="p">(</span><span class="s2">&quot;COMPLETED | $Activity | $PercentComplete | ETA: </span><span class="p">$(</span><span class="s1">&#39;{0:hh\:mm\:ss\.fff}&#39;</span> <span class="o">-f</span> <span class="nv">$RemainingTimeSec</span><span class="p">)</span><span class="s2"> |  Batches: ($counter of $TotalToProcess) | Average MS: </span><span class="p">$(</span><span class="nv">$AvgTimeMs</span><span class="p">)</span><span class="s2">ms | Elapsed Secs: $Elapsed | </span><span class="p">$(</span><span class="nv">$StatusMessage</span><span class="p">)</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="file-manipulation">File Manipulation<a class="headerlink" href="#file-manipulation" title="Permanent link">🔗</a></h2>
+<p>Rename Images With a Counter in A Directory</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$dir</span> <span class="p">=</span> <span class="s1">&#39;images&#39;</span>
+<span class="nv">$imagegroup</span> <span class="p">=</span> <span class="s1">&#39;my-images&#39;</span>
+<span class="nb">Get-ChildItem</span> <span class="nv">$dir</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">png</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="n">-Begin</span> <span class="p">{</span> <span class="nv">$x</span> <span class="p">=</span> <span class="n">0</span> <span class="p">}</span> <span class="n">-Process</span> <span class="p">{</span>
+    <span class="nv">$file</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span>
+    <span class="nv">$newname</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="p">(</span><span class="nv">$file</span> <span class="p">|</span> <span class="nb">Split-Path</span>  <span class="p">)</span> <span class="s2">&quot;$imagegroup-$x.png&quot;</span>
+    <span class="nv">$x</span><span class="p">++</span>
+    <span class="nb">Rename-Item</span> <span class="nv">$file</span> <span class="nv">$newname</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="compare-seperate-machine-files">Compare Seperate Machine Files<a class="headerlink" href="#compare-seperate-machine-files" title="Permanent link">🔗</a></h2>
+<p>When I was working on a project involving Windows and an installed product, I found some mismatches in the library files that were on a machine.</p>
+<p>Since the dlls were mismatching this caused issues with the application.</p>
+<p>Here's a way to simplify checking for this in the future.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$MyDirectory</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">Function</span> <span class="nb">Format-FileSize</span> <span class="p">{</span>
+<span class="k">Param</span> <span class="p">(</span>
+<span class="no">[int]</span><span class="nv">$size</span>
+<span class="p">)</span>
+  <span class="k">If</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1TB</span><span class="p">)</span>
+  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} TB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1TB</span><span class="p">)}</span>
+  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1GB</span><span class="p">)</span>
+  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} GB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1GB</span><span class="p">)}</span>
+  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1MB</span><span class="p">)</span>
+  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} MB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1MB</span><span class="p">)}</span>
+  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1KB</span><span class="p">)</span>
+  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} kB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1KB</span><span class="p">)}</span>
+  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span>
+  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} B&quot;</span><span class="p">,</span> <span class="nv">$size</span><span class="p">)}</span>
+  <span class="k">Else</span>
+  <span class="p">{</span><span class="s2">&quot;&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="nv">$results</span> <span class="p">=</span> <span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$MyDirectory</span> <span class="n">-Recurse</span>  <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">PSIsContainer</span> <span class="o">-eq</span> <span class="nv">$false</span><span class="p">}</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+  <span class="no">[System.IO.FileInfo]</span><span class="nv">$FileInfo</span> <span class="p">=</span> <span class="nb">Get-Item</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$FileVersion</span> <span class="p">=</span> <span class="nv">$FileInfoVersionInfo</span><span class="p">.</span><span class="n">FileVersion</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="nv">$FileVersion</span> <span class="p">=</span> <span class="nv">$null</span>
+  <span class="p">}</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$AssemblyVersion</span> <span class="p">=</span> <span class="no">[Reflection.AssemblyName]</span><span class="p">::</span><span class="n">GetAssemblyName</span><span class="p">(</span><span class="nv">$FileInfo</span><span class="p">.</span><span class="n">FullName</span><span class="p">).</span><span class="n">Version</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="nv">$AssemblyVersion</span> <span class="p">=</span> <span class="nv">$null</span>
+  <span class="p">}</span>
+  <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+    <span class="n">Name</span>          <span class="p">=</span> <span class="nv">$FileInfo</span><span class="p">.</span><span class="n">Name</span>
+    <span class="n">Size</span>          <span class="p">=</span> <span class="nb">Format-FileSize</span> <span class="nv">$FileInfo</span><span class="p">.</span><span class="n">Length</span>
+    <span class="n">FileVersion</span>   <span class="p">=</span> <span class="nv">$FileVersionAssembly</span>
+    <span class="n">Version</span>       <span class="p">=</span> <span class="nv">$AssemblyVersion</span>
+    <span class="n">Directory</span>     <span class="p">=</span> <span class="nv">$FileInfo</span><span class="p">.</span><span class="n">Directory</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nv">$results</span> <span class="p">|</span> <span class="nb">Export-CLIXML</span> <span class="n">-path</span> <span class="n">report</span><span class="p">.</span><span class="n">xml</span> <span class="n">-Encoding</span> <span class="n">UTF8</span> <span class="n">-Force</span>
+</code></pre></div>
+<p>Once you run this on a system that works like you expect you’ll get a serialized xml file that can be used to compare what another machine might have.</p>
+<p>You could then compare the results with:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$Original</span> <span class="p">=</span> <span class="nb">Import-CLIXML</span> <span class="n">-path</span> <span class="nv">$OriginalFile</span>
+<span class="nv">$Expected</span> <span class="p">=</span> <span class="nb">Import-CLIXML</span> <span class="n">-path</span> <span class="nv">$ExpectedFile</span>
+
+<span class="nb">Compare-Object</span> <span class="n">-ReferenceObject</span> <span class="nv">$Original</span> <span class="n">-DifferenceObject</span> <span class="nv">$Expected</span> <span class="n">-Property</span> <span class="n">Name</span><span class="p">,</span><span class="n">Size</span><span class="p">,</span><span class="n">FileVersion</span><span class="p">,</span><span class="n">AssemblyVersion</span>
+</code></pre></div>
+<p>The output should look similar to this:</p>
+<div class="highlight"><pre><span></span><code>Name            : Newtonsoft.Json.dll
+Size            : 443.11 kB
+FileVersion     :
+AssemblyVersion : 9.0.0.0
+SideIndicator   : =&gt;
+
+Name            : Newtonsoft.Json.dll
+Size            : 509.00 kB
+FileVersion     :
+AssemblyVersion : 8.0.0.0
+SideIndicator   : &lt;=
+</code></pre></div>
+<p>If you are dealing with the dreaded GAC (Global Assembly Cache) try using this model to a comparison as well.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(@(</span><span class="nb">Get-Module</span> <span class="n">GAC</span> <span class="n">-ListAvailable</span> <span class="n">-EA</span> <span class="n">0</span><span class="p">).</span><span class="n">Count</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">){</span>
+<span class="nb">Install-Module</span> <span class="n">GAC</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+<span class="p">}</span>
+
+<span class="nb">Import-Module</span> <span class="n">Gac</span>
+<span class="nb">Get-GACAssembly</span> <span class="n">-name</span> <span class="s1">&#39;*AssemblyNames*&#39;</span> <span class="p">|</span> <span class="nb">Export-CLIXML</span> <span class="n">-path</span> <span class="n">report</span><span class="p">.</span><span class="n">xml</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.top", "navigation.path", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+      
+    
+  </body>
+</html>

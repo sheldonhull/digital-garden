@@ -1,0 +1,1386 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../powershell/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.0">
+    
+    
+      
+        <title>go - digital garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/gist.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code-highlighting.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#top-reference-material" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="digital garden" class="md-header__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/icons/regular_expression_light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            digital garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              go
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../career/communication/" class="md-tabs__link">
+        Career
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Development
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="digital garden" class="md-nav__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/icons/regular_expression_light.svg" alt="logo">
+
+    </a>
+    digital garden
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Career
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Career
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/communication/" class="md-nav__link">
+        Communication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Languages</a>
+          
+            <label for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          go
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        go
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#top-reference-material" class="md-nav__link">
+    Top Reference Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starter-template" class="md-nav__link">
+    Starter Template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-go-for-task-running-automation" class="md-nav__link">
+    Using Go for Task Running &amp; Automation
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Go for Task Running &amp; Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started-with-mage" class="md-nav__link">
+    Getting Started With Mage
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started With Mage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-go" class="md-nav__link">
+    Use Go
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intialize-a-new-project" class="md-nav__link">
+    Intialize a New Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-should-i-care-about-mage" class="md-nav__link">
+    Why Should I Care About Mage?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mage-basics" class="md-nav__link">
+    Mage Basics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-mage-tips" class="md-nav__link">
+    My Mage Tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    Modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-go-modules" class="md-nav__link">
+    What are Go Modules?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-tips" class="md-nav__link">
+    Module Tips
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-build-tooling" class="md-nav__link">
+    Project &amp; Build Tooling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    Pre-Commit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-pre-commit-tooling" class="md-nav__link">
+    Using Pre-Commit Tooling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-coverage-report" class="md-nav__link">
+    Code Coverage Report
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCode
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-tasks" class="md-nav__link">
+    Custom Tasks
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-shells" class="md-nav__link">
+    Default Shells
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-lint" class="md-nav__link">
+    Run Lint
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-nicely-formatted-test-output" class="md-nav__link">
+    Run Nicely Formatted Test Output
+  </a>
+  
+    <nav class="md-nav" aria-label="Run Nicely Formatted Test Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tparse" class="md-nav__link">
+    Tparse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gotestsum" class="md-nav__link">
+    Gotestsum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effective-go" class="md-nav__link">
+    Effective Go
+  </a>
+  
+    <nav class="md-nav" aria-label="Effective Go">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dont-hide-the-cost" class="md-nav__link">
+    Don't hide the cost
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-external-commands" class="md-nav__link">
+    Running External Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repos" class="md-nav__link">
+    Repos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powershell/" class="md-nav__link">
+        powershell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell/" class="md-nav__link">
+        shell
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Libraries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dagger/" class="md-nav__link">
+        Dagger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dbatools/" class="md-nav__link">
+        dbatools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Tooling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tooling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/docker/" class="md-nav__link">
+        docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/git/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/precommit/" class="md-nav__link">
+        precommit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/task/" class="md-nav__link">
+        task
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">development</span>
+      
+    
+      
+      
+        <span class="md-tag">golang</span>
+      
+    
+  </nav>
+
+
+
+  
+  
+
+
+  <h1>go</h1>
+
+<h2 id="top-reference-material">Top Reference Material<a class="headerlink" href="#top-reference-material" title="Permanent link">🔗</a></h2>
+<p>Here's the reference material I use to help guide me on basic style, design, and general idiomatic Go practices.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://golang.org/doc/style.html">Go Style Guide</a></td>
+<td>A guide to writing Go code.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/uber-go/guide/blob/master/style.md">Uber Go Styleguide</a></td>
+<td>A thorough stylistic guide (opinionated, but great explanations on why)</td>
+</tr>
+<tr>
+<td><a href="https://dave.cheney.net/practical-go/presentations/qcon-china.html#_identifier_length">Practical Go - Dave Cheney</a></td>
+<td>A great practical guide from a well-respected authority in the Go community</td>
+</tr>
+</tbody>
+</table>
+<h2 id="starter-template">Starter Template<a class="headerlink" href="#starter-template" title="Permanent link">🔗</a></h2>
+<p>I saved this as a snippet for vscode to get up and running quickly with something better than the defaults for handling <code>func main</code> isolation. I've been working on modifying this a bit as I don't really like using args, but am trying not to overcomplicate things as a new gopher.</p>
+<p>I tend to like better flag parsing than using args, but it's still a better pattern to get functions isolated from main to easily test.</p>
+<p>The gist that I've taken from this and discussions in the community is ensure that <code>main</code> is where program termination is dedicated instead of handling this in your functions. This isolation of logic from main ensures you can more easily setup your tests as well, since <code>func main()</code> isn't testable.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="c1">// package template from:</span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;errors&quot;</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+<span class="w">    </span><span class="s">&quot;io&quot;</span>
+<span class="w">    </span><span class="s">&quot;os&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// exitFail is the exit code if the program</span>
+<span class="w">    </span><span class="c1">// fails.</span>
+<span class="w">    </span><span class="nx">exitFail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">run</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">,</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="nx">exitFail</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">run</span><span class="p">(</span><span class="nx">args</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">stdout</span><span class="w"> </span><span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span><span class="s">&quot;no arguments&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">stdout</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Running %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="using-go-for-task-running-automation">Using Go for Task Running &amp; Automation<a class="headerlink" href="#using-go-for-task-running-automation" title="Permanent link">🔗</a></h2>
+<p>My preferred tool at this time is Mage.</p>
+<p>Mage replaces the need for Bash or PowerShell scripts in your repo for core automation tasks, and provides the benefits of Go (cross-platform, error handling paradigm, readability, performance, etc).</p>
+<h3 id="getting-started-with-mage">Getting Started With Mage<a class="headerlink" href="#getting-started-with-mage" title="Permanent link">🔗</a></h3>
+<h4 id="use-go">Use Go<a class="headerlink" href="#use-go" title="Permanent link">🔗</a></h4>
+<ul>
+<li>Run <code>go install github.com/magefile/mage@latest</code></li>
+<li>Run <code>go install github.com/iwittkau/mage-select@latest</code></li>
+<li>asdf: <code>asdf plugin-add mage &amp;&amp; asdf install mage latest &amp;&amp; asdf local mage latest</code></li>
+</ul>
+<h4 id="intialize-a-new-project">Intialize a New Project<a class="headerlink" href="#intialize-a-new-project" title="Permanent link">🔗</a></h4>
+<ul>
+<li><a href="github.com/sheldonhull/scripts-to-rule-them-all-go">Scripts-To-Rule-Them-All-Go</a>: A repo I've setup as quick start template for a Mage enabled repository with linting and core structure already in place.</li>
+<li><a href="github.com/sheldonhull/magetools">Magetools</a>: Reusable packages that can be pulled in to jump start common tasks or utilities.</li>
+<li>Examples:<ul>
+<li>Enhanced go formatter with <code>mage go:wrap</code>.</li>
+<li>Preinstall common Go tools such as the language server, dlv, gofumpt, golangci-lint, and more with <code>mage go:init</code>.</li>
+<li>Provide a github repo for a go binary and use in tasks. If the binary isn't found, it will automatically grab it when invoked.</li>
+<li>Pre-commit registration and tooling.</li>
+<li>Install Git Town, Bit, and other cool git helpers with <code>mage gittools:init</code>.</li>
+<li>Chain together all your core tasks with <code>mage init</code> to allow for a fully automated dev setup.</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-should-i-care-about-mage">Why Should I Care About Mage?<a class="headerlink" href="#why-should-i-care-about-mage" title="Permanent link">🔗</a></h3>
+<ul>
+<li>I've never felt my automation was as robust, stable, and easy to debug as when I've used Mage.</li>
+<li>I've done a lot of experimenting with others, and had primarily relied on <code>InvokeBuild</code> (powershell based) in the past.</li>
+<li>Mage takes the prize for ease of use.</li>
+<li>You can migrate a make file relatively easily if you want to just call tools directly.</li>
+<li>You can benefit from using Go packages directly as you up your game.</li>
+<li>Example: instead of calling kubectl directly, I've used a helm Go library that does actions like validation, linting, and templating directly from the same core code that kubectl itself uses.</li>
+</ul>
+<h3 id="mage-basics">Mage Basics<a class="headerlink" href="#mage-basics" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Mage is just Go code.</li>
+<li>It does a little "magic" by simplying matching some functions that match basic signature such as <code>error</code> output, like <code>func RunTests(dir string) error {...}</code>.</li>
+<li>You can get around needing mage by creating Go files, but you'd have to add basic args handling for the <code>main()</code> entry point, and help generation.</li>
+<li>Mage basically tries to simplify the cli invocation by auto-discovering all the matched functions in your <code>magefiles</code> directory and providing as tasks.</li>
+<li>Mage does not currently support flags, though this is actively being looked at.</li>
+<li>This means you are best served by keeping tasks very very simple. Ie <code>mage deploy project dev</code> is about as complex as I'd recommend.</li>
+<li>Normally, you'd invoke with <code>mytool -project ProjectName -env dev</code> and positions wouldn't matter. With mage, it's positional for simplicity so best to keep simple!</li>
+</ul>
+<h3 id="my-mage-tips">My Mage Tips<a class="headerlink" href="#my-mage-tips" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Use the pattern shown in my template repo above.</li>
+<li>Use <code>magefiles</code> directory.</li>
+<li>Provide a single <code>magefile.go</code> that does your imports and basic commands. If it's a big project then just have it import and put all your tasks in subdirectories that it imports.</li>
+<li>Provide a <code>magefiles/constants/constants.go &amp;&amp; vars.go</code> rather than being worried about globals.
+  This is for build automation, and having a configured file with standards that shouldn't change or global variables is a nice alternative to needing more yaml files.</li>
+<li>Use Pterm for enchanced logging experience, provides some beautiful output for users.</li>
+<li>For extra benefit, standardize with a <code>mage doctor</code> command in your project that validates issues experienced and gets added to over time.
+  This can help troubleshooting any environment or project issues if you maintain and add a list of checks being run.
+  Using Pterm you can make this into a nice table output like this:</li>
+</ul>
+<p><img alt="Mage Doctor Output" src="/images/2022-06-11-16.52.33-mage-doctor.png" title="Mage Doctor Output" /></p>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">🔗</a></h2>
+<ul>
+<li>Go test will automatically ignore directories and files starting with <code>.</code> or <code>_</code>, see <a href="https://pkg.go.dev/cmd/go#hdr-Package_lists_and_patterns">go command - cmd/go - pkg.go.dev</a>.</li>
+</ul>
+<h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">🔗</a></h2>
+<h3 id="what-are-go-modules">What are Go Modules?<a class="headerlink" href="#what-are-go-modules" title="Permanent link">🔗</a></h3>
+<p>Go Modules are primarily a dependency management solution.</p>
+<p>A module:</p>
+<ul>
+<li>Is primarily a dependency management tool, not a project organization tool.</li>
+<li>Is imported to get access to public exported members in your own project.</li>
+<li>One module can have <code>n</code> binaries produced.</li>
+<li>A module can be used in a monorepo or single CLI tool.</li>
+</ul>
+<p>A module doesn't:</p>
+<ul>
+<li>Handle build or binary path metadata.</li>
+<li>Have any relationship to the produced artifacts.</li>
+</ul>
+<h3 id="module-tips">Module Tips<a class="headerlink" href="#module-tips" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Use canconical import path (aka) <code>github.com/sheldonhull/mygomod</code> if you want to support <code>go install</code> commands.</li>
+<li>Use <code>mymod.local</code> if no need to support remote imports or installs.</li>
+<li>This allows <code>gofumpt</code> and tooling to correctly sort the imports from standard library apart from your own imports, without requiring canonical name format.</li>
+<li>Stick with one module in the repo if possible, to simplify tooling, linting, and testing. This is important in monorepos as much of the tooling that uses paths like <code>go test ./...</code> will not work with multi-module repos in a project.</li>
+</ul>
+<h3 id="project-build-tooling">Project &amp; Build Tooling<a class="headerlink" href="#project-build-tooling" title="Permanent link">🔗</a></h3>
+<ul>
+<li>Use <code>devtools.go</code> to create a list of cli tools that should be installed with Mage.</li>
+<li>Use <code>tools.go</code> to put <code>_ "remotemodulename"</code> in, and identify clearly that a tool such as Stringer or linters are not dependencies for the primary module, but instead are tooling dependencies.</li>
+</ul>
+<h2 id="pre-commit">Pre-Commit<a class="headerlink" href="#pre-commit" title="Permanent link">🔗</a></h2>
+<h2 id="using-pre-commit-tooling">Using Pre-Commit Tooling<a class="headerlink" href="#using-pre-commit-tooling" title="Permanent link">🔗</a></h2>
+<p>Here's how to setup <a href="https://bit.ly/3szdwNf">pre-commit</a> for Go projects.</p>
+<ol>
+<li>Install <a href="https://bit.ly/2O9urag">pre-commit</a> for macOS: <code>brew install pre-commit</code> or see directions for curl/other options for WSL, Windows, Linux, etc.</li>
+<li>Use the template from <a href="https://bit.ly/31w3gtk">TekWizely/pre-commit-golang: Pre-Commit hooks for Golang with support for Modules</a></li>
+<li>Several options are provided for <code>fmt</code> oriented commands.
+      Comment out any duplicates that don't apply.</li>
+<li>Finally initialize the pre-commit hooks in your repo by running: <code>pre-commit install</code></li>
+</ol>
+<p>Validate everything is working by running: <code>pre-commit run --all-files</code></p>
+<p>Periodically, you can run <code>pre-commit autoupdate</code> to ensure the latest version of the pre-commit hooks are upgraded.</p>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">🔗</a></h2>
+<p>At this stage, I'm using <a href="https://github.com/rs/zerolog">zerolog</a> as I found it very easy to get moving with structured logs.</p>
+<p>The output of this demo looks pretty good!</p>
+<p><img alt="Output from Zerolog" src="/images/r1-d014-structured-console-output.png" /></p>
+<p>Here's a functional demo that can be used to bootstrap a new project with this.</p>
+<p>{{&lt; gist sheldonhull  "9e608da09f84fac600d921e3f0867226" &gt;}}</p>
+<h2 id="code-coverage-report">Code Coverage Report<a class="headerlink" href="#code-coverage-report" title="Permanent link">🔗</a></h2>
+<p>original post: <sup id="fnref:go-r1-day-41"><a class="footnote-ref" href="#fn:go-r1-day-41">1</a></sup></p>
+<p>Use gopherbadge<sup id="fnref:gopherbadge"><a class="footnote-ref" href="#fn:gopherbadge">2</a></sup></p>
+<div class="highlight"><pre><span></span><code>go<span class="w"> </span>install<span class="w"> </span>github.com/jpoles1/gopherbadger@master
+</code></pre></div>
+<ul>
+<li>Set <code>![gopherbadger-tag-do-not-edit]()</code> in the readme, and then this gets replaced with a code coverage percentage badge.</li>
+<li>Generate the required code coverage reports using:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...<span class="w"> </span>-coverprofile<span class="w"> </span>./artifacts/cover.out
+go<span class="w"> </span>tool<span class="w"> </span>cover<span class="w"> </span>-html<span class="o">=</span>./artifacts/cover.out<span class="w"> </span>-o<span class="w"> </span>./artifacts/coverage.html
+gopherbadger<span class="w"> </span>-md<span class="o">=</span><span class="s2">&quot;README.md,coverage.md&quot;</span><span class="w"> </span>-tags<span class="w"> </span><span class="s1">&#39;unit&#39;</span>
+</code></pre></div>
+<h2 id="vscode">VSCode<a class="headerlink" href="#vscode" title="Permanent link">🔗</a></h2>
+<h3 id="custom-tasks">Custom Tasks<a class="headerlink" href="#custom-tasks" title="Permanent link">🔗</a></h3>
+<h4 id="default-shells">Default Shells<a class="headerlink" href="#default-shells" title="Permanent link">🔗</a></h4>
+<p>This can ensure default behavior is processed on each OS, customizing the shell to use.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;echo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;focus&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;showReuseMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;shell&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;executable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/zsh&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;shell&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;executable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pwsh&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;osx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;shell&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;executable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/zsh&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="run-lint">Run Lint<a class="headerlink" href="#run-lint" title="Permanent link">🔗</a></h4>
+<p>Add this to your <code>.vscode/tasks.json</code> file and you'll get the full linting output in your problems pane.</p>
+<p>By default, the <code>golangci-lint</code> config should include <code>--fast</code> to avoid impact to your editing.</p>
+<p>This will ensure all tasks that a pre-commit check or CI check will be run and provided in the problems panel.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go-lint-all&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This runs the full range of checks and the VSCode problem matcher will pull all of them in. Without this, the default behavior of VSCode is to run with --fast to reduce impact to IDE.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;golangci-lint&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;run&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;--out-format&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;colored-line-number&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;$go&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;echo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;focus&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;showReuseMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+</code></pre></div>
+<h2 id="run-nicely-formatted-test-output">Run Nicely Formatted Test Output<a class="headerlink" href="#run-nicely-formatted-test-output" title="Permanent link">🔗</a></h2>
+<h3 id="tparse">Tparse<a class="headerlink" href="#tparse" title="Permanent link">🔗</a></h3>
+<p>While the testing extension is great, sometimes I just want to see a console summary.
+This task uses <a href="https://github.com/mfridman/tparse">Tparse</a> and provides a nicely formatted summary (including coverage numbers, cached tests, and more).</p>
+<p>Install tparse with: <code>go install github.com/mfridman/tparse@latest</code>.</p>
+<p>Run manually like this: <code>GOTESTS='slow' go test ./... -v -cover -json | tparse -all</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go-test-formatted-output&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;GOTEST&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slow integration&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;./...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;-v&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;-cover&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;-json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;|&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;tparse&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;-all&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">},</span>
+</code></pre></div>
+<h3 id="gotestsum">Gotestsum<a class="headerlink" href="#gotestsum" title="Permanent link">🔗</a></h3>
+<p>Install with: <code>go install gotest.tools/gotestsum@latest</code>.</p>
+<p>Then run like this: <code>gotestsum</code> or try the alternative formats like: <code>gotestsum --format dots-v2</code> or <code>--format pkgname</code>, or <code>--format testname</code>.</p>
+<h2 id="effective-go">Effective Go<a class="headerlink" href="#effective-go" title="Permanent link">🔗</a></h2>
+<p>Principles I've gleaned over-time and am quoting or bookmarking.</p>
+<h3 id="dont-hide-the-cost">Don't hide the cost<a class="headerlink" href="#dont-hide-the-cost" title="Permanent link">🔗</a></h3>
+<blockquote>
+<p>Source: Bill Kennedy in Ultimate Go <sup id="fnref:readability"><a class="footnote-ref" href="#fn:readability">3</a></sup></p>
+</blockquote>
+<p>If we are doing construction to a variable, we use value construction.
+Avoid pointer semantic construction if not in the return.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// clear visible cost of the allocation by value construction and passing of pointer back up the call stack</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">createSomething</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">something</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">u</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">something</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;example&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">u</span><span class="w"> </span><span class="c1">// &lt;--- This makes clear the cost and allocation back up the callstack.</span>
+<span class="p">}</span>
+<span class="c1">// cost is obscured by construction being a pointer</span>
+<span class="c1">// and returning a value that is not clear to reader if value or pointer</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">createSomething</span><span class="p">()</span><span class="o">*</span><span class="nx">something</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">u</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">something</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;example&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">u</span><span class="w"> </span><span class="c1">// &lt;--- Not good. Hides the cost, and require reading function further to find that this is a pointer.</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Making cost obvious and visible is a big priority for readable maintainable code with a team.</p>
+<h2 id="running-external-commands">Running External Commands<a class="headerlink" href="#running-external-commands" title="Permanent link">🔗</a></h2>
+<h2 id="repos">Repos<a class="headerlink" href="#repos" title="Permanent link">🔗</a></h2>
+<div class="github-card" data-github="sheldonhull/algorithmswithgo.com" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+
+<div class="github-card" data-github="sheldonhull/web-development-with-go" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+
+<div class="github-card" data-github="sheldonhull/go-aws-ami-metrics" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:go-r1-day-41">
+<p><a href="/go-r1-day-41">go-r1-day-41</a>&#160;<a class="footnote-backref" href="#fnref:go-r1-day-41" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:gopherbadge">
+<p><a href="https://github.com/jpoles1/gopherbadger">GitHub - jpoles1/gopherbadger: Generate coverage badge images using Go!</a>&#160;<a class="footnote-backref" href="#fnref:gopherbadge" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:readability">
+<p>[Readability - Ultimate Go]((<a href="https://github.com/ardanlabs/gotraining/tree/master/topics/go#readability">https://github.com/ardanlabs/gotraining/tree/master/topics/go#readability</a>)&#160;<a class="footnote-backref" href="#fnref:readability" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.top", "navigation.path", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+      
+    
+  </body>
+</html>

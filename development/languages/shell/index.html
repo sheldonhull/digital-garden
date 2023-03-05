@@ -1,0 +1,1587 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../powershell/">
+      
+      
+        <link rel="next" href="../../libraries/dagger/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.0">
+    
+    
+      
+        <title>shell - digital garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/gist.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code-highlighting.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cli-usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="digital garden" class="md-header__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/icons/regular_expression_light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            digital garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              shell
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../career/communication/" class="md-tabs__link">
+        Career
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Development
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="digital garden" class="md-nav__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/icons/regular_expression_light.svg" alt="logo">
+
+    </a>
+    digital garden
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Career
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Career
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/communication/" class="md-nav__link">
+        Communication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Languages</a>
+          
+            <label for="__nav_3_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go/" class="md-nav__link">
+        go
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powershell/" class="md-nav__link">
+        powershell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          shell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        shell
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cli-usage" class="md-nav__link">
+    CLI Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell-bash-comparison" class="md-nav__link">
+    PowerShell &amp; Bash Comparison
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell &amp; Bash Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brevity" class="md-nav__link">
+    Brevity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell-works-with-native-tooling" class="md-nav__link">
+    PowerShell Works With Native Tooling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-app-installs" class="md-nav__link">
+    Common App Installs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ansible-initialization" class="md-nav__link">
+    Ansible Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-few-more-ansible-commands" class="md-nav__link">
+    A Few More Ansible Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-go-task" class="md-nav__link">
+    Installing go-task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-brew-packages" class="md-nav__link">
+    Installing Brew Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce-noise-with-progress-bar" class="md-nav__link">
+    Reduce Noise With Progress Bar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-for-and-install-tooling" class="md-nav__link">
+    Check for And Install Tooling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditional" class="md-nav__link">
+    Conditional
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-requests" class="md-nav__link">
+    Web Requests
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetch-a-github-release" class="md-nav__link">
+    Fetch A GitHub Release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-a-github-release-that-requires-extraction" class="md-nav__link">
+    Fetch a GitHub Release That Requires Extraction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shebang" class="md-nav__link">
+    Shebang
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cli-metadata" class="md-nav__link">
+    AWS CLI &amp; Metadata
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS CLI &amp; Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-instance-region" class="md-nav__link">
+    Retrieve Instance Region
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-matching-instances" class="md-nav__link">
+    List Matching Instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-standard-users" class="md-nav__link">
+    List Standard Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-contents-of-a-file" class="md-nav__link">
+    Search Contents of a File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-yq-to-edit-yaml-files-for-datadog-service" class="md-nav__link">
+    Using yq to edit yaml files for Datadog service
+  </a>
+  
+    <nav class="md-nav" aria-label="Using yq to edit yaml files for Datadog service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-install-of-datadog-service" class="md-nav__link">
+    Quick Install of Datadog Service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-and-stop-the-datadog-services" class="md-nav__link">
+    Start and stop the datadog services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-default-datadog-config-file" class="md-nav__link">
+    Edit Default Datadog Config File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-datadog-network-monitoring" class="md-nav__link">
+    Enable Datadog Network Monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-datadog-process-level-tracking" class="md-nav__link">
+    Enable Datadog Process Level Tracking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parse-kubernetes-secrets-using-jq" class="md-nav__link">
+    Parse Kubernetes Secrets Using JQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-cli" class="md-nav__link">
+    GitHub CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-the-logs-of-a-prior-run" class="md-nav__link">
+    View The Logs Of A Prior Run
+  </a>
+  
+    <nav class="md-nav" aria-label="View The Logs Of A Prior Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-to-configure-settings-on-many-repos-at-once" class="md-nav__link">
+    Use To Configure Settings on Many Repos At Once
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-all-the-desired" class="md-nav__link">
+    Clone All The Desired
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone All The Desired">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-ghq" class="md-nav__link">
+    Configure ghq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-all-repos-selected" class="md-nav__link">
+    Clone All Repos Selected
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Libraries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dagger/" class="md-nav__link">
+        Dagger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dbatools/" class="md-nav__link">
+        dbatools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Tooling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tooling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/docker/" class="md-nav__link">
+        docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/git/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/precommit/" class="md-nav__link">
+        precommit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/task/" class="md-nav__link">
+        task
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">development</span>
+      
+    
+      
+      
+        <span class="md-tag">shell</span>
+      
+    
+  </nav>
+
+
+
+  
+  
+
+
+  <h1>shell</h1>
+
+<p>:(fas fa-info-circle fa-fw): This is a mix of shell, linux, and macOS commands.
+Comments are welcome with any corrections or suggestions.</p>
+<h2 id="cli-usage">CLI Usage<a class="headerlink" href="#cli-usage" title="Permanent link">🔗</a></h2>
+<h3 id="powershell-bash-comparison">PowerShell &amp; Bash Comparison<a class="headerlink" href="#powershell-bash-comparison" title="Permanent link">🔗</a></h3>
+<h4 id="brevity">Brevity<a class="headerlink" href="#brevity" title="Permanent link">🔗</a></h4>
+<p>See all aliases with <code>Get-Alias</code> and to expedite your cli usage you could use a gist like this: <a href="https://gist.github.com/JustinGrote/3eeec61472da1aa9f86a8f746eac905f">Aliaser.ps1</a></p>
+<p>Note that PowerShell eschews brevity for clarity, but you can alias anything you like to be nearly as succint as bash commands.</p>
+<blockquote>
+<p>IMO readability/brevity trumps succintness. However for interactive terminal usage aliasing can be a great tool. Use VSCode to auto-expand aliases into fully qualified functions if you decide to turn your adhoc work into a script file.</p>
+</blockquote>
+<p>Using <code>pushd</code> in a PowerShell session actually aliases to <code>Push-Location</code>.
+The difference is in addition to the path string pushd manages, you get a .NET object back with <code>[System.Management.Automation.PathInfo]</code> information including: Drive, Path, Provider, ProviderPath.</p>
+<h4 id="powershell-works-with-native-tooling">PowerShell Works With Native Tooling<a class="headerlink" href="#powershell-works-with-native-tooling" title="Permanent link">🔗</a></h4>
+<p>I've included the similar PowerShell command to help those jumping between multiple shells.</p>
+<p>Please note that unlike Python, PowerShell works as a terminal with native tools + scripting language.</p>
+<p>You can use <code>pwsh</code> in almost every case in Linux &amp; macOS and use the same tools you prefer, while being able to execute PowerShell commands as well.</p>
+<p>For example something like aws cli returning json could be automatically unmarshaled into an object instead of using <code>jq</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">&amp;</span> <span class="p">(</span><span class="n">aws</span> <span class="n">ec2</span> <span class="n">describe-instances</span> <span class="p">|</span> <span class="nb">ConvertFrom-Json</span><span class="p">).</span><span class="n">Instances</span><span class="p">.</span><span class="n">InstanceId</span>
+</code></pre></div>
+<p>Another example is paths.</p>
+<p>Prerequiresites for the PowerShell examples:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Install-Module</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">ConsoleGuiTools</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span> <span class="n">-Force</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>shell</th>
+<th>pwsh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View history</td>
+<td><code>history</code></td>
+<td><code>Get-History</code></td>
+</tr>
+<tr>
+<td>Execute Line from History</td>
+<td><code>!Number</code></td>
+<td><code>Invoke-Expression (Get-History \| Out-ConsoleGridView -OutputMode Single).CommandLine</code></td>
+</tr>
+<tr>
+<td>Execute Last Command But With Sudo</td>
+<td><code>sudo !!</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Test file exists</td>
+<td><code>test -f ./filename</code></td>
+<td><code>Test-Path $filename -PathType Leaf</code> or using .NET <code>[io.file]::exists($filename)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">🔗</a></h2>
+<h3 id="common-app-installs">Common App Installs<a class="headerlink" href="#common-app-installs" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Notes</th>
+<th>Install Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HomeBrew</td>
+<td>Works on Linux and macOS now 👏.</td>
+<td><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ansible-initialization">Ansible Initialization<a class="headerlink" href="#ansible-initialization" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+brew<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>ansible
+</code></pre></div>
+<p>For docker/linux</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+<span class="nv">CFLAGS</span><span class="o">=</span>-Qunused-arguments<span class="w"> </span><span class="nv">CPPFLAGS</span><span class="o">=</span>-Qunused-arguments<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>ansible
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;======== Ansible Version Info ======== &quot;</span>
+ansible-galaxy<span class="w"> </span>--version
+</code></pre></div>
+<h3 id="a-few-more-ansible-commands">A Few More Ansible Commands<a class="headerlink" href="#a-few-more-ansible-commands" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run ansible playbook against a specific tag</td>
+<td><code>ansible-playbook main.yml --inventory inventory --ask-become-pass -t 'ui'</code></td>
+</tr>
+<tr>
+<td>Install requirements</td>
+<td><code>ansible-galaxy collection install community.general &amp;&amp; ansible-galaxy install --role-file requirements.yml --force --ignore-errors</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="installing-go-task">Installing go-task<a class="headerlink" href="#installing-go-task" title="Permanent link">🔗</a></h3>
+<p>This tool is great for cross-platform shell scripting as it runs all the commands in the <code>Taskfile.yml</code> using a built in go shell library that supports bash syntax (and others).</p>
+<p>Quickly get up and running using the directions here: <a href="https://github.com/go-task/task/blob/master/docs/installation.md">Install Task</a></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Installation to local directory with debug logging enabled</td>
+<td><code>sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d</code></td>
+</tr>
+<tr>
+<td>Installation for user level access</td>
+<td><code>sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="installing-brew-packages">Installing Brew Packages<a class="headerlink" href="#installing-brew-packages" title="Permanent link">🔗</a></h3>
+<p>This eliminates any attempt to install if the package already exists.
+For quick adhoc installs, this is useful.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1"># Minimize Homebrew updates for each run, speeding things up</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HOMEBREW_NO_AUTO_UPDATE</span><span class="o">=</span><span class="m">1</span>
+
+<span class="c1"># if linux install script, might want to include this: export PATH=&quot;/home/linuxbrew/.linuxbrew/bin:$PATH&quot;</span>
+
+<span class="c1"># Example of installing with a tap</span>
+brew<span class="w"> </span>tap<span class="w"> </span>lucagrulla/tap
+<span class="nv">package</span><span class="o">=</span>cw
+brew<span class="w"> </span>list<span class="w"> </span><span class="nv">$package</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span><span class="nv">$package</span>
+
+<span class="c1"># git-delta needs an updated version, so make sure it&#39;s available</span>
+<span class="nv">package</span><span class="o">=</span>less
+brew<span class="w"> </span>list<span class="w"> </span><span class="nv">$package</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span><span class="nv">$package</span>
+
+<span class="nv">package</span><span class="o">=</span>git-delta
+brew<span class="w"> </span>list<span class="w"> </span><span class="nv">$package</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span><span class="nv">$package</span>
+</code></pre></div>
+<h3 id="reduce-noise-with-progress-bar">Reduce Noise With Progress Bar<a class="headerlink" href="#reduce-noise-with-progress-bar" title="Permanent link">🔗</a></h3>
+<p>Use unzip with a progress bar to display progress, rather than the thousands of lines of output.
+This is an example of installing the AWS CLI v2 in a Dockerfile, while not forcing the output of each line when unzipping.</p>
+<p>This shows how to use the <code>pv</code> command line tool to help display progress in both a count fashion, and also by just using as a timer.</p>
+<div class="highlight"><pre><span></span><code>RUN<span class="w"> </span>apt-get<span class="w"> </span>-yqq<span class="w"> </span>update<span class="w"> </span>--fix-missing<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>-yqq<span class="w"> </span>install<span class="w"> </span>pv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>./tmpinstall<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>--silent<span class="w"> </span><span class="s2">&quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot;</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;./tmpinstall/awscliv2.zip&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">COUNT</span><span class="o">=</span><span class="sb">`</span>unzip<span class="w"> </span>-q<span class="w"> </span>-l<span class="w"> </span><span class="s2">&quot;./tmpinstall/awscliv2.zip&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="sb">`</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>./tmpinstall/aws<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span><span class="s2">&quot;./tmpinstall/awscliv2.zip&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;./tmpinstall/&quot;</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>pv<span class="w"> </span>-l<span class="w"> </span>-s<span class="w"> </span><span class="nv">$COUNT</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>./tmpinstall/aws/install<span class="w"> </span>--update<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>pv<span class="w"> </span>--timer<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;🤖 awscli&quot;</span><span class="o">)</span><span class="w">  </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./tmpinstall/<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>clean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="w"> </span>/tmp/library-scripts
+</code></pre></div>
+<h3 id="check-for-and-install-tooling">Check for And Install Tooling<a class="headerlink" href="#check-for-and-install-tooling" title="Permanent link">🔗</a></h3>
+<p>This can help give you an example of how to double check that some installed tools are available as part of a setup script.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>ghq<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;✔️ ghq installed&#39;</span>
+<span class="k">else</span>
+<span class="w">    </span>warning<span class="w"> </span><span class="s2">&quot;❌ failed to find ghq, attempting to setup via source&quot;</span>
+<span class="w">    </span>go<span class="w"> </span>install<span class="w"> </span>github.com/x-motemen/ghq@latest<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ installed ghq&quot;</span>
+<span class="k">fi</span>
+<span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>gum<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;✔️ gum installed&#39;</span>
+<span class="k">else</span>
+<span class="w">    </span>warning<span class="w"> </span><span class="s2">&quot;❌ failed to find gum, attempting to setup via source&quot;</span>
+<span class="w">    </span>go<span class="w"> </span>install<span class="w"> </span>github.com/charmbracelet/gum@latest<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ installed gum&quot;</span>
+<span class="k">fi</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>gum<span class="w"> </span><span class="p">&amp;</span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;might need go binaries on path, trying now..., try adding the line to your .zshrc&#39;</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>go<span class="w"> </span>env<span class="w"> </span>GOPATH<span class="k">)</span><span class="s2">/bin:</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+</code></pre></div>
+<h2 id="conditional">Conditional<a class="headerlink" href="#conditional" title="Permanent link">🔗</a></h2>
+<p>Only Proceed If First Condition Returns Nothing</p>
+<div class="highlight"><pre><span></span><code><span class="nv">package</span><span class="o">=</span>cw
+brew<span class="w"> </span>list<span class="w"> </span><span class="nv">$package</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span><span class="nv">$package</span>
+</code></pre></div>
+<p>On error do this:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span>nonexistentfile<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;😢 boo. file does not exist&quot;</span>
+</code></pre></div>
+<p>On success do the next command:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ congrats, you have a bashrc file&quot;</span>
+</code></pre></div>
+<h2 id="web-requests">Web Requests<a class="headerlink" href="#web-requests" title="Permanent link">🔗</a></h2>
+<h3 id="fetch-a-github-release">Fetch A GitHub Release<a class="headerlink" href="#fetch-a-github-release" title="Permanent link">🔗</a></h3>
+<p>This contains a few things, including curl, jq parsing, and movement commands.</p>
+<p>This provides a shell script example of using those to get the latest release from GitHub, parse the json, then move this to target path.
+This release doesn't wrap in a tar file; it's just a binary.</p>
+<p>This might fail due to anonymous API hits on GitHub api are rate limited aggressively.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Grabbing latest release of fetch (a github cli for release downloads)&quot;</span>
+<span class="nv">USER</span><span class="o">=</span>gruntwork-io
+<span class="nv">REPO</span><span class="o">=</span>fetch
+<span class="nv">TAG</span><span class="o">=</span>latest
+<span class="nv">ASSET</span><span class="o">=</span>fetch_linux_amd64
+<span class="nv">FILE</span><span class="o">=</span>fetch
+curl<span class="w"> </span>--silent<span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/</span><span class="nv">$USER</span><span class="s2">/</span><span class="nv">$REPO</span><span class="s2">/releases/latest&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;.assets[] | select(.name | test(\&quot;</span><span class="si">${</span><span class="nv">ASSET</span><span class="si">}</span><span class="s2">\&quot;)) | .browser_download_url&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>wget<span class="w"> </span>-qi<span class="w"> </span>-<span class="w"> </span>--output-document<span class="o">=</span><span class="nv">$FILE</span><span class="w"> </span>--progress<span class="o">=</span>bar:force
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;setting as executable and moving to /usr/local/bin&quot;</span>
+chmod<span class="w"> </span>+x<span class="w"> </span><span class="nv">$FILE</span>
+sudo<span class="w"> </span>mv<span class="w"> </span>fetch<span class="w"> </span>/usr/local/bin
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Downloaded </span><span class="k">$(</span>fetch<span class="w"> </span>--version<span class="k">)</span><span class="s2"> successfully&quot;</span>
+</code></pre></div>
+<h3 id="fetch-a-github-release-that-requires-extraction">Fetch a GitHub Release That Requires Extraction<a class="headerlink" href="#fetch-a-github-release-that-requires-extraction" title="Permanent link">🔗</a></h3>
+<p>This is more of a Linux focused shell script example for grabbing a release and extracting the tar file.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>-qqy<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>-qqy<span class="w"> </span>-o<span class="w"> </span>Dpkg::Progress-Fancy<span class="o">=</span><span class="nb">true</span><span class="w"> </span>install<span class="w"> </span>wget
+
+curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/GitTools/GitVersion/releases/latest<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;browser_download_url.*gitversion\-debian.*\-x64.*\.tar\.gz&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">2</span>,3<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="se">\&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>wget<span class="w"> </span>-qi<span class="w"> </span>-
+
+<span class="nv">tarball</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;gitversion-debian*.tar.gz&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+tar<span class="w"> </span>-xzf<span class="w"> </span><span class="nv">$tarball</span>
+
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>gitversion
+sudo<span class="w"> </span>mv<span class="w"> </span>gitversion<span class="w"> </span>/usr/local/bin
+
+sudo<span class="w"> </span>rm<span class="w"> </span><span class="nv">$tarball</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&gt;&gt;&gt;&gt; gitversion version: </span><span class="k">$(</span>~/gitversion<span class="w"> </span>/version<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Trying to install dotnet tools version&quot;</span>
+dotnet<span class="w"> </span>tool<span class="w"> </span>update<span class="w"> </span>--global<span class="w"> </span>GitVersion.Tool
+</code></pre></div>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">🔗</a></h2>
+<h3 id="shebang">Shebang<a class="headerlink" href="#shebang" title="Permanent link">🔗</a></h3>
+<p>A common pattern is just <code>#!/bin/bash</code>.</p>
+<p>To make your script more portable, by respecting the users env preferences try:</p>
+<ul>
+<li><code>#!/usr/bin/env bash</code></li>
+<li><code>#!/usr/bin/env zsh</code></li>
+<li><code>#!/usr/bin/env sh</code></li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">bash.cyberciti.biz reference</p>
+<p>Some good info on this from <a href="https://bash.cyberciti.biz/guide/Shebang#.2Fusr.2Fbin.2Fenv_bash">Shebang</a></p>
+<p>:(fas fa-code fa-fw): If you do not specify an interpreter line, the default is usually the <code>/bin/sh</code></p>
+<p>:(fas fa-code fa-fw): For a system boot script, use <code>/bin/sh</code></p>
+<p>:(fas fa-code fa-fw): The <code>/usr/bin/env</code> run a program such as a bash in a modified environment. It makes your bash script portable. The advantage of #!/usr/bin/env bash is that it will use whatever bash executable appears first in the running user's <code>$PATH</code> variable.</p>
+</div>
+<h2 id="ssh">SSH<a class="headerlink" href="#ssh" title="Permanent link">🔗</a></h2>
+<p>Setup your permissions for <code>~/.ssh</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Setting full user permissions for ~/.ssh&quot;</span>
+chmod<span class="w"> </span>-R<span class="w"> </span>u+rwX<span class="w"> </span>~/.ssh
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Remove group access for ~/.ssh&quot;</span>
+chmod<span class="w"> </span>go-rwx<span class="w"> </span>~/.ssh
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;now set any pem files to chmd 400 \$key to ensure read-only&quot;</span>
+chmod<span class="w"> </span><span class="m">0600</span><span class="w"> </span>~/.ssh/id_rsa
+</code></pre></div>
+<p>For why 0600 see footnote.<sup id="fnref:why-0600"><a class="footnote-ref" href="#fn:why-0600">1</a></sup></p>
+<div class="admonition tip">
+<p class="admonition-title">Troubleshooting macOS permissions</p>
+<p>I've had issues with macOS adding an <code>@</code> with ACL issues on the ssh key's when downloaded.</p>
+<p>To resolve this, just copy the contents of the ssh key to a new file and remove the original.</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>original_key.pem<span class="w"> </span>&gt;<span class="w"> </span>key.pem
+</code></pre></div>
+</div>
+<h2 id="aws-cli-metadata">AWS CLI &amp; Metadata<a class="headerlink" href="#aws-cli-metadata" title="Permanent link">🔗</a></h2>
+<h3 id="retrieve-instance-region">Retrieve Instance Region<a class="headerlink" href="#retrieve-instance-region" title="Permanent link">🔗</a></h3>
+<p>Looks like the metadata service uses tokens now, so this requires an additional step.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">TOKEN</span><span class="o">=</span><span class="sb">`</span>curl<span class="w"> </span>--silent<span class="w"> </span>--show-error<span class="w"> </span>--fail<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">&quot;http://169.254.169.254/latest/api/token&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-aws-ec2-metadata-token-ttl-seconds: 21600&quot;</span><span class="sb">`</span>
+<span class="nv">RESPONSE</span><span class="o">=</span><span class="sb">`</span>curl<span class="w"> </span>--silent<span class="w">  </span>--show-error<span class="w"> </span>--fail<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-aws-ec2-metadata-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w">  </span>http://169.254.169.254/latest/meta-data/placement/region<span class="sb">`</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Current Region is: [</span><span class="nv">$RESPONSE</span><span class="s2">]&quot;</span>
+</code></pre></div>
+<h2 id="list-matching-instances">List Matching Instances<a class="headerlink" href="#list-matching-instances" title="Permanent link">🔗</a></h2>
+<p>You can use output with <code>--output text</code> but for this example I used json and <code>jq</code>.</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--filters<span class="w"> </span><span class="s2">&quot;Name=tag:Name,Values={{ .EC2_NAME_FILTER }}&quot;</span><span class="w"> </span>--output<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
+--query<span class="w"> </span><span class="s1">&#39;Reservations[*].Instances[*].{Instance:InstanceId}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>--compact-output<span class="w"> </span><span class="s1">&#39;.[][].Instance&#39;</span>
+</code></pre></div>
+<h2 id="list-standard-users">List Standard Users<a class="headerlink" href="#list-standard-users" title="Permanent link">🔗</a></h2>
+<div class="highlight"><pre><span></span><code>getent<span class="w"> </span>passwd<span class="w"> </span><span class="o">{</span><span class="m">1000</span>..60000<span class="o">}</span>
+</code></pre></div>
+<p><a href="https://linuxize.com/post/how-to-list-users-in-linux/">How To List Users In Linux</a></p>
+<h2 id="search-contents-of-a-file">Search Contents of a File<a class="headerlink" href="#search-contents-of-a-file" title="Permanent link">🔗</a></h2>
+<p>Using <code>ripgrep</code> you can search very quickly through file contents.</p>
+<p>In this example, I found a text string in a PowerShell file that VSCode wasn't able to find after 1-2 mins due to the size of the directory.</p>
+<div class="highlight"><pre><span></span><code>rg<span class="w"> </span>-l<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Start-ThreadJob&quot;</span><span class="w"> </span>*.ps1
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Benchmark</p>
+<p>I ran a quick test to see how ripgrep performed compared to normal grep search.
+Grep wasn't optimized, and by default is single threaded.
+Ripgrep is multithreaded, automatically honors gitignore and more.</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-rnw<span class="w"> </span><span class="nv">$HOME</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;Start-ThreadJob&#39;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ripgrep</code></td>
+<td>5m6s</td>
+</tr>
+<tr>
+<td><code>grep</code></td>
+<td>1h+timeout</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="using-yq-to-edit-yaml-files-for-datadog-service">Using yq to edit yaml files for Datadog service<a class="headerlink" href="#using-yq-to-edit-yaml-files-for-datadog-service" title="Permanent link">🔗</a></h2>
+<blockquote>
+<p><a href="https://github.com/mikefarah/yq">GitHub - mikefarah/yq: yq is a portable command-line YAML processor</a></p>
+</blockquote>
+<p>I've use yq to edit yaml files programatically, such as datadog configuration files.</p>
+<p>Here's a few samples on how to use this tool, using datadog agent config files as an example.</p>
+<h3 id="quick-install-of-datadog-service">Quick Install of Datadog Service<a class="headerlink" href="#quick-install-of-datadog-service" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">DD_HOST_TAGS</span><span class="o">=</span><span class="s2">&quot;type:custom-server,stage:dev&quot;</span>
+<span class="nv">DD_HOSTNAME</span><span class="o">=</span><span class="s2">&quot;custom-server&quot;</span>
+
+<span class="nv">DD_AGENT_MAJOR_VERSION</span><span class="o">=</span><span class="m">7</span><span class="w"> </span><span class="nv">DD_API_KEY</span><span class="o">=</span>FancyAPIKey<span class="w"> </span><span class="nv">DD_SITE</span><span class="o">=</span><span class="s2">&quot;datadoghq.com&quot;</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>https://s3.amazonaws.com/dd-agent/scripts/install_script.sh<span class="k">)</span><span class="s2">&quot;</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">777</span><span class="w"> </span>/etc/datadog-agent/
+</code></pre></div>
+<h3 id="start-and-stop-the-datadog-services">Start and stop the datadog services<a class="headerlink" href="#start-and-stop-the-datadog-services" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>datadog-agent
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>datadog-agent
+</code></pre></div>
+<h3 id="edit-default-datadog-config-file">Edit Default Datadog Config File<a class="headerlink" href="#edit-default-datadog-config-file" title="Permanent link">🔗</a></h3>
+<p>Next, configure the main configuration with custom tags and host name, including additional ec2 tags, metadata, and a custom tag to show the specific load test this is capturing.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">config</span><span class="o">=</span>/etc/datadog-agent/datadog.yaml
+<span class="nv">nametag</span><span class="o">=</span>mycustom-server
+<span class="nv">testname</span><span class="o">=</span>bigloadtest
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set the basic config for app&quot;</span>
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">.hostname = \&quot;</span><span class="nv">$nametag</span><span class="s2">\&quot; |</span>
+<span class="s2">.process_config.enabled = true |</span>
+<span class="s2">.tags = [\&quot;scope:loadtest\&quot;,\&quot;testname:</span><span class="nv">$testname</span><span class="s2">\&quot;] |</span>
+<span class="s2">.env = \&quot;dev\&quot; |</span>
+<span class="s2">.cloud_provider_metadata = [\&quot;aws\&quot;] |</span>
+<span class="s2">.collect_ec2_tags = true&quot;</span><span class="w"> </span>--inplace<span class="w"> </span><span class="nv">$config</span>
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;.hostname, .process_config.enabled, .tags, .env, .cloud_provider_metadata ,.collect_ec2_tags&quot;</span><span class="w"> </span><span class="nv">$config</span>
+</code></pre></div>
+<h3 id="enable-datadog-network-monitoring">Enable Datadog Network Monitoring<a class="headerlink" href="#enable-datadog-network-monitoring" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set the process level config to search for ssh/sshd metrics&quot;</span>
+sudo<span class="w"> </span>cp<span class="w"> </span>/etc/datadog-agent/system-probe.yaml.example<span class="w"> </span>/etc/datadog-agent/system-probe.yaml
+<span class="nv">netconfig</span><span class="o">=</span>/etc/datadog-agent/system-probe.yaml
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s1">&#39;.network_config.enabled&#39;</span><span class="w"> </span><span class="nv">$netconfig</span>
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span>--inplace<span class="w">  </span><span class="s1">&#39;</span>
+<span class="s1">.network_config.enabled = true</span>
+<span class="s1">&#39;</span><span class="w"> </span><span class="nv">$netconfig</span>
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s1">&#39;.network_config.enabled&#39;</span><span class="w"> </span><span class="nv">$netconfig</span>
+</code></pre></div>
+<h3 id="enable-datadog-process-level-tracking">Enable Datadog Process Level Tracking<a class="headerlink" href="#enable-datadog-process-level-tracking" title="Permanent link">🔗</a></h3>
+<p>Enable process level tracking, with specific matching on <code>ssh, sshd</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set the process level config to search for ssh/sshd metrics&quot;</span>
+sudo<span class="w"> </span>cp<span class="w"> </span>/etc/datadog-agent/conf.d/process.d/conf.yaml.example<span class="w">  </span>/etc/datadog-agent/conf.d/process.d/conf.yaml
+<span class="nv">processconfig</span><span class="o">=</span>/etc/datadog-agent/conf.d/process.d/conf.yaml
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s1">&#39;.instances&#39;</span><span class="w"> </span><span class="nv">$processconfig</span>
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span>--inplace<span class="w">  </span><span class="s1">&#39;</span>
+<span class="s1">.instances[0].name = &quot;ssh&quot; |</span>
+<span class="s1">.instances[0].search_string = [&quot;ssh&quot;,&quot;sshd&quot;]</span>
+<span class="s1">&#39;</span><span class="w"> </span><span class="nv">$processconfig</span>
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span>--inplace<span class="w">  </span><span class="s1">&#39;</span>
+<span class="s1">.instances[1].name = &quot;myprocess&quot; |</span>
+<span class="s1">.instances[1].search_string = [&quot;myprocess&quot;]</span>
+<span class="s1">&#39;</span><span class="w"> </span><span class="nv">$processconfig</span>
+yq<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s1">&#39;.instances&#39;</span><span class="w"> </span><span class="nv">$processconfig</span>
+</code></pre></div>
+<p>You can do a lot with <code>yq</code>.</p>
+<h2 id="parse-kubernetes-secrets-using-jq">Parse Kubernetes Secrets Using JQ<a class="headerlink" href="#parse-kubernetes-secrets-using-jq" title="Permanent link">🔗</a></h2>
+<p>Using jq, you can parse out secrets from base64 encoded values for some quick scripting.</p>
+<blockquote>
+<p>NOTE: This uses <a href="https://github.com/abhimanyu003/sttr">sttr</a> but you can modify to whatever your platform provides (zsh <code>base64 -decode</code> or pwsh <code>[System.Convert]::FromBase64String($Base64String)</code>))
+If you have Go installed (everyone should! 😀) then run <code>go install github.com/abhimanyu003/sttr@latest</code>.</p>
+</blockquote>
+<p>This example parses an encoded json string to help registry an Azure Container Registry from a Kubernetes stored secret.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">namespace</span><span class="o">=</span><span class="s2">&quot;mynamespace&quot;</span>
+<span class="nv">secretname</span><span class="o">=</span><span class="s2">&quot;mysecretname&quot;</span>
+
+kubectl<span class="w"> </span>config<span class="w"> </span>set-context<span class="w"> </span>--current<span class="w"> </span>--namespace<span class="o">=</span><span class="nv">$namespace</span>
+<span class="nv">configEncoded</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="nv">$secretname</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.\.dockerconfigjson}&#39;</span><span class="k">)</span>
+<span class="nv">configDecoded</span><span class="o">=</span><span class="k">$(</span>sttr<span class="w"> </span>base64-decode<span class="w"> </span><span class="nv">$config</span><span class="k">)</span>
+<span class="nv">registry</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$configDecoded</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.auths | keys[]&#39;</span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;👉 registry: </span><span class="nv">$registry</span><span class="s2">&quot;</span>
+<span class="nv">creds</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$configDecoded</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.auths.<span class="si">${</span><span class="nv">registry</span><span class="si">}</span>.auth<span class="w"> </span>--raw-output<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;👉 username:password: </span><span class="k">$(</span><span class="w"> </span>sttr<span class="w"> </span>base64-decode<span class="w"> </span><span class="nv">$creds</span><span class="w"> </span><span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="github-cli">GitHub CLI<a class="headerlink" href="#github-cli" title="Permanent link">🔗</a></h2>
+<h2 id="view-the-logs-of-a-prior-run">View The Logs Of A Prior Run<a class="headerlink" href="#view-the-logs-of-a-prior-run" title="Permanent link">🔗</a></h2>
+<p>View the logs of the last run (or toggle to error logs with the switch).</p>
+<ul>
+<li><code>gh run view --log $(gh run list -L1 --json 'databaseId' --jq '.[].DatabaseId')</code></li>
+<li><code>gh run view $(gh run list --limit 1 --json databaseId --jq '.[0].databaseId' ) --log</code></li>
+</ul>
+<p>This can be chained together with other commands to quickly iterate on testing.
+When appropriate, you might avoid this by running <a href="https://github.com/nektos/act">act</a> but I've had limited success with it due to various restrictions.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;ci: get github release working&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>git<span class="w"> </span>push<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sleep<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>gh<span class="w"> </span>run<span class="w"> </span>watch<span class="w"> </span>-i1<span class="w"> </span><span class="o">||</span><span class="w"> </span>gh<span class="w"> </span>run<span class="w"> </span>view<span class="w"> </span>--log<span class="w"> </span>--job<span class="w"> </span><span class="k">$(</span>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>-L1<span class="w"> </span>--json<span class="w"> </span><span class="s1">&#39;workflowDatabaseId&#39;</span><span class="w"> </span>--jq<span class="w"> </span><span class="s1">&#39;.[].workflowDatabaseId&#39;</span><span class="k">)</span>
+</code></pre></div>
+<h3 id="use-to-configure-settings-on-many-repos-at-once">Use To Configure Settings on Many Repos At Once<a class="headerlink" href="#use-to-configure-settings-on-many-repos-at-once" title="Permanent link">🔗</a></h3>
+<p>This example uses [gum]<sup id="fnref:gum-tool"><a class="footnote-ref" href="#fn:gum-tool">2</a></sup> to filter.
+Use <code>tab</code> when selecting in the multi-entry option.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">org</span><span class="o">=</span><span class="k">$(</span>gum<span class="w"> </span>input<span class="w"> </span>--prompt<span class="w"> </span><span class="s1">&#39;enter GitHub org: &#39;</span><span class="k">)</span>
+<span class="nv">originallist</span><span class="o">=</span><span class="k">$(</span><span class="w"> </span>gh<span class="w"> </span>repo<span class="w"> </span>list<span class="w"> </span><span class="nv">$org</span><span class="w"> </span>--json<span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="w"> </span>--jq<span class="w"> </span><span class="s1">&#39;.[].name&#39;</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>tr<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="k">)</span>
+<span class="nv">repos</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$originallist</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gum<span class="w"> </span>filter<span class="w"> </span>--no-limit<span class="w"> </span><span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="k">for</span><span class="w"> </span>repo<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$repos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span><span class="w"> </span><span class="p">;</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;processing %s ... &quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">repo</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span>gh<span class="w"> </span>api<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--method<span class="w"> </span>PATCH<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-H<span class="w"> </span><span class="s2">&quot;Accept: application/vnd.github+json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>/repos/<span class="nv">$org</span>/<span class="nv">$repo</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-F<span class="w"> </span><span class="nv">use_squash_pr_title_as_default</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-F<span class="w"> </span><span class="nv">squash_merge_commit_title</span><span class="o">=</span>PR_TITLE<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-F<span class="w"> </span><span class="nv">squash_merge_commit_message</span><span class="o">=</span>PR_BODY<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--silent
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✔️\n&quot;</span>
+<span class="w">    </span><span class="c1"># return # for testing</span>
+<span class="k">done</span>
+</code></pre></div>
+<h2 id="clone-all-the-desired">Clone All The Desired<a class="headerlink" href="#clone-all-the-desired" title="Permanent link">🔗</a></h2>
+<p>Uses gum[^gum-repo] &amp; [ghq]<sup id="fnref:ghq-repo"><a class="footnote-ref" href="#fn:ghq-repo">3</a></sup>.
+See <a href="#check-for-and-install-tooling">setup directions</a>.</p>
+<h3 id="configure-ghq">Configure ghq<a class="headerlink" href="#configure-ghq" title="Permanent link">🔗</a></h3>
+<p>To configure <code>ghq</code> defaults run:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>ghq.vcs<span class="w"> </span>git
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>ghq.root<span class="w"> </span><span class="k">$(</span>gum<span class="w"> </span>input<span class="w"> </span>-prompt<span class="w"> </span><span class="s1">&#39;base git directory for repos: (recommend ~/git):  &#39;</span><span class="w"> </span><span class="k">)</span>
+</code></pre></div>
+<h3 id="clone-all-repos-selected">Clone All Repos Selected<a class="headerlink" href="#clone-all-repos-selected" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">org</span><span class="o">=</span><span class="k">$(</span>gum<span class="w"> </span>input<span class="w"> </span>--prompt<span class="w"> </span><span class="s1">&#39;enter GitHub org: &#39;</span><span class="k">)</span>
+<span class="nv">originallist</span><span class="o">=</span><span class="k">$(</span><span class="w"> </span>gh<span class="w"> </span>repo<span class="w"> </span>list<span class="w"> </span><span class="nv">$org</span><span class="w"> </span>--json<span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="w"> </span>--jq<span class="w"> </span><span class="s1">&#39;.[].name&#39;</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>tr<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;select repos (use tab to select, and type to filter)&#39;</span>
+<span class="nv">repos</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$originallist</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gum<span class="w"> </span>filter<span class="w"> </span>--no-limit<span class="w"> </span><span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="k">for</span><span class="w"> </span>repo<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$repos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span><span class="w"> </span><span class="p">;</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;processing %s ... &quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">repo</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span>ghq<span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;https://github.com/</span><span class="si">${</span><span class="nv">org</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">repo</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✔️\n&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:why-0600">
+<p><a href="https://www.reddit.com/r/linux4noobs/comments/bjpbnl/why_are_ssh_keys_600_and_not_400_by_default/">Why are ssh keys 600 and not 400 by default? authorized_keys immutable? : linux4noobs</a>&#160;<a class="footnote-backref" href="#fnref:why-0600" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:gum-tool">
+<p><a href="https://github.com/charmbracelet/gum">GitHub - charmbracelet/gum: A tool for glamorous shell scripts 🎀</a>&#160;<a class="footnote-backref" href="#fnref:gum-tool" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ghq-repo">
+<p><a href="https://github.com/x-motemen/ghq">ghq - repo cloning tool</a>&#160;<a class="footnote-backref" href="#fnref:ghq-repo" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.top", "navigation.path", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ce72ebac.min.js"></script>
+      
+    
+  </body>
+</html>
