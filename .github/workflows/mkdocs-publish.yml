@@ -29,7 +29,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material
+      - run: pip install mkdocs-material mkdocs-glightbox
       # - run: mkdocs gh-deploy --force
       - name: mkdocs-build #(_site directory name is used for Jekyll compatiblity)
         run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site

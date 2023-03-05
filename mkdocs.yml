@@ -4,7 +4,12 @@ repo_url: https://github.com/sheldonhull/digital-garden
 use_directory_urls: true
 theme:
   name: material
-  logo: assets/icons/regular_expression_light.svg
+  #logo: assets/icons/regular_expression_light.svg
+  logo: assets/images/sheldon-avatar.jpg
+  font:
+    text: Raleway
+    code: Fira Code
+
   palette:
     # Palette toggle for light mode
     - media: '(prefers-color-scheme: light)'
@@ -33,19 +38,32 @@ theme:
     - toc.integrate
     - search.suggest
     - search.highlight
+    - content.code.copy
+
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
   - footnotes
   - toc:
       permalink: 🔗
   - attr_list
-
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 plugins:
-  - tags
+  - tags:
+      enabled: !ENV [CI, false]
   - search
+  - glightbox
 
+  # - meta: # insiders only
+  #     meta_file: '**/.meta.yml'
 dev_addr: '0.0.0.0:8000' # since running dockerized, need to use 0.0.0.0 since 127.0.0.1 won't resolve to docker gateway
 extra_css:
   - stylesheets/extra.css
