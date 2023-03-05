@@ -1,7 +1,7 @@
 ---
 site_name: digital garden
 repo_url: https://github.com/sheldonhull/digital-garden
-
+use_directory_urls: true
 theme:
   name: material
   logo: assets/icons/regular_expression_light.svg
