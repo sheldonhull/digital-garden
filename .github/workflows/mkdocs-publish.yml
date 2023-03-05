@@ -18,6 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    outputs:
+      changes: ${{ steps.changes.outputs.src }}
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
@@ -49,7 +51,7 @@ jobs:
   # Deployment job
   deploy:
     needs: build
-    if: ${{ needs.build.outputs.src == 'true' }}
+    if: ${{ needs.build.outputs.changes == 'true' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
