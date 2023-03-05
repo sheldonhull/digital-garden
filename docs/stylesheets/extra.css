@@ -7,7 +7,7 @@
   --md-typeset-a-color: #7fdbca;
 }
 .md-typeset a {
-  color: #7fdbca;
+  color: #7fdbca !important;
 }
 .md-typeset h1,
 .md-typeset h2,
