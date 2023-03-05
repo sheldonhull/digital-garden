@@ -1,5 +1,7 @@
 # Digital Garden
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/sheldonhull/digital-garden/mkdocs-publish.yml?style=for-the-badge)
+
 An experiment on moving my "digital garden" content from hugo to mkdocs.
 While my primary blog is still on hugo, the effort to maintain a personal knowledge base on it is too high.
 
