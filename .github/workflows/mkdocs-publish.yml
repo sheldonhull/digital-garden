@@ -49,7 +49,7 @@ jobs:
   # Deployment job
   deploy:
     needs: build
-    if: steps.changes.outputs.src == 'true'
+    if: ${{ needs.build.outputs.src == 'true' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
