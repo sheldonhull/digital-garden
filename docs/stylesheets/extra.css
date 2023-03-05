@@ -6,7 +6,7 @@
   --md-accent-bg-color: hsla(0, 0%, 100%, 1);
   --md-typeset-a-color: #7fdbca;
 }
-.md-typeset a {
+a {
   color: #7fdbca !important;
 }
 .md-typeset h1,
