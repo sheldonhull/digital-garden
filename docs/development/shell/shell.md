@@ -298,33 +298,6 @@ For why 0600 see footnote.[^why-0600]
     cat original_key.pem > key.pem
     ```
 
-## AWS CLI & Metadata
-
-### Retrieve Instance Region
-
-Looks like the metadata service uses tokens now, so this requires an additional step.
-
-```shell
-TOKEN=`curl --silent --show-error --fail -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
-RESPONSE=`curl --silent  --show-error --fail -H "X-aws-ec2-metadata-token: $TOKEN"  http://169.254.169.254/latest/meta-data/placement/region`
-echo "Current Region is: [$RESPONSE]"
-```
-
-## List Matching Instances
-
-You can use output with `--output text` but for this example I used json and `jq`.
-
-```shell
-aws ec2 describe-instances --filters "Name=tag:Name,Values={{ .EC2_NAME_FILTER }}" --output json \
---query 'Reservations[*].Instances[*].{Instance:InstanceId}' | jq --compact-output '.[][].Instance'
-```
-
-## List Standard Users
-
-```shell
-getent passwd {1000..60000}
-```
-
 [How To List Users In Linux](https://linuxize.com/post/how-to-list-users-in-linux/)
 
 [^why-0600]: [Why are ssh keys 600 and not 400 by default? authorized_keys immutable? : linux4noobs](https://www.reddit.com/r/linux4noobs/comments/bjpbnl/why_are_ssh_keys_600_and_not_400_by_default/)
