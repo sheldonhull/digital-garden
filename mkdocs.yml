@@ -1,25 +1,26 @@
 ---
-site_name: sheldonhull
+site_name: digital garden
 repo_url: https://github.com/sheldonhull/digital-garden
 
 theme:
   name: material
   logo: assets/icons/regular_expression_light.svg
   palette:
-    # scheme: nightowl
-    # accent: indigo
     # Palette toggle for light mode
-    - scheme: default
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - scheme: slate
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
   features:
+    - navigation.indexes
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
@@ -30,19 +31,24 @@ theme:
     - navigation.top
     - navigation.path
     - toc.integrate
-    - search
     - search.suggest
     - search.highlight
-
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - footnotes
+  - toc:
+      permalink: 🔗
+  - attr_list
+
 plugins:
   - tags
+  - search
 
 dev_addr: '0.0.0.0:8000' # since running dockerized, need to use 0.0.0.0 since 127.0.0.1 won't resolve to docker gateway
 extra_css:
   - stylesheets/extra.css
   - stylesheets/gist.css
   - stylesheets/code-highlighting.css
+custom_dir: overrides

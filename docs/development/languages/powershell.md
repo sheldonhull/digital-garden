@@ -797,3 +797,92 @@ Get-ChildItem $dir -Filter *.png | ForEach-Object -Begin { $x = 0 } -Process {
     Rename-Item $file $newname
 }
 ```
+
+## Compare Seperate Machine Files
+
+When I was working on a project involving Windows and an installed product, I found some mismatches in the library files that were on a machine.
+
+Since the dlls were mismatching this caused issues with the application.
+
+Here's a way to simplify checking for this in the future.
+
+```powershell
+$MyDirectory = ''
+Function Format-FileSize {
+Param (
+[int]$size
+)
+  If ($size -gt 1TB)
+  {[string]::Format("{0:0.00} TB", $size / 1TB)}
+  ElseIf ($size -gt 1GB)
+  {[string]::Format("{0:0.00} GB", $size / 1GB)}
+  ElseIf ($size -gt 1MB)
+  {[string]::Format("{0:0.00} MB", $size / 1MB)}
+  ElseIf ($size -gt 1KB)
+  {[string]::Format("{0:0.00} kB", $size / 1KB)}
+  ElseIf ($size -gt 0)
+  {[string]::Format("{0:0.00} B", $size)}
+  Else
+  {""}
+}
+$results = Get-ChildItem -Path $MyDirectory -Recurse  | Where-Object {$_.PSIsContainer -eq $false} | ForEach-Object {
+  [System.IO.FileInfo]$FileInfo = Get-Item $_.FullName
+  try {
+    $FileVersion = $FileInfoVersionInfo.FileVersion
+  } catch {
+    $FileVersion = $null
+  }
+  try {
+    $AssemblyVersion = [Reflection.AssemblyName]::GetAssemblyName($FileInfo.FullName).Version
+  } catch {
+    $AssemblyVersion = $null
+  }
+  [PSCustomObject]@{
+    Name          = $FileInfo.Name
+    Size          = Format-FileSize $FileInfo.Length
+    FileVersion   = $FileVersionAssembly
+    Version       = $AssemblyVersion
+    Directory     = $FileInfo.Directory
+  }
+}
+$results | Export-CLIXML -path report.xml -Encoding UTF8 -Force
+```
+
+Once you run this on a system that works like you expect you’ll get a serialized xml file that can be used to compare what another machine might have.
+
+You could then compare the results with:
+
+```powershell
+$Original = Import-CLIXML -path $OriginalFile
+$Expected = Import-CLIXML -path $ExpectedFile
+
+Compare-Object -ReferenceObject $Original -DifferenceObject $Expected -Property Name,Size,FileVersion,AssemblyVersion
+```
+
+The output should look similar to this:
+
+```text
+Name            : Newtonsoft.Json.dll
+Size            : 443.11 kB
+FileVersion     :
+AssemblyVersion : 9.0.0.0
+SideIndicator   : =>
+
+Name            : Newtonsoft.Json.dll
+Size            : 509.00 kB
+FileVersion     :
+AssemblyVersion : 8.0.0.0
+SideIndicator   : <=
+```
+
+If you are dealing with the dreaded GAC (Global Assembly Cache) try using this model to a comparison as well.
+
+```powershell
+if(@(Get-Module GAC -ListAvailable -EA 0).Count -eq 0){
+Install-Module GAC -Scope CurrentUser
+}
+
+Import-Module Gac
+Get-GACAssembly -name '*AssemblyNames*' | Export-CLIXML -path report.xml
+
+```
