@@ -51,4 +51,3 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/gist.css
   - stylesheets/code-highlighting.css
-custom_dir: overrides
