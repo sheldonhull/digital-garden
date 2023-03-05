@@ -2,6 +2,8 @@
 title: welcome
 ---
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/sheldonhull/digital-garden/mkdocs-publish.yml?style=for-the-badge)
+
 Welcome to my digital garden.
 
 This will include content I frequently update or take notes on.
