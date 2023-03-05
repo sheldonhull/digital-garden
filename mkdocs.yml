@@ -51,3 +51,4 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/gist.css
   - stylesheets/code-highlighting.css
+remote_branch: gh-pages
