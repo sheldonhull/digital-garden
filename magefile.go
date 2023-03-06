@@ -14,26 +14,26 @@ import (
 )
 
 const (
-	// portMapping is the port mapping for the mkdocs server running locally
+	// PortMapping is the port mapping for the mkdocs server running locally.
 	portMapping = "3001:8000"
 
-	// mkdocsDockerImage is the docker image to use for running mkdocs
-	mkdocsDockerImage = "squidfunk/mkdocs-material"
+	// MkdocsDockerImage is the docker image to use for running mkdocs.
+	// mkdocsDockerImage = "squidfunk/mkdocs-material"
 
-	// mkdocsDockerTag is the docker tag to use for running mkdocs
-	mkdocsDockerTag = "latest"
+	// MkdocsDockerTag is the docker tag to use for running mkdocs.
+	// mkdocsDockerTag = "latest"
 
-	// localDockerImageName is the Docker image to run commands against after building.
+	// LocalDockerImageName is the Docker image to run commands against after building.
 	localDockerImageName = "dev.local/mkdocs:latest"
 
-	// dockerFileName is the Dockerfile to use for building the image for running locally.
+	// DockerFileName is the Dockerfile to use for building the image for running locally.
 	dockerFileName = "Dockerfile.mkdocs"
 )
 
-// qualifiedDockerImage is the fully qualified docker image to use for running mkdocs
-var _qualifiedDockerImage = fmt.Sprintf("%s:%s", mkdocsDockerImage, mkdocsDockerTag)
+// QualifiedDockerImage is the fully qualified docker image to use for running mkdocs.
+// var _qualifiedDockerImage = fmt.Sprintf("%s:%s", mkdocsDockerImage, mkdocsDockerTag)
 
-// run the mkdocs server via docker
+// invokeMKDocs runs the mkdocs serve command via docker.
 func invokeMKDocs(args ...string) error {
 	wd, err := os.Getwd()
 	if err != nil {
@@ -58,10 +58,10 @@ func invokeMKDocs(args ...string) error {
 	return sh.RunV("docker", invokeArgs...)
 }
 
-// 🌐 Run mkdocs serve
+// 🌐 Run mkdocs serve (with strict mode enabled).
 func Serve() error {
 	mg.Deps(Build)
-	return invokeMKDocs("serve")
+	return invokeMKDocs("serve", "--strict")
 }
 
 // 🔨 Run docker build.

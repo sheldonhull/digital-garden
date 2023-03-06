@@ -15,6 +15,15 @@ lint:
     - prettier@2.8.4
     - taplo@0.7.0
     - yamllint@1.29.0
+  ignore:
+    - linters: [ALL]
+      paths:
+        - vendor/**
+        - notes/.obsidian/**
+    - linters: [prettier]
+      paths:
+        - .markdownlint.yaml
+
 runtimes:
   enabled:
     - go@SYSTEM

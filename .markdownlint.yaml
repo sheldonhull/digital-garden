@@ -43,8 +43,8 @@ MD025: true
 # This is for maintainability and code diffs.
 # Try applying semantic line break concept for breaking up longer phrases
 # https://sembr.org/
-MD013:
-  line_length: 200
+MD013: false
+  #line_length: 200
 
 # MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 # This tweaks to allow nested items to have duplicate headers.
