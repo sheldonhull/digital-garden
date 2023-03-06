@@ -58,10 +58,10 @@ func invokeMKDocs(args ...string) error {
 	return sh.RunV("docker", invokeArgs...)
 }
 
-// 🌐 Run mkdocs serve (with strict mode enabled).
+// 🌐 Run mkdocs serve via Docker.
 func Serve() error {
 	mg.Deps(Build)
-	return invokeMKDocs("serve", "--strict")
+	return invokeMKDocs("serve", "--dev-addr", "0.0.0.0:8000") // Required to pass 0.0.0.0 to ensure that the server is accessible from the host when running in docker.
 }
 
 // 🔨 Run docker build.

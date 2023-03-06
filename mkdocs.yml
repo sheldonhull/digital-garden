@@ -58,14 +58,16 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 plugins:
-  - tags:
-      enabled: !ENV [CI, false]
+  - tags
+  #  - tags:
+  #      enabled: !ENV [CI, false]
+
   - search
   - glightbox
 
   # - meta: # insiders only
   #     meta_file: '**/.meta.yml'
-dev_addr: '0.0.0.0:8000' # since running dockerized, need to use 0.0.0.0 since 127.0.0.1 won't resolve to docker gateway
+# dev_addr: '0.0.0.0:8000' # since running dockerized, need to use 0.0.0.0 since 127.0.0.1 won't resolve to docker gateway
 extra_css:
   - stylesheets/extra.css
   - stylesheets/gist.css

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.tags": [
+    "automation",
+    "dbatools",
+    "development",
+    "devops",
+    "docker",
+    "git",
+    "go",
+    "golang",
+    "linting",
+    "powershell",
+    "shell",
+    "sql-server",
+    "task",
+    "tech"
+  ],
+  "frontMatter.taxonomy.categories": []
+}

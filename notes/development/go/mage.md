@@ -1,5 +1,6 @@
 ---
 title: Mage
+date: 2023-03-06 14:49
 ---
 
 ## Using Go for Task Running & Automation
