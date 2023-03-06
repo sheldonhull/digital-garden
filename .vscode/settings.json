@@ -20,7 +20,7 @@
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd HH:mm", // not sure how to do UTC with offset, so just leaving as local - https://date-fns.org/v2.0.1/docs/format
   "frontMatter.taxonomy.frontMatterType": "YAML",
   "frontMatter.content.wysiwyg": true,
-  "frontMatter.git.commitMessage": "chore(frontmatter): synced by frontmatter",
+  "frontMatter.git.commitMessage": "docs: sync latest content via frontmatter",
   "frontMatter.git.enabled": true,
   "frontMatter.media.defaultSorting": "LastModifiedDesc",
   "frontMatter.preview.host": "http://localhost:3001",
