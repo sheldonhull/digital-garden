@@ -27,7 +27,7 @@ jobs:
         with:
           filters: |
             src:
-              - 'docs/**/*.md'
+              - 'notes/**/*.md'
               - 'mkdocs.yml'
               - '.github/workflows/mkdocs-publish.yml'
       - if: steps.changes.outputs.src == 'true'

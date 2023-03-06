@@ -6,7 +6,7 @@ summary: >-
   A cheatsheet for some git workflow oriented commands, things I often forget,
   useful shortcuts and more.
 slug: git
-permalink: /docs/git
+permalink: /notes/git
 comments: true
 tags:
   - development

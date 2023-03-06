@@ -22,12 +22,16 @@ const (
 
 	// mkdocsDockerTag is the docker tag to use for running mkdocs
 	mkdocsDockerTag = "latest"
+
+	// localDockerImageName is the Docker image to run commands against after building.
+	localDockerImageName = "dev.local/mkdocs:latest"
+
+	// dockerFileName is the Dockerfile to use for building the image for running locally.
+	dockerFileName = "Dockerfile.mkdocs"
 )
 
-var (
-	// qualifiedDockerImage is the fully qualified docker image to use for running mkdocs
-	_qualifiedDockerImage = fmt.Sprintf("%s:%s", mkdocsDockerImage, mkdocsDockerTag)
-)
+// qualifiedDockerImage is the fully qualified docker image to use for running mkdocs
+var _qualifiedDockerImage = fmt.Sprintf("%s:%s", mkdocsDockerImage, mkdocsDockerTag)
 
 // run the mkdocs server via docker
 func invokeMKDocs(args ...string) error {
@@ -36,7 +40,16 @@ func invokeMKDocs(args ...string) error {
 		return err
 	}
 
-	invokeArgs := []string{"run", "--rm", "-it", "-p", portMapping, "-v", fmt.Sprintf("%s:/docs", wd), _qualifiedDockerImage}
+	invokeArgs := []string{
+		"run",
+		"--rm",
+		"-it",
+		"-p",
+		portMapping,
+		"-v",
+		fmt.Sprintf("%s:/docs", wd),
+		localDockerImageName,
+	}
 	invokeArgs = append(invokeArgs, args...)
 	if mg.Verbose() {
 		invokeArgs = append(invokeArgs, "--verbose")
@@ -45,8 +58,15 @@ func invokeMKDocs(args ...string) error {
 	return sh.RunV("docker", invokeArgs...)
 }
 
-// Run mkdocs server
+// 🌐 Run mkdocs serve
 func Serve() error {
+	mg.Deps(Build)
 	return invokeMKDocs("serve")
+}
 
+// 🔨 Run docker build.
+//
+// This is required as custom plugins are installed in docker image.
+func Build() error {
+	return sh.Run("docker", "build", "-t", localDockerImageName, "-f", dockerFileName, ".")
 }

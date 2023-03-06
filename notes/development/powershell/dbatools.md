@@ -4,7 +4,7 @@ slug: 'dbatools'
 date: '2019-03-11'
 toc: true
 summary: A cheatsheet and quick start reference for working with dbatools
-permalink: /docs/dbatools/
+permalink: /notes/dbatools/
 tags:
   - sql-server
   - development
