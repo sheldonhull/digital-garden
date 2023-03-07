@@ -1,7 +1,10 @@
 ---
 title: welcome
 date: 2023-03-06 14:49
+lastmod: 2023-03-07 15:31
 ---
+
+![avatar](assets/images/sheldon-avatar.jpg){: style="height:150px;width:150px;border-radius:50%; max-width: 50%;" align=left}
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/sheldonhull/digital-garden/mkdocs-publish.yml?style=for-the-badge)
 
