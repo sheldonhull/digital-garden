@@ -2,6 +2,7 @@
   "recommendations": [
     "eliostruyf.vscode-front-matter",
     "lukapetrovic.image-resizer",
-    "fabiospampinato.vscode-optimize-images"
+    "fabiospampinato.vscode-optimize-images",
+    "cschleiden.vscode-github-actions"
   ]
 }
