@@ -17,7 +17,9 @@
 .md-typeset h6 {
   filter: drop-shadow(0 0 10px #03edf9) !important;
 }
-
+.md-nav__item li {
+  padding-left: 15px !important;
+}
 .md-typeset mark {
   /* filter: drop-shadow(0 0 10px #03edf9) !important; */
   /* apply a filter with drop-shadow that is rounded and smooth and fades out in a circular pattern */
