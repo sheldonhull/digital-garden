@@ -1,6 +1,7 @@
 ---
 date: 2023-03-07 19:49
-lastmod: 2023-03-07 19:49
+lastmod: 2023-03-07 22:21
+title: go
 ---
 
 # Go
@@ -9,4 +10,4 @@ A no-frills language that maximizes productivity and readability for both indivi
 
 My "Go To" for solving problems!
 
-![ashley-mcnara](https://github.com/ashleymcnamara/gophers/blob/master/gopher_unicorn.png?raw=true)
+![gopher-unicorns](../../assets/images/gopher_unicorn.png 'github.com/ashleymcnamara/gophers')

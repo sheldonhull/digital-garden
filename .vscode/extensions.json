@@ -1,3 +1,7 @@
 {
-  "recommendations": ["eliostruyf.vscode-front-matter"]
+  "recommendations": [
+    "eliostruyf.vscode-front-matter",
+    "lukapetrovic.image-resizer",
+    "fabiospampinato.vscode-optimize-images"
+  ]
 }
