@@ -38,8 +38,11 @@
       "comments": "off",
       "strings": "off"
     },
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "editor.defaultFormatter": "trunk.io"
+    // "editor.tabSize": 4
   },
+  "markdown.extension.list.indentationSize": "adaptive",
   "frontMatter.dashboard.openOnStart": true,
   "frontMatter.content.autoUpdateDate": true,
   "editor.wordWrap": "off",
