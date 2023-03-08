@@ -62,12 +62,13 @@ mage_output_file.go
 # What Files Should Be Ignored with Yarn 2
 # https://github.com/yarnpkg/berry/issues/454
 # Not using zero installs, it's ok to have that done by dev.
+pnp.*
 .yarn/*
-!.yarn/releases
+!.yarn/patches
 !.yarn/plugins
-.pnp.*
-
-
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 .venv/
 venv/

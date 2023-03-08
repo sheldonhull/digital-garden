@@ -1,0 +1,11 @@
+{
+  "name": "digital-garden",
+  "version": "0.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "i": "^0.3.7",
+    "imagemin": "^8.0.1",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2"
+  }
+}

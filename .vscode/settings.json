@@ -42,5 +42,12 @@
   },
   "frontMatter.dashboard.openOnStart": true,
   "frontMatter.content.autoUpdateDate": true,
-  "editor.wordWrap": "off"
+  "editor.wordWrap": "off",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "notes",
+      "path": "[[workspace]]/notes",
+      "previewPath": "/{{pathToken.relPath}}/"
+    }
+  ]
 }
