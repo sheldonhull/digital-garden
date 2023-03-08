@@ -41,5 +41,6 @@
     "editor.minimap.enabled": false
   },
   "frontMatter.dashboard.openOnStart": true,
-  "frontMatter.content.autoUpdateDate": true
+  "frontMatter.content.autoUpdateDate": true,
+  "editor.wordWrap": "off"
 }

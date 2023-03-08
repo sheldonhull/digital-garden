@@ -1,3 +1,8 @@
+---
+date: 2023-03-07 19:50
+lastmod: 2023-03-07 19:50
+---
+
 # PowerShell
 
 With magic like this, why use bash!

@@ -1,3 +1,8 @@
+---
+date: 2023-03-07 19:49
+lastmod: 2023-03-07 19:49
+---
+
 # Go
 
 A no-frills language that maximizes productivity and readability for both individuals and teams.
