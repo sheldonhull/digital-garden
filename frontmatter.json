@@ -66,5 +66,40 @@
         }
       ]
     }
+  ],
+  "frontMatter.framework.id": "other",
+  "frontMatter.content.publicFolder": "notes/assets/images",
+  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd HH:mm",
+  "frontMatter.taxonomy.frontMatterType": "YAML",
+  "frontMatter.content.wysiwyg": true,
+  "frontMatter.git.commitMessage": "docs: sync latest content via frontmatter",
+  "frontMatter.git.enabled": true,
+  "frontMatter.media.defaultSorting": "LastModifiedDesc",
+  "frontMatter.preview.host": "http://localhost:3001",
+  "frontMatter.site.baseURL": "https://notes.sheldonhull.com",
+  "frontMatter.taxonomy.alignFilename": true,
+  "frontMatter.framework.startCommand": "mage serve",
+  "frontMatter.dashboard.openOnStart": true,
+  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "notes",
+      "path": "[[workspace]]/notes",
+      "previewPath": "/{{pathToken.relPath}}/"
+    }
+  ],
+  "frontMatter.custom.scripts": [
+    {
+      "title": "Optimize media",
+      "script": "frontmatter-scripts/image-optimize.js",
+      "command": "node",
+      "type": "mediaFile"
+    },
+    {
+      "title": "Optimize images",
+      "script": "frontmatter-scripts/image-optimize-all.js",
+      "command": "node",
+      "type": "mediaFolder"
+    }
   ]
 }

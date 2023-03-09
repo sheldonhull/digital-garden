@@ -30,6 +30,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@types/node", "npm:18.14.6"],\
             ["i", "npm:0.3.7"],\
             ["imagemin", "npm:8.0.1"],\
             ["imagemin-jpegtran", "npm:7.0.0"],\
@@ -608,6 +609,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["digital-garden", "workspace:."],\
+            ["@types/node", "npm:18.14.6"],\
             ["i", "npm:0.3.7"],\
             ["imagemin", "npm:8.0.1"],\
             ["imagemin-jpegtran", "npm:7.0.0"],\

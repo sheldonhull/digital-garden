@@ -1,5 +1,6 @@
 // yarn add i --dev imagemin imagemin-jpegtran imagemin-pngquant
 const arguments = process.argv;
+const path = require('path');
 
 (async () => {
   if (arguments && arguments.length > 0) {
@@ -7,14 +8,15 @@ const arguments = process.argv;
     const imageminJpegtran = (await import('imagemin-jpegtran')).default;
     const imageminPngquant = (await import('imagemin-pngquant')).default;
 
-    const fileArg = arguments[3]; // The file path
+    const workspaceArg = arguments[2]; // The workspace path
+    const folderArg = arguments[3]; // The folder path
 
-    await imagemin([fileArg], {
-      destination: path.dirname(fileArg),
-      glob: false,
+    const files = await imagemin([path.join(folderArg, '*.{jpg,png}')], {
+      destination: folderArg,
+      glob: true,
       plugins: [imageminJpegtran(), imageminPngquant()],
     });
 
-    console.log(`Optimized image ${path.basename(fileArg)}`);
+    console.log(`Optimized images: ${files.length}`);
   }
 })();

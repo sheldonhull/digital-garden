@@ -9,28 +9,10 @@
     "tag:yaml.org,2002:python/name:materialx.emoji.twemoji",
     "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
   ],
-  "frontMatter.framework.id": "other",
-  "frontMatter.content.publicFolder": "notes/assets/images",
-  "frontMatter.content.pageFolders": [
-    {
-      "title": "notes",
-      "path": "[[workspace]]/notes"
-    }
-  ],
-  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd HH:mm", // not sure how to do UTC with offset, so just leaving as local - https://date-fns.org/v2.0.1/docs/format
-  "frontMatter.taxonomy.frontMatterType": "YAML",
-  "frontMatter.content.wysiwyg": true,
-  "frontMatter.git.commitMessage": "docs: sync latest content via frontmatter",
-  "frontMatter.git.enabled": true,
-  "frontMatter.media.defaultSorting": "LastModifiedDesc",
-  "frontMatter.preview.host": "http://localhost:3001",
-  "frontMatter.site.baseURL": "https://notes.sheldonhull.com",
-  "frontMatter.taxonomy.alignFilename": true,
-  "frontMatter.framework.startCommand": "mage serve",
   "[markdown]": {
     "editor.fontSize": 14,
     "editor.lineHeight": 26,
-    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrap": "off",
     "editor.wordWrapColumn": 64,
     "editor.lineNumbers": "off",
     "editor.quickSuggestions": {
@@ -43,14 +25,6 @@
     // "editor.tabSize": 4
   },
   "markdown.extension.list.indentationSize": "adaptive",
-  "frontMatter.dashboard.openOnStart": true,
-  "frontMatter.content.autoUpdateDate": true,
-  "editor.wordWrap": "off",
-  "frontMatter.content.pageFolders": [
-    {
-      "title": "notes",
-      "path": "[[workspace]]/notes",
-      "previewPath": "/{{pathToken.relPath}}/"
-    }
-  ]
+  "editor.wordWrap": "off"
+  // "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd HH:mm", not sure how to do UTC with offset, so just leaving as local - https://date-fns.org/v2.0.1/docs/format
 }
