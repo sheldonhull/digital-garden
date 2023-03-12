@@ -68,7 +68,7 @@
     }
   ],
   "frontMatter.framework.id": "other",
-  "frontMatter.content.publicFolder": "notes/assets/images",
+  "frontMatter.content.publicFolder": "",
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd HH:mm",
   "frontMatter.taxonomy.frontMatterType": "YAML",
   "frontMatter.content.wysiwyg": true,
