@@ -5,6 +5,8 @@ use_directory_urls: true
 docs_dir: notes
 theme:
   name: material
+  custom_dir: custom_theme/
+
   #logo: assets/icons/regular_expression_light.svg
   logo: assets/images/sheldon-avatar.jpg
   font:

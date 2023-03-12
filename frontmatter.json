@@ -85,7 +85,8 @@
     {
       "title": "notes",
       "path": "[[workspace]]/notes",
-      "previewPath": "/{{pathToken.relPath}}/"
+      "previewPath": "/{{pathToken.relPath}}/",
+      "originalPath": "[[workspace]]/notes"
     }
   ],
   "frontMatter.custom.scripts": [
