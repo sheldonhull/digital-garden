@@ -1,0 +1,46 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "mage:serve",
+      "type": "shell",
+      "command": "echo \"⚙️ loading direnv\" && direnv allow .envrc && echo \"⚙️ running mage server\" && mage serve",
+      "runOptions": {
+        "instanceLimit": 1,
+        "runOn": "folderOpen"
+      },
+      "promptOnClose": true,
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "MAGEFILE_HASHFAST": "1",
+          "DOCKER_BUILDKIT": "1",
+          "MAGEFILE_ENABLE_COLOR": "1"
+        },
+        "shell": {
+          "executable": "zsh",
+          "args": ["-l", "-c"]
+        }
+      },
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "vm-running"
+      }
+    }
+  ]
+}
