@@ -3,7 +3,7 @@ title: chat
 tags:
   - chatgpt
   - coding
-lastmod: 2023-03-11 20:47
+lastmod: 2023-03-21 19:14
 ---
 
 
@@ -11,9 +11,11 @@ lastmod: 2023-03-11 20:47
 
 ## Examples Where ChatGPT Has Been Amazing
 
+👉 See [anonymous server](../go/http.md#anonymous-server)
+
 ??? example "Help Me Jump Start an API Server With TDD Support and Zerolog"
 
-    > What’s a good bootstrap template for golang rest api server.
+    > What's a good bootstrap template for golang rest api server.
     > I want to include TDD approach that abstracts the http server into a cmd file and allows me to mock http for tests.
     > Use zerolog for logging with context.
 
@@ -36,17 +38,17 @@ lastmod: 2023-03-11 20:47
 
     Here's an example of how you can structure your project using the Gin Gonic template and implement TDD:
 
-    1. Start by creating a new project using the Gin Gonic template: `go get github.com/gin-gonic/gin`
-    1. Create a new cmd directory in your project root and create a main.go file inside it:
-    1. This file sets up a basic HTTP server using the `api.NewServer` function, which we'll define in the next step.
+    4. Start by creating a new project using the Gin Gonic template: `go get github.com/gin-gonic/gin`
+    5. Create a new cmd directory in your project root and create a main.go file inside it:
+    6. This file sets up a basic HTTP server using the `api.NewServer` function, which we'll define in the next step.
        It also initializes a logger using the `logging.NewLogger` function.
-    1. Create a new api directory and create a `server.go` file inside it.
+    7. Create a new api directory and create a `server.go` file inside it.
        This file defines a Server struct that holds a reference to our logger.
        We'll use this struct to handle HTTP requests in the ServeHTTP method.
-    1. Now you can implement your TDD approach by writing tests and mocking the HTTP server using the `httptest` package:
-    1. This test creates a new instance of our Server and mocks an HTTP request using the `httptest` package.
+    8. Now you can implement your TDD approach by writing tests and mocking the HTTP server using the `httptest` package:
+    9. This test creates a new instance of our Server and mocks an HTTP request using the `httptest` package.
        It then calls the `ServeHTTP` method and checks that the response status code is `200` OK.
-    1. Finally, you can use the zerolog package to log requests and responses in the ServeHTTP method.
+    10. Finally, you can use the zerolog package to log requests and responses in the ServeHTTP method.
 
     === "cmd/main.go"
 
