@@ -5,7 +5,7 @@ date: 2023-03-24 14:46
 tags:
   - tooling
 categories: ""
-lastmod: 2023-03-24 14:50
+lastmod: 2023-03-24 14:52
 ---
 
 
@@ -16,11 +16,10 @@ lastmod: 2023-03-24 14:50
 - Ensure `$GOPATH/bin` is available in path so that Go tooling can be resolved.
   Put at end of PATH, so that aqua based tooling takes precedence.
 
-
 ```shell title=".envrc"
 source_env "$HOME"
 export DIRENV_WARN_TIMEOUT='10s'
-export PATH="${PATH}:${GOPATH}/bin"
+# OPTIONAL: export PATH="${PATH}:${GOPATH}/bin"
 export MAGEFILE_ENABLE_COLOR=1
 
 INFO_COLOR="\033[1;30;40m"
