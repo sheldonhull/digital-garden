@@ -9,6 +9,18 @@ lastmod: 2023-03-21 19:14
 
 ## Examples Where ChatGPT Failed
 
+??? example "Help Me With Using Goldmark For Markdown Parsing"
+
+    This failed repeatedly.
+    The code examples were promising but made up quite a few methods and approaches that were non-existent in the actual code base and had no code examples matching in the repo.
+    Goldmark doesn't have a lot of use examples compared to many projects, so I think the quality of the suggestions degraded with a broader question.
+
+    It _looked_ great, but with improper method signatures it really suffered.
+
+    ![example invalid code](../../assets/images/ray-so-export-developement-ai-chat-goldmark.png){ loading=lazy }
+
+    I think for this to succeed I'm going to have to it focus on a specific code block and not a function in it's entirety.
+
 ## Examples Where ChatGPT Has Been Amazing
 
 👉 See [anonymous server](../go/http.md#anonymous-server)

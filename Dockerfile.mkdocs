@@ -2,5 +2,7 @@
 
 FROM squidfunk/mkdocs-material:latest
 COPY . /docs
-RUN python3 -m pip install mkdocs-glightbox
+RUN python3 -m pip install \
+  mkdocs-glightbox \
+  mkdocs-rss-plugin
 ENTRYPOINT [ "mkdocs" ]

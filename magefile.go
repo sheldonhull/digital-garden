@@ -28,6 +28,9 @@ const (
 
 	// DockerFileName is the Dockerfile to use for building the image for running locally.
 	dockerFileName = "Dockerfile.mkdocs"
+
+	// LocalContainerName is the name of the container to run locally, and can be stopped too.
+	localContainerName = "mkdocs"
 )
 
 // QualifiedDockerImage is the fully qualified docker image to use for running mkdocs.
@@ -42,6 +45,7 @@ func invokeMKDocs(args ...string) error {
 
 	invokeArgs := []string{
 		"run",
+		"--name", localContainerName,
 		"--rm",
 		"-it",
 		"-p",
@@ -69,4 +73,11 @@ func Serve() error {
 // This is required as custom plugins are installed in docker image.
 func Build() error {
 	return sh.Run("docker", "build", "-t", localDockerImageName, "-f", dockerFileName, ".")
+}
+
+// 🛑 Stop the mkdocs dockerized container.
+func Stop() {
+	if err := sh.Run("docker", "stop", localContainerName); err != nil {
+		pterm.Warning.Printfln("container %s not found", localContainerName)
+	}
 }
