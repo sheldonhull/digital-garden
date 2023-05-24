@@ -49,8 +49,7 @@ For GitHub, you'll benefit from using the Renovatebot GitHub app as a much smoot
 
       ```shell
       # Change recreation if you are testing and need to abandon, then recreate
-      docker run
-          --rm \
+      docker run --rm \
           -it \
           -e RENOVATE_RECREATE_CLOSED=false \
           -e LOG_LEVEL=debug \
