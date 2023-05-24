@@ -56,7 +56,7 @@ For GitHub, you'll benefit from using the Renovatebot GitHub app as a much smoot
           -e RENOVATE_DRY_RUN=true \
           -e GITHUB_COM_TOKEN=$GITHUB_TOKEN \
           -e RENOVATE_TOKEN=$AZURE_DEVOPS_EXT_PAT \
-          -v "${PWD}/config.json:/usr/src/app/config.json" \
+          -v "${PWD}/config.js:/usr/src/app/config.js" \
           renovate/renovate --include-forks=false
       ```
 
