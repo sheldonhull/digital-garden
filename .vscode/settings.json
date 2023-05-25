@@ -25,6 +25,5 @@
     // "editor.tabSize": 4
   },
   "markdown.extension.list.indentationSize": "adaptive",
-  "editor.wordWrap": "off"
   // "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd HH:mm", not sure how to do UTC with offset, so just leaving as local - https://date-fns.org/v2.0.1/docs/format
 }

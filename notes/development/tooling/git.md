@@ -140,6 +140,11 @@ git log master..$(git branch --show-current) --oneline
 1. Remove every local tag in your repo: `git tag -d $(git tag)`
 1. Pull latest tags: `git fetch origin --prune --prune-tags`
 
+## Forks
+
+- Add remote for fork, typically covered with `upstream` name: `git remote add upstream {repolink}.
+- Reset a forked branch to match the remote upstream resource: `git reset --hard upstream/master`
+
 ## Resources
 
 | Source               | Description          |
