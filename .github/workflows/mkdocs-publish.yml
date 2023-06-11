@@ -21,7 +21,7 @@ jobs:
     outputs:
       changes: ${{ steps.changes.outputs.src }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
       - uses: dorny/paths-filter@v2
         id: changes
         with:
@@ -31,11 +31,11 @@ jobs:
               - 'mkdocs.yml'
               - '.github/workflows/mkdocs-publish.yml'
       - if: steps.changes.outputs.src == 'true'
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: 3.x
       - if: steps.changes.outputs.src == 'true'
-        uses: actions/cache@v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
         with:
           key: ${{ github.ref }}
           path: .cache
@@ -47,7 +47,7 @@ jobs:
         run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site
       - if: steps.changes.outputs.src == 'true'
         name: upload-pages-artifact
-        uses: actions/upload-pages-artifact@253fd476ed429e83b7aae64a92a75b4ceb1a17cf # renovate: tag=v1.0.7
+        uses: actions/upload-pages-artifact@64bcae551a7b18bcb9a09042ddf1960979799187 # v1.0.8
   # Deployment job
   deploy:
     needs: build
