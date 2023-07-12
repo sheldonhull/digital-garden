@@ -47,7 +47,7 @@ jobs:
         run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site
       - if: steps.changes.outputs.src == 'true'
         name: upload-pages-artifact
-        uses: actions/upload-pages-artifact@64bcae551a7b18bcb9a09042ddf1960979799187 # v1.0.8
+        uses: actions/upload-pages-artifact@84bb4cd4b733d5c320c9c9cfbc354937524f4d64 # v1.0.10
   # Deployment job
   deploy:
     needs: build
