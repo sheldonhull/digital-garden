@@ -46,6 +46,18 @@ I use curl based install mostly: [Install](https://aquaproj.github.io/docs/tutor
       export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
       ```
 
+      The options below are one for max flexibility in honoring the XDG_Directory standard, the other just assumes `.local`.
+
+      ```powershell title="$PROFILE"
+      $ENV:XDG_CONFIG_HOME = $ENV:XDG_CONFIG_HOME ? $ENV:XDG_CONFIG_HOME : (Join-Path $HOME '.config')
+      $ENV:XDG_CACHE_HOME = $ENV:XDG_CACHE_HOME ? $ENV:XDG_CACHE_HOME : (Join-Path $HOME '.cache')
+      $ENV:XDG_DATA_HOME = $ENV:XDG_DATA_HOME ? $ENV:XDG_DATA_HOME : ($HOME, '.local', 'share' -join [IO.Path]::DirectorySeparatorChar)
+
+      $ENV:PATH = ([io.path]::Combine($HOME,'.local','share','aquaproj-aqua', 'bin')), $ENV:PATH -join [IO.Path]::PathSeparator
+      # OR FOR MAX FLEXIBILITY
+      $ENV:PATH = ([io.path]::Combine($ENV:XDG_DATA_HOME, 'aquaproj-aqua', 'bin')), $ENV:PATH -join [IO.Path]::PathSeparator
+      ```
+
 === "windows"
 
       ```powershell title="Windows: System Environment Variables (Outside Process Scope)"
