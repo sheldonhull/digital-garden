@@ -174,3 +174,31 @@ Here's an example of what I drop into the global config for managing my global d
       - registry: standard
       - registry: local
     ```
+
+## Using With CI
+
+=== "azure pipelines"
+
+    This is focused on `ubuntu-latest` as the windows agent has some quirks not addressed in this format.
+    This still uses `pwsh` on the ubuntu agent to avoid me having to rework logic for 2 platforms.
+
+    ```yaml title="...azure-pipelines.yaml"
+    - pwsh: |
+        &curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.1.1/aqua-installer | bash -s -- -v v2.3.6
+        try {
+          $ENV:PATH = ([io.path]::Combine($HOME,'.local','share','aquaproj-aqua', 'bin')), $ENV:PATH -join [IO.Path]::PathSeparator
+        }
+        catch {
+          Write-Warning "unable to load aqua: $($_.Exception.Message)"
+        }
+        Write-Host "aqua version: $(& aqua version)"
+        &aqua update-aqua
+        Write-Host "aqua version (after update): $(& aqua version)"
+        $env:PATH = (Join-Path $(aqua root-dir) 'bin'), $env:PATH -join [IO.Path]::PathSeparator
+        Write-Host "run aqua install --tags first"
+        &aqua install --tags first
+        Write-Host "install remaining aqua tools"
+        aqua install --tags MYCUSTOM TAG # 👈 narrow down what you invoke
+        $ENV:PATH = (Join-Path $HOME '.config' @('aquaproj-aqua','bin')), $ENV:PATH -join [IO.Path]::PathSeparator
+        mage # ..... 👈 invoke commands now that things are installed
+    ```
