@@ -22,4 +22,4 @@ jobs:
           AQUA_CONFIG: aqua-config.yaml
           AQUA_LOG_LEVEL: debug
       - name: Trunk Check
-        uses: trunk-io/trunk-action@e5f1a3f123a2440f9cd28e036495a1c1f2a20568 # v1
+        uses: trunk-io/trunk-action@883e222ef19201ad402ef73e58101ec8186d7d54 # v1
