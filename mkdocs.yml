@@ -66,8 +66,17 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 plugins:
-  # - blog:
-  #     blog_dir: posts
+  - blog:
+      blog_dir: .
+      blog_toc: true
+      post_date_format: long
+      post_url_format: '{slug}'
+      post_excerpt: optional
+      archive: false
+      archive_name: archive
+      archive_date_format: yyyy
+      categories: false
+
   - tags
   #  - tags:
   #      enabled: !ENV [CI, false]
