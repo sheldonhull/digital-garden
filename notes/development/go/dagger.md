@@ -2,7 +2,7 @@
 title: Dagger
 slug: dagger
 lastmod: 2023-03-21 13:44
-date: 2023-03-07 19:20
+date: 2023-03-07
 tags:
   - containers
   - go

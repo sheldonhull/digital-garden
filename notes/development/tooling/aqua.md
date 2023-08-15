@@ -1,7 +1,7 @@
 ---
 title: aqua
 description: A cli version manager for the discriminating cli connoisseur.
-date: 2023-04-04 12:56
+date: 2023-04-04
 tags:
   - cli
   - tooling

@@ -1,5 +1,5 @@
 ---
-date: 2023-03-07 18:54
+date: 2023-03-07
 title: Eponymous Laws
 lastmod: 2023-03-07 18:55
 ---

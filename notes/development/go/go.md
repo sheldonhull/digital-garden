@@ -1,6 +1,6 @@
 ---
 title: go
-date: 2020-10-30T00:00:00.000Z
+date: 2020-10-30
 toc: true
 summary: >-
   A cheatsheet to update with what I pickup with Go that I likely need to

@@ -1,7 +1,10 @@
 # Build: docker build -t dev.local/mkdoc:latest -f Dockerfile.mkdocs .
 # FROM squidfunk/mkdocs-material:latest
 # If you've cloned it locally and want to do a custom build:
-# docker build -t dev.local/mkdocs-material:latest -f ../mkdocs-material/Dockerfile ../mkdocs-material/ Build custom local repo docker build -t dev.local/mkdocs-material:latest -f ../mkdocs-material/Dockerfile ../mkdocs-material/Dockerfile
+# z mkdocs-material && git town sync
+# Build custom local repo (from current project)
+# docker build -t dev.local/mkdocs-material:latest -f ../mkdocs-material/Dockerfile ../mkdocs-material/
+# mage build serve
 # FROM squidfunk/mkdocs-material:latest
 FROM dev.local/mkdocs-material:latest
 COPY . /docs

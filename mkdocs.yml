@@ -1,4 +1,5 @@
 ---
+INHERIT: mkdocs.nav.yml
 site_name: digital garden
 repo_url: https://github.com/sheldonhull/digital-garden
 use_directory_urls: true
@@ -36,9 +37,9 @@ theme:
     - navigation.sections
     - navigation.expand
     - toc.follow
+    - toc.integrate
     - navigation.top
     - navigation.path
-    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -67,43 +68,44 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 plugins:
   - blog:
-      blog_dir: .
-      blog_toc: true
+      blog_dir: posts
+      blog_toc: false # FAILING
       post_date_format: long
       post_url_format: '{slug}'
       post_excerpt: optional
-      archive: false
+      archive: true
       archive_name: archive
       archive_date_format: yyyy
-      categories: false
+      categories: true
 
   - tags
   #  - tags:
   #      enabled: !ENV [CI, false]
   - search
   - glightbox
-  - rss:
-      abstract_chars_count: 160 # -1 for full content
-      abstract_delimiter: <!-- more -->
-      categories:
-        - tags
-      comments_path: '#__comments'
-      date_from_meta:
-        as_creation: 'date'
-        as_update: false
-        datetime_format: '%Y-%m-%d %H:%M' #'%Y-%m-%d %H:%M'
-        default_timezone: America/Chicago
-        default_time: '09:30'
-      enabled: true
-      feed_ttl: 1440
-      image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
-      length: 20
-      pretty_print: false
-      match_path: '.*'
-      url_parameters:
-        utm_source: 'documentation'
-        utm_medium: 'RSS'
-        utm_campaign: 'feed-syndication'
+  # - rss:
+  #     abstract_chars_count: 160 # -1 for full content
+  #     abstract_delimiter: <!-- more -->
+  #     categories:
+  #       - tags
+  #     comments_path: '#__comments'
+  #     date_from_meta:
+  #       as_creation: 'date'
+  #       as_update: false
+  #       # datetime_format: '%Y-%m-%d %H:%M' #'%Y-%m-%d %H:%M'
+  #       datetime_format: '%Y-%m-%d' #'%Y-%m-%d %H:%M'
+  #       default_timezone: America/Chicago
+  #       default_time: '09:30'
+  #     enabled: true
+  #     feed_ttl: 1440
+  #     image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
+  #     length: 20
+  #     pretty_print: false
+  #     match_path: '.*'
+  #     url_parameters:
+  #       utm_source: 'documentation'
+  #       utm_medium: 'RSS'
+  #       utm_campaign: 'feed-syndication'
   # - meta: # insiders only
   #     meta_file: '**/.meta.yml'
 # dev_addr: '0.0.0.0:8000' # since running dockerized, need to use 0.0.0.0 since 127.0.0.1 won't resolve to docker gateway

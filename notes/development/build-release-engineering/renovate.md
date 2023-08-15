@@ -1,7 +1,7 @@
 ---
 title: renovate
 description: Use renovate for dependency management
-date: 2023-03-06 17:18
+date: 2023-03-06
 tags:
   - dependency-management
 slug: renovate

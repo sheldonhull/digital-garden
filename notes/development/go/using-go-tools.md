@@ -1,6 +1,6 @@
 ---
 title: Using Go Tools
-date: 2023-04-19 18:12
+date: 2023-04-19
 lastmod: 2023-04-19 18:12
 ---
 

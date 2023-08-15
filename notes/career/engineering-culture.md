@@ -1,6 +1,6 @@
 ---
 title: Engineering Culture
-date: 2023-03-07 19:15
+date: 2023-03-07
 slug: engineering-culture
 lastmod: 2023-03-07 19:18
 tags:

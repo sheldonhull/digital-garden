@@ -1,6 +1,6 @@
 ---
 title: git
-date: 2021-04-09T00:00:00.000Z
+date: 2021-04-09
 toc: true
 summary: >-
   A cheatsheet for some git workflow oriented commands, things I often forget,

@@ -1,0 +1,15 @@
+nav:
+  # - Development: 'development/index.md'
+  # - notes: index.md
+  - development: development/index.md
+  # - ai: development/ai/index.md
+  # - shell: development/shell/index.md
+  # - end: development/front-end/index.md
+  # - engineering: development/build-release-engineering/index.md
+  # - powershell: development/powershell/index.md
+  # - go: development/go/index.md
+  # - tooling: development/tooling/index.md
+  # - aws: development/aws/index.md
+  # - Posts: posts/index.md
+  - Posts: posts/index.md
+  # - Archive: posts/archive/index.md

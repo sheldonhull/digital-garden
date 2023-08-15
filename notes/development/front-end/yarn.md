@@ -1,6 +1,6 @@
 ---
 title: Yarn
-date: 2023-03-08 13:49
+date: 2023-03-08
 tags:
   - front-end
   - yarn

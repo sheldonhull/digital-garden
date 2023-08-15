@@ -1,7 +1,7 @@
 ---
 title: kubernetes
 description: A reference for Kubernetes
-date: 2023-04-05 12:23
+date: 2023-04-05
 preview: ""
 draft: false
 tags:

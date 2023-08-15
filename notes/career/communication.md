@@ -1,7 +1,7 @@
 ---
 title: Communication
 lastmod: 2023-03-07 19:13
-date: 2023-03-07 18:53
+date: 2023-03-07
 slug: communication
 tags:
   - communication
