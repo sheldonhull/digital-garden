@@ -9,7 +9,7 @@
 #   - all
 registries:
   - type: standard
-    ref: v3.162.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.39.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: magefile/mage@v1.15.0
   - name: golang/go@go1.20.6
