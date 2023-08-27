@@ -7,4 +7,4 @@ lastmod: 2023-03-07 22:30
 
 With magic like this, why use bash!
 
-![avatar](../../assets/images/powershell-avatar.svg 'https://github.com/PowerShell/PowerShell')
+![avatar](images/powershell-avatar.svg 'https://github.com/PowerShell/PowerShell')

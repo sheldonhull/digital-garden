@@ -16,4 +16,4 @@ lastmod: 2023-03-08 19:52
     This has always messed with me, and I spend more time trying to find the pattern of "background is blue with white text and bold" to add a little bit of polish.
     Copilot nailed this with a comment in a `.envrc` file stating: `# variable for setting terminal output with light yellow background and black text that is bold` resulting in a perfect match.
 
-    ![copilot-helped-make-this-nice](../../assets/images/copilot-color-codes.png)
+    ![copilot-helped-make-this-nice](images/copilot-color-codes.png)

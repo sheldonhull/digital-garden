@@ -19,8 +19,8 @@ Mage replaces the need for Bash or PowerShell scripts in your repo for core auto
 
 #### Intialize a New Project
 
-- [Scripts-To-Rule-Them-All-Go](github.com/sheldonhull/scripts-to-rule-them-all-go): A repo I've setup as quick start template for a Mage enabled repository with linting and core structure already in place.
-- [Magetools](github.com/sheldonhull/magetools): Reusable packages that can be pulled in to jump start common tasks or utilities.
+- [Scripts-To-Rule-Them-All-Go](https://github.com/sheldonhull/scripts-to-rule-them-all-go): A repo I've setup as quick start template for a Mage enabled repository with linting and core structure already in place.
+- [Magetools](https://github.com/sheldonhull/magetools): Reusable packages that can be pulled in to jump start common tasks or utilities.
   - Examples:
     - Enhanced go formatter with `mage go:wrap`.
     - Preinstall common Go tools such as the language server, dlv, gofumpt, golangci-lint, and more with `mage go:init`.
@@ -60,4 +60,4 @@ Mage replaces the need for Bash or PowerShell scripts in your repo for core auto
   This can help troubleshooting any environment or project issues if you maintain and add a list of checks being run.
   Using Pterm you can make this into a nice table output like this:
 
-![Mage Doctor Output](/images/2022-06-11-16.52.33-mage-doctor.png 'Mage Doctor Output')
+![Mage Doctor Output](images/2022-06-11-16.52.33-mage-doctor.png 'Mage Doctor Output')

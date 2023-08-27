@@ -387,7 +387,7 @@ For quick access, save this to a Visual Studio Code snippet like below:
 I did this to participate in Code Golf, and felt pretty good that I landed in 112 🤣 with this.
 Really pains me to write in the code-golf style.
 
-{{< gist sheldonhull  "3ea6fd6cafe210edb1d71b5e8d3d1696" >}}
+<script src="https://gist.github.com/sheldonhull/3ea6fd6cafe210edb1d71b5e8d3d1696.js"></script>
 
 ## File Manipulation
 

@@ -1,8 +1,12 @@
 # Build: docker build -t dev.local/mkdoc:latest -f Dockerfile.mkdocs .
 
 FROM squidfunk/mkdocs-material:latest
+# FROM dev.local/mkdocs-material:latest
 COPY . /docs
 RUN python3 -m pip install \
   mkdocs-glightbox \
-  mkdocs-rss-plugin
+  mkdocs-rss-plugin \
+  mkdocs-autolinks-plugin \
+  mkdocs-awesome-pages-plugin
+
 ENTRYPOINT [ "mkdocs" ]

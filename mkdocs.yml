@@ -1,4 +1,5 @@
 ---
+INHERIT: config/mkdocs.nav.yml
 site_name: digital garden
 repo_url: https://github.com/sheldonhull/digital-garden
 use_directory_urls: true
@@ -10,7 +11,7 @@ theme:
   #logo: assets/icons/regular_expression_light.svg
   logo: assets/images/sheldon-avatar.jpg
   font:
-    text: Raleway
+    # text: Raleway
     code: Fira Code
 
   palette:
@@ -34,11 +35,11 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
+    # - navigation.expand
     - toc.follow
     - navigation.top
     - navigation.path
-    - toc.integrate
+    # - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -66,8 +67,38 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 plugins:
-  # - blog:
-  #     blog_dir: posts
+  - awesome-pages:
+      # filename: .index
+      collapse_single_pages: true
+      strict: false
+      order: desc
+      sort_type: natural
+      # order_by: title # ERROR: runs into error with dates
+
+  - blog:
+      enabled: false
+      blog_dir: .
+      # post_dir: '{blog}/posts'
+      post_dir: '{blog}/posts'
+      post_url_date_format: yyyy/MM/dd
+      post_url_format: '{slug}'
+      blog_toc: true
+
+      categories: false
+      archive: false
+      archive_name: archive
+      archive_date_format: yyyy
+      archive_url_date_format: ''
+      archive_url_format: '{date}'
+      archive_toc: true
+
+      post_excerpt: optional
+      post_slugify_separator: '-'
+      post_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+  - autolinks
   - tags
   #  - tags:
   #      enabled: !ENV [CI, false]
@@ -85,7 +116,7 @@ plugins:
         datetime_format: '%Y-%m-%d %H:%M' #'%Y-%m-%d %H:%M'
         default_timezone: America/Chicago
         default_time: '09:30'
-      enabled: true
+      enabled: false
       feed_ttl: 1440
       image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
       length: 20
@@ -103,3 +134,37 @@ extra_css:
   - stylesheets/gist.css
   - stylesheets/code-highlighting.css
 remote_branch: gh-pages
+# nav:
+#   - Blog:
+#       - posts/index.md
+watch:
+  - config/
+
+nav:
+  - posts:
+      - posts/index.md
+      - ... | posts/**
+  #   # - index.md
+  #   - posts:
+
+  #       # - posts/index.md
+  #       # - ... | blog/posts/**
+  #       # - ... | posts/**
+  #       # | blog/posts/**
+
+  #       # - blog/**/*.md
+  #       # - ... | notes/blog/posts/2023/**
+  #       # - ...
+  #       # - ... | notes/blog/posts/2022/**
+
+  #       # - welcome: index.md
+  #       # - posts:
+  #       #     - blog/index.md
+  #       #     # - ... | blog/posts/2023/**
+  #       #     # - archive:
+  #       #     # - ... | archive/**
+  - notes:
+      - notes/index.md
+      - ... | development/**
+      - ... | career/**
+      - ... | technology/**

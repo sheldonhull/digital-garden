@@ -17,7 +17,7 @@ lastmod: 2023-03-21 19:14
 
     It _looked_ great, but with improper method signatures it really suffered.
 
-    ![example invalid code](../../assets/images/ray-so-export-developement-ai-chat-goldmark.png){ loading=lazy }
+    ![example invalid code](ray-so-export-developement-ai-chat-goldmark.png){ loading=lazy }
 
     I think for this to succeed I'm going to have to it focus on a specific code block and not a function in it's entirety.
 

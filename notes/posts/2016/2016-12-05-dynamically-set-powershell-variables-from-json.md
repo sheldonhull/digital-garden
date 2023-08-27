@@ -1,0 +1,16 @@
+---
+date: 2016-12-05
+excerpt_separator: <!--more-->
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
+tags:
+- powershell
+- tech
+- sql-server
+title: "Dynamically Set Powershell Variables from json"
+slug: "dynamically-set-powershell-variables-from-json"
+---
+
+I created this small snippet to allow a list of values from a json file be turned into variables to work with. For working with a fixed list of configuration values, this might be helpful to reduce some coding effort.
+<!--more-->
+<script src="https://gist.github.com/sheldonhull/dbbc8356028264047fd742b56c5ee27e.js"></script>
