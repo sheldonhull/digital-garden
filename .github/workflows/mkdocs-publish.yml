@@ -30,6 +30,28 @@ jobs:
               - 'notes/**/*.md'
               - 'mkdocs.yml'
               - '.github/workflows/mkdocs-publish.yml'
+      # https://github.com/magnetikonline/action-golang-cache
+      - if: steps.changes.outputs.src == 'true'
+        name: setup-golang-with-cache
+        uses: magnetikonline/action-golang-cache@797f193169d3c8ba6f60d90f50ecdadd2583fbd8 # tag=v3
+        with:
+          go-version-file: go.mod
+      - if: steps.changes.outputs.src == 'true'
+        name: set-aqua-policy-if-file-exists
+        run: |
+          if [ -f aqua-policy.yaml ]; then
+            echo "AQUA_POLICY_CONFIG=${GITHUB_WORKSPACE}/aqua-policy.yaml:${AQUA_POLICY_CONFIG}" >> $GITHUB_ENV
+          else
+            echo "👉 No aqua-policy.yaml file found, skipping setting AQUA_POLICY_CONFIG"
+          fi
+      - if: steps.changes.outputs.src == 'true'
+        uses: aquaproj/aqua-installer@36dc5833b04eb63f06e3bb818aa6b7a6e6db99a9 # v2.1.2
+        with:
+          aqua_version: v2.10.1
+          # working_directory:
+          aqua_opts: '--tags release'
+        env:
+          AQUA_LOG_LEVEL: debug
       - if: steps.changes.outputs.src == 'true'
         uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
         with:
@@ -40,11 +62,16 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - if: steps.changes.outputs.src == 'true'
-        run: pip install mkdocs-material mkdocs-glightbox mkdocs-rss-plugin mkdocs-awesome-pages-plugin
-      # - run: mkdocs gh-deploy --force
-      - if: steps.changes.outputs.src == 'true'
-        name: mkdocs-build #(_site directory name is used for Jekyll compatiblity)
-        run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site
+        name: mage-init-build-publish
+        run: |
+          mage docker:build mkdocs:build mkdocs:ghdeploy
+
+      # - if: steps.changes.outputs.src == 'true'
+      #   run: pip install mkdocs-material mkdocs-glightbox mkdocs-rss-plugin mkdocs-awesome-pages-plugin
+      # # - run: mkdocs gh-deploy --force
+      # - if: steps.changes.outputs.src == 'true'
+      #   name: mkdocs-build #(_site directory name is used for Jekyll compatiblity)
+      #   run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site
       - if: steps.changes.outputs.src == 'true'
         name: upload-pages-artifact
         uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c # v2.0.0

@@ -12,6 +12,7 @@ registries:
     ref: v4.40.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: magefile/mage@v1.15.0
+    tags: ['release']
   - name: golang/go@go1.21.0
     tags: ['lint']
   - name: direnv/direnv@v2.32.3

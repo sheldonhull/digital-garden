@@ -1,9 +1,10 @@
 ---
-INHERIT: config/mkdocs.nav.yml
+#INHERIT: config/mkdocs.nav.yml
 site_name: digital garden
 repo_url: https://github.com/sheldonhull/digital-garden
 use_directory_urls: true
 docs_dir: notes
+site_dir: .artifacts/_site
 theme:
   name: material
   custom_dir: custom_theme/

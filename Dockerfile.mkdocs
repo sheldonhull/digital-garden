@@ -1,12 +1,17 @@
 # Build: docker build -t dev.local/mkdoc:latest -f Dockerfile.mkdocs .
-
 FROM squidfunk/mkdocs-material:latest
 # FROM dev.local/mkdocs-material:latest
 COPY . /docs
-RUN python3 -m pip install \
+
+# optimize caching by freezing the requirements in image if possible
+RUN if [ -f /tmp/requirements.txt ]; then \
+  python3 -m pip install -r /tmp/requirements.txt ; \
+  else \
+  python3 -m pip install \
   mkdocs-glightbox \
   mkdocs-rss-plugin \
   mkdocs-autolinks-plugin \
-  mkdocs-awesome-pages-plugin
+  mkdocs-awesome-pages-plugin ; \
+  fi
 
 ENTRYPOINT [ "mkdocs" ]
