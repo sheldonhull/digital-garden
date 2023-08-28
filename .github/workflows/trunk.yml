@@ -21,7 +21,6 @@ jobs:
           aqua_opts: '--tags lint'
           aqua_version: v2.10.1
         env:
-          AQUA_CONFIG: aqua-config.yaml
           AQUA_LOG_LEVEL: debug
       - name: Trunk Check
         uses: trunk-io/trunk-action@883e222ef19201ad402ef73e58101ec8186d7d54 # v1
