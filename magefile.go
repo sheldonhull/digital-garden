@@ -66,7 +66,6 @@ func invokeMKDocs(args ...string) error {
 		"run",
 		"--name", localContainerName,
 		"--rm",
-		"-it",
 		"-p", portMapping,
 		"-v", fmt.Sprintf("%s:/docs", wd),
 	}
