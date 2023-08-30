@@ -9,8 +9,6 @@ tags:
 - development
 toc: true
 images: images/2021-06-04-12.28.36-Slack.png
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 lightgallery: true
 ---
 
@@ -28,13 +26,13 @@ Use sections to organize your content and customize the level of priority you wa
 
 This is for paid plans. This guide assumes you are on company plan with those features.
 
-![Slack Sidebar Section]images/2021-06-04-12.28.36-Slack.png "Slack Sidebar Section")
+![Slack Sidebar Section](images/2021-06-04-12.28.36-Slack.png "Slack Sidebar Section")
 
 ## Individual Channel Settings
 
 Reduce noise from busy channels, especially when folks over-use `@here`
 
-![Individual Channel Settings]images/2021-06-04-15.16.00-Slack.png "Individual Channel Settings")
+![Individual Channel Settings](images/2021-06-04-15.16.00-Slack.png "Individual Channel Settings")
 
 Configure settings (especially in automated or busy rooms) to:
 
@@ -44,7 +42,7 @@ Configure settings (especially in automated or busy rooms) to:
 
 ## Change Section Behavior
 
-![Change To Unread Only]images/2021-06-04-15.11.24-Slack.png "Change to Unread Only")
+![Change To Unread Only](images/2021-06-04-15.11.24-Slack.png "Change to Unread Only")
 
 - Sort by recent activity
 - Set your section to only show unreads + sort by recent updates. This will keep your sidebar very simple and clean, autohiding after it's been read.

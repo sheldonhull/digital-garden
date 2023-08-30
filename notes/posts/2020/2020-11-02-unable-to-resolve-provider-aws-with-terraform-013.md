@@ -2,8 +2,6 @@
 date: 2020-11-02
 title: Unable To Resolve Provider AWS with Terraform Version 0.13.4
 slug: unable-to-resolve-provider-aws-with-terraform-013
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
     - tech
     - development

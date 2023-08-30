@@ -4,8 +4,6 @@ title: Quick Start to Using Influxdb on Macos
 slug: quick-start-to-using-influxdb-on-macos
 summary:
   Took me a few minutes to get started on the newer InfluxDB 2.0 so let me save you a few minutes, running telegraf + docker based InfluxDB.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - development
   - influxdb
@@ -151,7 +149,7 @@ Dark theme for the win.
 
 I've had some spikes in Vscode recently, impacting my CPU so I've been meaning to do something like this for a while, but finally got it knocked out today once I realized there was a 2.0 docker release I could use to get up and running easily. Next step will be to add some process level detail so I can track the culprit (probably VScode + Docker Codespaces).
 
-![Influx System Dashboard]images/2020-10-30_19-39-41-influx-macos.png)
+![Influx System Dashboard](images/2020-10-30_19-39-41-influx-macos.png)
 
 ## Wishlist
 

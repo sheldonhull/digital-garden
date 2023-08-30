@@ -1,7 +1,5 @@
 ---
 date: 2016-11-18
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - automation
 - powershell

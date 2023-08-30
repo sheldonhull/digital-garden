@@ -3,8 +3,6 @@ date: 2020-04-20
 title: Improved Windows Terminal Setup
 slug: improved-windows-terminal-setup
 summary: Quickly get some nice defaults going for latest Windows Terminal
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - cool-tools
 - development
@@ -46,6 +44,6 @@ Be sure to try out the retro pwsh theme for some nice eye candy.
 
 PowerShell Protip: Note the suggested completion based on prior commands in the pwsh prompt. This is some great prerelease work on a better PSReadline experience with Powershell.
 
-![image of windows terminal]images/windows-terminal-01.png)
+![image of windows terminal](images/windows-terminal-01.png)
 
-![images of windows terminal]images/windows-terminal-02.png)
+![images of windows terminal](images/windows-terminal-02.png)

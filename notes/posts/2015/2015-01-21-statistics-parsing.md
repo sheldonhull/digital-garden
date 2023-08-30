@@ -1,7 +1,5 @@
 ---
 date: 2015-01-21
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Statistics Parsing"

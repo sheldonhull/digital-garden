@@ -1,7 +1,5 @@
 ---
 date: 2016-10-17
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - mysteries

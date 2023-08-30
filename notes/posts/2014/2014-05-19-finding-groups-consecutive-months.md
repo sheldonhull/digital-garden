@@ -1,7 +1,5 @@
 ---
 date: 2014-05-19
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Finding Groups - Consecutive Months"

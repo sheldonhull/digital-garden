@@ -1,7 +1,5 @@
 ---
 date: 2015-09-21
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "XML Attribute VS Element Assignment when working with SQL"
@@ -27,7 +25,7 @@ You can see the difference in naming. The bottom too are deprecated syntax from 
 <script src="https://gist.github.com/sheldonhull/aae7d80467d37b89dc15.js"></script>
 
 
-![Image of XML Difference]images/xml-handling-with-aliases_uxvcja.jpg)
+![Image of XML Difference](images/xml-handling-with-aliases_uxvcja.jpg)
 
 ## Further reading
 

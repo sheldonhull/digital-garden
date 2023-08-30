@@ -1,7 +1,5 @@
 ---
 date: 2015-12-15
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Model needs exclusive lock"

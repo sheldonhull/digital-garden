@@ -1,8 +1,6 @@
 ---
 title: setting default open with on macOS
 date: 2020-07-24
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

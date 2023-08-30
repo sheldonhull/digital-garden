@@ -2,8 +2,6 @@
 date: 2020-09-16
 title: Improve Your Cloudwatch Debugging Experience With Cw
 slug: improve-your-cloudwatch-debugging-experience-with-cw
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
     - tech
     - development

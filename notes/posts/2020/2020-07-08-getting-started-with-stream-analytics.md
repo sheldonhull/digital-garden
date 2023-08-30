@@ -6,8 +6,6 @@ toc: true
 summary: If you are a newbie to the world of streaming analytics and need to get
   moving  on parsing some Application Insights this is for you.
 images: images/2019-02-08_18-04-50-stream-analytics-project.png
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development
@@ -49,7 +47,7 @@ In addition, you need a way to see the parsed results from test data to ensure y
 
 ## New Stream Analytics Project
 
-![stream analytics project]images/2019-02-08_18-04-50-stream-analytics-project.png "Stream Analytics In Visual Studio 2017")
+![stream analytics project](images/2019-02-08_18-04-50-stream-analytics-project.png "Stream Analytics In Visual Studio 2017")
 
 ## Setup test data
 

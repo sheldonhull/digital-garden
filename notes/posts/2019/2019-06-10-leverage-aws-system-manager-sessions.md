@@ -6,8 +6,6 @@ summary: leveraging aws system manager sessions can help with aws development, b
   eliminating the need to RDP for work that can be done via a PowerShell session.
   In addition, it can help bypass the need to use SSH tunneling, or RDP hops into
   the final destination.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - aws
@@ -28,13 +26,13 @@ This leverages IAM Credentials, allowing consistent security management in align
 
 This is a great option for leveraging AWS Systems Manager web console. When you select start a session you'll be presented with the tagged instances by name that you can quickly select and start a remote session with.
 
-![Select Instances to Start Session Against]images/SNAG-0000- 2019-06-03-112313.png "Select Instances to Start Session Against")
+![Select Instances to Start Session Against](images/SNAG-0000-2019-06-03-112313.png "Select Instances to Start Session Against")
 
-![Start Session]images/SNAG-0000- 2019-06-03-112325.png "Start Session")
+![Start Session](images/SNAG-0000-2019-06-03-112325.png "Start Session")
 
 Once you've started the session you'll enter into a remote prompt.
 
-![Interactive PowerShell Prompt on Remote Instance]images/SNAG-0000- 2019-06-03-112309.png "Interactive PowerShell Prompt on Remote Instance")
+![Interactive PowerShell Prompt on Remote Instance](images/SNAG-0000-2019-06-03-112309.png "Interactive PowerShell Prompt on Remote Instance")
 
 ## Local Interactive Setup
 

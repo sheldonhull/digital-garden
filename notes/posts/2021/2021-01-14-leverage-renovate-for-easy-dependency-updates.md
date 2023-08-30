@@ -2,8 +2,6 @@
 date: 2021-01-14
 title: Leverage Renovate for Easy Dependency Updates
 slug: leverage-renovate-for-easy-dependency-updates
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

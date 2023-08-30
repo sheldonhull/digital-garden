@@ -1,7 +1,5 @@
 ---
 date: 2014-12-02
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Get Information on Current Traces Running"

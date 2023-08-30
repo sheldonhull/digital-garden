@@ -2,8 +2,6 @@
 date: 2021-05-19
 title: Make Vscode Annoy Me When I Make a Typo
 slug: make-vscode-annoy-me-when-i-make-a-typo
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

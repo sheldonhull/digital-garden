@@ -1,7 +1,5 @@
 ---
 date: 2014-08-11
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Snippet Alert: Useful dates (eom, bom, etc)"

@@ -1,7 +1,5 @@
 ---
 date: 2015-08-13
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - sql-server
 title: "Stranger Danger... The need for trust with constraints"

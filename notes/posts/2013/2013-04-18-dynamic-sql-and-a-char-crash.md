@@ -1,7 +1,5 @@
 ---
 date: 2013-04-18
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "dynamic sql and a char crash"

@@ -6,8 +6,6 @@ toc: true
 summary: If you need to include a custom provider with Terraform Cloud, you
   currently need to perform some special work to package everything together
   properly. Here's how I did it to give you a jump start
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development
@@ -112,7 +110,7 @@ git checkout tags/<tag_name>
 Quick little #devhack... Use Git Graph in Visual Studio Code to make working with busy repositories much easier.
 Yes, I'm no Vim magician. Sometimes a little visual help is much better than trying to do it all in cli. #heresy
 
-![Use Git Graph to Visually Navigate A Busy Repo and Checkout a Tagged Commit]images/2020-07-14_14-57-48_using_git_graph.png "Git Graph Makes Things Easier")
+![Use Git Graph to Visually Navigate A Busy Repo and Checkout a Tagged Commit](images/2020-07-14_14-57-48_using_git_graph.png "Git Graph Makes Things Easier")
 
 Next, you'll want to install and validate your install worked.
 `go install` ensures that dependencies are downloaded, so once again the magic of `Go` wins the day.
@@ -258,7 +256,7 @@ I tested and found it matched the local provider with `0.0.0` by running `terraf
 
 However, what to bundle correctly required simplifying the output to no nested directories.
 
-![What Actually Worked In Plugin Directory Was a simple flat directory]images/2020-07-14_16-56-17-terraform-plugin-output.png "What Actually Worked In Plugin Directory")
+![What Actually Worked In Plugin Directory Was a simple flat directory](images/2020-07-14_16-56-17-terraform-plugin-output.png "What Actually Worked In Plugin Directory")
 
 The output of the bundle was successful with
 

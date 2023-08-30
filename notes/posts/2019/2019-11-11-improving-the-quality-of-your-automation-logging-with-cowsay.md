@@ -3,8 +3,6 @@ date: 2019-11-11
 title: Improving the Quality of Your Automation Logging with Cowsay
 slug: improving-the-quality-of-your-automation-logging-with-cowsay
 summary: 'Everyone involved in DevOps should have this critical tool in their toolchain... '
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - cli
 - cool-tools
@@ -114,7 +112,7 @@ PowerShell version is: `Install-Module lolcat -Scope CurrentUser`
 The resulting majesty:
 
 
-![CLI rendered dragon with lolcat]images/2019-11-09_18-00-06-lolcat.jpg "Lolcat for the cli win")
+![CLI rendered dragon with lolcat](images/2019-11-09_18-00-06-lolcat.jpg "Lolcat for the cli win")
 
 ## Linux Powerup
 
@@ -128,7 +126,7 @@ sudo apt update
 sudo apt install cmatrix
 ```
 
-![cmatrix]images/cmatrix.webp)
+![cmatrix](images/cmatrix.webp)
 
 ## Resources
 

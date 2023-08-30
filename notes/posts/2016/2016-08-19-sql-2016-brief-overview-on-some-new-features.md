@@ -1,7 +1,5 @@
 ---
 date: 2016-08-19
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "SQL 2016 - Brief Overview on some new features"
@@ -45,7 +43,7 @@ Most of the new features included in 2016 have been tested in the cloud. They ar
 
 `column encryption setting=enabled`
 
-![encryption]images/encryption.png)
+![encryption](images/encryption.png)
 
 ## stretch
 

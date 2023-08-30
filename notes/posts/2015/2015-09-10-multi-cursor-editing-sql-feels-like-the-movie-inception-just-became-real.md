@@ -1,7 +1,5 @@
 ---
 date: 2015-09-10
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Multi-Cursor Editing SQL feels like the movie Inception just became real"
@@ -20,4 +18,4 @@ I apologize in advance for the video quality. I plan on recording a better one i
 <iframe allowfullscreen="yes" frameborder="0" height="480" src="https://www.youtube.com/embed/1YF0XphEd04?rel=0" width="640"></iframe>
 
 
-![Multi-cursor editing #2]images/Sublime-Multi-Cursor-Editing-Example-21.gif)
+![Multi-cursor editing #2](images/Sublime-Multi-Cursor-Editing-Example-21.gif)

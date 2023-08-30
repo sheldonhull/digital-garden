@@ -1,7 +1,5 @@
 ---
 date: 2016-01-13
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Verifying Instant File Initialization"
@@ -19,4 +17,4 @@ Successfully added instant file initialization should mean when you review the l
 <script src="https://gist.github.com/sheldonhull/f2dddfc8187f6676cd76.js"></script>
 
 
-![successfully-verifying_v1khio]images/successfully-verifying_v1khio.png)
+![successfully-verifying_v1khio](images/successfully-verifying_v1khio.png)

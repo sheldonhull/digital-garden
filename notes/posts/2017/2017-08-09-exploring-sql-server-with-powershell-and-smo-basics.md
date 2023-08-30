@@ -5,8 +5,6 @@ categories:
 - powershell
 date: 2017-08-09
 last_modified_at: "2019-02-21"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - powershell

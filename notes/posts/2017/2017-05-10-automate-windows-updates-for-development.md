@@ -1,7 +1,5 @@
 ---
 date: 2017-05-10
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - powershell
 - tech

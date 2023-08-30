@@ -4,8 +4,6 @@ title: Alexa
 slug: alexa
 tags:
 - tech
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 # Customization

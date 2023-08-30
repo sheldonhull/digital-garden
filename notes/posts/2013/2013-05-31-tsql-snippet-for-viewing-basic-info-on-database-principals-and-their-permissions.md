@@ -1,7 +1,5 @@
 ---
 date: 2013-05-31
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "TSQL Snippet for viewing basic info on database principals and their permissions"

@@ -3,8 +3,6 @@ date: 2018-03-30
 summary: SQL Server requirements vary based on the version.
 last_modified_at: "2019-02-21"
 published: true
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - tech

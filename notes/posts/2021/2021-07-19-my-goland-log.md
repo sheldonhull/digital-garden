@@ -16,8 +16,6 @@ series: ['goland']
 
 # images: images/
 
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Purpose
@@ -47,9 +45,9 @@ I'll log updates and issues here as I work through it in the hope that it might 
 ✅ Run individual directory test.
 This also generates a run configuration (ephemeral) that can be persisted as a test configuration for the project.
 
-![test output]images/2021-07-19-goland-test-coverage.png "Test output view is very polished")
+![test output](images/2021-07-19-goland-test-coverage.png "Test output view is very polished")
 
-![test coverage on file list]images/2021-07-19-goland-test-coverage-explorer.png "Test Coverage on file list")
+![test coverage on file list](images/2021-07-19-goland-test-coverage-explorer.png "Test Coverage on file list")
 
 ✅ Toggle auto-run for testing is possible, so upon save, it will run after a 1 second delay.
 The built in test renderer is better than VSCode's Go test output.
@@ -58,13 +56,13 @@ Not only does it render the test with color[^vscode-go-testoutput] but also orga
 Overall, the test output is polished, able to be undocked and run in a separate window.
 Works well for a TDD workflow.
 
-![Goland Test Coverage]images/2021-07-19-goland-test-coverage.png "test coverage")
+![Goland Test Coverage](images/2021-07-19-goland-test-coverage.png "test coverage")
 
 @s0xzwasd provided some great insight on the different approach in the comments on this page.
 Compound configurations work well to run multiple sets of test when using multiple modules in the same repo.
 I tried this, and while tedious to click through the first time, It's easier to configure from a UI standpoint than trying to work through the VSCode `tasks.json` schema and build tasks by hand.
 
-![Goland Compound Test Coverage Explorer Output]images/2021-07-21-18.16.07-goland-run-all-tests.png "Compound test coverage")
+![Goland Compound Test Coverage Explorer Output](images/2021-07-21-18.16.07-goland-run-all-tests.png "Compound test coverage")
 
 {{< /admonition >}}
 

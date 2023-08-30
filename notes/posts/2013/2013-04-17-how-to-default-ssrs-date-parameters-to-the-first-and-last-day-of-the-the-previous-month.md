@@ -1,7 +1,5 @@
 ---
 date: 2013-04-17
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - sql-server
 title : "How to default SSRS date parameters to the first and last day of the the previous month"

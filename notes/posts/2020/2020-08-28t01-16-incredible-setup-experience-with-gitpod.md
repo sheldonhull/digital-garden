@@ -1,8 +1,6 @@
 ---
 title: Incredible setup experience with gitpod
 date: 2020-08-27
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 aliases:
 - 2020-08-28t01-16-incredible-setup-experience-with-gitpod
 - 2020-08-28t01-16-incredible-setup-experience-with-gitpod/

@@ -11,8 +11,6 @@ tags:
 
 # images: images/
 
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Just wanted to give props to the Cloudposse team lead by Erik Osterman [@eosterman](https://twitter.com/eosterman).
@@ -37,9 +35,9 @@ To use a Chrome search engine alias, go to: [Search Engines](chrome://settings/s
 
 For any future search, just type in cloudposse in the searchbar and whatever you type after that will open up in the archive search.
 
-![Search Using Alfred]images/2021-08-10-13.02.26-search-slack-archive.gif "Search Slack Archive")
+![Search Using Alfred](images/2021-08-10-13.02.26-search-slack-archive.gif "Search Slack Archive")
 
-![Search Using Chrome Search Engine Alias]images/2021-08-10-13.10.08-search-engine-result.gif "Search Using Chrome Search Engine Alias")
+![Search Using Chrome Search Engine Alias](images/2021-08-10-13.10.08-search-engine-result.gif "Search Using Chrome Search Engine Alias")
 
 [^tools-and-communities]: I don't think Cloudposse or many others deny that Slack is "inferior" for threaded conversation to a tool like Discourse.
 However, despite it being a "walled garden", it's a lot easier to get engagement there than a forum from what I understand.

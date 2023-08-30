@@ -12,8 +12,6 @@ tags:
 - security
 toc: true
 images: images/2021-06-25-1658-sql-login-database-architecture-dark.png
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Confusing
@@ -50,7 +48,7 @@ Here's a quick visual I threw together to reinforce the concept.
 Yes, I'm a talented comic artist and take commissions.
 😀
 
-![sql-login-database-architecture]images/2021-06-25-1658-sql-login-database-architecture-dark.png "Visualize SQL Security 101")
+![sql-login-database-architecture](images/2021-06-25-1658-sql-login-database-architecture-dark.png "Visualize SQL Security 101")
 
 ## Best Practice
 

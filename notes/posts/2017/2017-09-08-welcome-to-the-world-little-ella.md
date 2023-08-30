@@ -1,7 +1,5 @@
 ---
 date: 2017-09-08
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - family
 - photography

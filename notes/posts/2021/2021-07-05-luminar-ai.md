@@ -5,16 +5,12 @@ slug: luminar-ai
 summary: >-
   Let's take a look at Luminar AI from a prior Lightroom owner and get some
   first impressions.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - software
   - ramblings
   - photograophy
 toc: true
 lightgallery: true
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 {{< admonition type="Note" title="Update" open="true">}}
@@ -58,7 +54,7 @@ The very first look of the library view was pretty bad.
 
 I'm not certain what's going on, but the raw file previews in the library view loaded in a way that made my daughter look like she was being viewed through one of those warping mirrors.
 
-![2021-05-24-16.46.05-Luminar AI]images/2021-05-24-16.46.05-luminar-ai.png "library preview distorted in AI edition")
+![2021-05-24-16.46.05-Luminar AI](images/2021-05-24-16.46.05-luminar-ai.png "library preview distorted in AI edition")
 
 The library management workflow was pretty snappy, so I was overall happy with that.
 
@@ -96,4 +92,4 @@ I had Luminar 2018 and Luminar 3. Both weren't a great experience on the PC and 
 
 I could see this being a viable raw editing workflow for me though, considering the overall license cost would be significantly less than many other competitors.
 
-![2021-05-24-18.20.37-Luminar AI]images/2021-05-24-18.20.37-luminar-ai.png "All Photos View")
+![2021-05-24-18.20.37-Luminar AI](images/2021-05-24-18.20.37-luminar-ai.png "All Photos View")

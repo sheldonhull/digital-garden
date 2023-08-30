@@ -4,8 +4,6 @@ title: Working With Powershell Objects to Create Yaml
 slug: working-with-powershell-objects-to-create-yaml
 summary:
   Here's a walk-through on using PowerShell objects to dynamically generate yaml configuration files.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - development
   - tech
@@ -178,7 +176,7 @@ $Services | ConvertTo-Json -Depth 100 | &'C:\tools\yq.exe' eval - --prettyPrint 
 
 This would produce a nice json output like this
 
-![Example config image]images/2021-02-08-yaml-config-example.png)
+![Example config image](images/2021-02-08-yaml-config-example.png)
 
 ### One More Complex Example
 

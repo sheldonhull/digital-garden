@@ -1,7 +1,5 @@
 ---
 date: 2013-07-16
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - cool-tools
@@ -13,4 +11,4 @@ When dealing with large amounts of objects in a database, navigation can be tedi
 
 [SSMS 2012 Extender ](https://ssms2012extender.codeplex.com/ "SSMS 2012 Extender")
 
-![ObjectExplorer_2013-07-16_07-35-51]images/ObjectExplorer_2013-07-16_07-35-51_uxfdyj.png)
+![ObjectExplorer_2013-07-16_07-35-51](images/ObjectExplorer_2013-07-16_07-35-51_uxfdyj.png)

@@ -1,7 +1,5 @@
 ---
 date: 2016-11-16
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - powershell
 - sql-server

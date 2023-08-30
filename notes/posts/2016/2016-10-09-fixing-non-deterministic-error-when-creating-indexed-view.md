@@ -1,7 +1,5 @@
 ---
 date: 2016-10-09
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Fixing non-deterministic error when creating indexed view"

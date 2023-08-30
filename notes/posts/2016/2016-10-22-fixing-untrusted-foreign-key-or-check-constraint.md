@@ -1,7 +1,5 @@
 ---
 date: 2016-10-22
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Fixing Untrusted Foreign Key or Check Constraint"

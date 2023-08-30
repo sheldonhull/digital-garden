@@ -2,8 +2,6 @@
 date: 2021-05-23
 title: Dance Time
 slug: dance-time
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - ramblings
   - art

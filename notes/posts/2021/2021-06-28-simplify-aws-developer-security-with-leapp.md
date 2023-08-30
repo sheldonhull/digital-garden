@@ -12,8 +12,6 @@ tags:
 - devops
 toc: true
 images: images/2021-06-28-14.50.53-Leapp.png
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Security Is Necessary Work
@@ -23,7 +21,7 @@ The balance of security and usability is one that all development organizations 
 
 I could be ultra-secure by requiring carrier pigeon multi-factor authentication for my team, but I'm not sure that would be well received.
 
-![security steps]images/2021-06-28-1615-diagram-security-steps.png "security steps can be painful")
+![security steps](images/2021-06-28-1615-diagram-security-steps.png "security steps can be painful")
 
 It's also critical and the responsibility of each developer, not just the security team.
 
@@ -65,7 +63,7 @@ Tools like [aws-vault](https://github.com/99designs/aws-vault) are fantastic in 
 
 > 🚀 [Leapp - One step away from your Cloud](https://bit.ly/3A8hosQ)
 
-![leapp ui]images/2021-06-28-14.50.53-Leapp.png "leapp ui")
+![leapp ui](images/2021-06-28-14.50.53-Leapp.png "leapp ui")
 
 I came across this app by chance back in March when I was just starting at my new job at `$Work` and was looking for a tool to help simplify things over `aws-vault`.
 Since I was benefiting from AWS SSO, I was looking for a way to simplify switching roles with SSO, while still maintaining compatibility with the lowest common denominator of the lowly `~/.aws/credentials` file that I knew worked with Terraform, PowerShell, and other tools equally.
@@ -88,7 +86,7 @@ In my scenario, using AWS SSO provides a more complicated route that demonstrate
 - Enter MFA
 - Auth dialogue proceeds to confirmation screen of signing in CLI
 
-![aws ccli sso confirmation]images/2021-06-28-15.42.50-Leapp-sso-cli.png "aws-cli-sso-confirmation")
+![aws ccli sso confirmation](images/2021-06-28-15.42.50-Leapp-sso-cli.png "aws-cli-sso-confirmation")
 
 - Done!
 
@@ -96,7 +94,7 @@ The result:
 
 `~/.aws/credentials` has the `[default]` profile containing my STS credentials. This token rotates every `n`[^session-time] minutes producing ephemeral credentials.
 
-![credentials file changed]images/2021-06-28-15.44.09-Code.png "credentials file changed")
+![credentials file changed](images/2021-06-28-15.44.09-Code.png "credentials file changed")
 
 ## Enhancements
 
@@ -112,7 +110,7 @@ Now, named profiles are supported as well, so you could have multiple assumed ro
 
 There's a built-in session launcher, allowing searching of EC2 instances and the instance terminal launch of an `aws ssm start-session` command against the target.
 
-![leapp AWS ssm launcher]images/2021-06-28-15.49.14-Leapp-ssm-launcher.png "leapp aws ssm launcher")
+![leapp AWS ssm launcher](images/2021-06-28-15.49.14-Leapp-ssm-launcher.png "leapp aws ssm launcher")
 
 ## Future
 

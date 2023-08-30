@@ -1,7 +1,5 @@
 ---
 date: 2014-08-12
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Generate Random Date With Starting Point"

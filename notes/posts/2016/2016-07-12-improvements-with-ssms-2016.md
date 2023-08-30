@@ -4,8 +4,6 @@ summary: Improves to SSMS (Sql Server Management Studio) continue. Use the lates
   version instead of using the version bundled in older versions of SQL Server Installation
   media to ensure the latest features are available.
 last_modified_at: "2018-03-30"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Improvements with SSMS 2016"
@@ -28,13 +26,13 @@ The staple of every SQL Server developer's world, SSMS has been impossible to us
 
 You can see the statistics update as it's running.
 
-![Live Statistics View]images/live-statistics-view.png)
+![Live Statistics View](images/live-statistics-view.png)
 
 ## Side by Side Comparison of Plans
 
 This is something that is fantastic. A good step in the right direction for helping compare plans quickly. This is a feature I'd love to see added to other tools like SQL Sentry Plan Explorer.  When plans don't vary significantly in their structure, this type of view is great for quickly viewing variances.
 
-![Side by Side Comparison of Plans]images/side-by-side-comparison-of-plans.png)
+![Side by Side Comparison of Plans](images/side-by-side-comparison-of-plans.png)
 
 ## Usability
 
@@ -44,7 +42,7 @@ You can actually drag your mouse to pan a plan... enough said. This should have 
 
 The properties pane also has an overhaul with some really useful comparison information, helping you identify what is now different.
 
-![comparison of properties]images/comparison-of-properties.png)
+![comparison of properties](images/comparison-of-properties.png)
 
 ## overall
 

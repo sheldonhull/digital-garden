@@ -1,8 +1,6 @@
 ---
 title: random-microsoft-teams-quirks-01
 date: 2020-07-30
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

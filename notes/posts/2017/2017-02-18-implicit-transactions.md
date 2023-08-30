@@ -1,8 +1,6 @@
 ---
 date: 2017-02-18
 published: false
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Implicit Transactions"

@@ -1,8 +1,6 @@
 ---
 date: 2016-01-08
 last_modified_at: "2019-02-09"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Transaction Logging & Recovery (part 2)"
@@ -20,7 +18,7 @@ Continuation of some notes regarding the excellent content by Paul Randal in [Pl
 --- Examine the errorlog (after you've enabled trace flag 3605,3004) EXEC xp_readerrorlog; GO
 * When examining the results, you can see the zeroing of the log file, but not the datafile if you have instant file initialization enabled.
 
-![transaction-log-file_daxina]images/transaction-log-file_daxina.png)
+![transaction-log-file_daxina](images/transaction-log-file_daxina.png)
 
 ## Virtual Log Files
 

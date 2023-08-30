@@ -1,7 +1,5 @@
 ---
 date: 2016-03-18
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Failover all databases to other server"

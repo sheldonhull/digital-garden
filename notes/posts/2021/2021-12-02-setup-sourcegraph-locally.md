@@ -9,8 +9,6 @@ tags:
 - microblog
 - golang
 images: images/2021-12-02-16.53.00-cloned-repos.png
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 
 ---
 
@@ -59,7 +57,7 @@ To ensure SSH tokens are mounted, you need to follow-up the directions here: [SS
       --volume $HOME/.sourcegraph/data:/var/opt/sourcegraph:delegated \
       sourcegraph/server:3.34.1
 
-![cloned-repos]images/2021-12-02-16.53.00-cloned-repos.png "cloned repos")
+![cloned-repos](images/2021-12-02-16.53.00-cloned-repos.png "cloned repos")
 
 ## LSIF For Go
 

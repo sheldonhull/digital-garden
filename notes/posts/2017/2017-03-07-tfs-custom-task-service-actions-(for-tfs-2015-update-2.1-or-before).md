@@ -1,7 +1,5 @@
 ---
 date: 2017-03-07
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tfs
 - build-tasks

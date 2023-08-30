@@ -9,8 +9,6 @@ tags:
 - aws
 - golang
 images: images/2021-07-16-the-power-of-the-steampipe.jpeg
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Up And Running In Minutes
@@ -60,7 +58,7 @@ This is the same SDK I used, but instead of having to build out all the calls, t
 There is no need to reinvent the wheel.
 Instead of iterating through regions, accounts, and more, Steampipe allows this in plain old SQL.
 
-![Query The Cloud]images/2021-07-16-postgres-and-aws.png "Query The Cloud")
+![Query The Cloud](images/2021-07-16-postgres-and-aws.png "Query The Cloud")
 For example, to gather:
 
 - EC2 Instances
@@ -106,7 +104,7 @@ I feel this is like Terraform for Cloud metadata, a way to provide a consistent 
 - Copied the Postgres connection string from the terminal output and pasted into TablePlus.
 - Pasted my query, ran, and results were right there as if I was connected to a database.
 
-![TablePlus]images/2021-07-16-16.24.53-TablePlus-query-editor.png "TablePlus")
+![TablePlus](images/2021-07-16-16.24.53-TablePlus-query-editor.png "TablePlus")
 
 ## AWS Already Has This
 

@@ -2,8 +2,6 @@
 date: 2021-01-09
 title: Remove Chrome Autocomplete Suggestion
 slug: remove-chrome-autocomplete-suggestion
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - microblog

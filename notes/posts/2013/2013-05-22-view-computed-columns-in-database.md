@@ -1,7 +1,5 @@
 ---
 date: 2013-05-22
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "View computed columns in database"

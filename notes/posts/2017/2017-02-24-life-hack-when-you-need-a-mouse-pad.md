@@ -1,7 +1,5 @@
 ---
 date: 2017-02-24
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - lifehack
 - tech

@@ -13,8 +13,6 @@ tags:
 
 # images: images/
 
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 series: ["pulumi"]
 ---
 
@@ -89,7 +87,7 @@ This is similar to how terraform cloud workspaces work and gives confidence of e
 - `pulumi up` also was very clean, and allowed a selection to expand the details as well.
 - Browser for stack provides full metadata detail, resource breakdown, audit history, and more.
 
-![Great Console Preview & Interaction Experience]images/2021-08-10-15.47.41-pulumi-preview.png "Great Console Preview & Interaction Experience")
+![Great Console Preview & Interaction Experience](images/2021-08-10-15.47.41-pulumi-preview.png "Great Console Preview & Interaction Experience")
 
 - The Pulumi docs for Azure DevOps were pretty solid!
 Full detail and walk through.

@@ -2,12 +2,10 @@
 date: 2021-05-04
 title: Diagrams as Code
 slug: diagrams-as-code
-typora-root-url: ../../../static
+
 summary: >-
   Generate diagrams as code using Python, if you prefer to have a bit more
   development oriented workflow for visualization.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development
@@ -68,7 +66,7 @@ To find available nodes and shapes, you'll need to look at the diagram docs[^dia
 
 Using defaults you can create a simple diagram such as this:
 
-![vpc-diagram-simple]images/diagrams-as-code-01-diagram-vpc-example.png)
+![vpc-diagram-simple](images/diagrams-as-code-01-diagram-vpc-example.png)
 
 {{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "01-diagram-vpc-example.py">}}
 
@@ -76,7 +74,7 @@ Using defaults you can create a simple diagram such as this:
 
 From the github issues and my own customizations, I added a few additions to make the edge (ie, lines) flow easier to work with.
 
-![vpc-diagram-simple-with-helpers]images/diagrams-as-code-02-aws-vpc-example-with-helper.png)
+![vpc-diagram-simple-with-helpers](images/diagrams-as-code-02-aws-vpc-example-with-helper.png)
 
 {{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "02.helpers.py">}}
 
@@ -86,7 +84,7 @@ I went through the AWS Reference Architecture Diagrams [^aws-diagrams] and used 
 
 Take a look at the AWS PDF[^pull-request-continuous-integration-reference-architecture] and compare.
 
-![complex-example]images/diagrams-as-code-03-complex.png)
+![complex-example](images/diagrams-as-code-03-complex.png)
 
 {{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "03-diagram-complex.py">}}
 

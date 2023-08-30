@@ -4,8 +4,6 @@ title: Using AWS SDK With Go for EC2 AMI Metrics
 slug: using-aws-sdk-with-go-for-ec2-ami-metrics
 summary:
   How I used the AWS SDK with Go to generate metrics for AWS EC2 Instances and AMI's associated to them
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development
@@ -61,7 +59,7 @@ Warning... I discovered that the SDK is pretty noisy and probably makes things a
 
 If you want to learn pointers and derefrencing with Go... you'll be a pro by the time you are done with it 😂
 
-![Everyone Gets a Pointers According to SpongeBob]images/12-03-10-19-40-pointers-for-everyone.png)
+![Everyone Gets a Pointers According to SpongeBob](images/12-03-10-19-40-pointers-for-everyone.png)
 
 ## Why This Could Be Useful In Learning More Go
 

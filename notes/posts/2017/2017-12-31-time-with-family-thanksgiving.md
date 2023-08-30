@@ -2,8 +2,6 @@
 categories:
 - family
 date: 2017-12-31
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - family
 - ramblings

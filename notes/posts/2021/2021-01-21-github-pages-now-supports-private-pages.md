@@ -2,8 +2,6 @@
 date: 2021-01-21
 title: Github Pages Now Supports Private Pages
 slug: github-pages-now-supports-private-pages
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

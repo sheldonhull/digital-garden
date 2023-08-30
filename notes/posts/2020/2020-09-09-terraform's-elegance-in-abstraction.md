@@ -2,8 +2,6 @@
 date: 2020-09-09
 title: Terraform's Elegance in Abstraction
 slug: terraform's-elegance-in-abstraction
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
     - tech
     - development

@@ -1,7 +1,5 @@
 ---
 date: 2015-08-27
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Brentozar''s Training: Chocolate & Cowboy Hats Included"

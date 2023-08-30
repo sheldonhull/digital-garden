@@ -1,8 +1,6 @@
 ---
 title: simple conditional flag in terraform
 date: 2020-07-28
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

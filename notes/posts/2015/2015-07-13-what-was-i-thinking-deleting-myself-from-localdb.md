@@ -1,7 +1,5 @@
 ---
 date: 2015-07-13
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "What was I thinking? Deleting myself from localdb?"
