@@ -82,6 +82,8 @@ jobs:
       - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
         name: upload-pages-artifact
         uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c # v2.0.0
+        with:
+          path: .artifacts/_site
   # Deployment job
   deploy:
     needs: build
