@@ -11,6 +11,7 @@ RUN if [ -f /tmp/requirements.txt ]; then \
   mkdocs-glightbox \
   mkdocs-rss-plugin \
   mkdocs-autolinks-plugin \
+  mkdocs-git-revision-date-localized-plugin \
   mkdocs-awesome-pages-plugin ; \
   fi
 

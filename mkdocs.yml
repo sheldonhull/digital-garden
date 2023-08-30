@@ -101,6 +101,7 @@ plugins:
 
   - autolinks
   - tags
+    # tags_file: posts/tags.md
   #  - tags:
   #      enabled: !ENV [CI, false]
   - search
@@ -127,8 +128,11 @@ plugins:
         utm_source: 'documentation'
         utm_medium: 'RSS'
         utm_campaign: 'feed-syndication'
-  # - meta: # insiders only
-  #     meta_file: '**/.meta.yml'
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      fallback_to_build_date: true
+
 # dev_addr: '0.0.0.0:8000' # since running dockerized, need to use 0.0.0.0 since 127.0.0.1 won't resolve to docker gateway
 extra_css:
   - stylesheets/extra.css
