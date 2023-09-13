@@ -14,7 +14,15 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 	"github.com/pterm/pterm"
+
+	"github.com/sheldonhull/magetools/ci"
+	//mage:import
+	"github.com/sheldonhull/magetools/trunk"
 )
+
+// Job contains the combination of commands to run for automation instead of having to run steps individually.
+// This is a convenience command.
+type Job mg.Namespace
 
 // Mkdocs is the namespace for running mkdocs commands.
 type Mkdocs mg.Namespace
@@ -135,4 +143,34 @@ func (Mkdocs) GHDeploy() error {
 // Pull pulls the squidfunk/mkdocs-material:latest Docker image
 func (Docker) Pull() error {
 	return sh.RunV("docker", "pull", fmt.Sprintf("%s:%s", mkdocsDockerImage, mkdocsDockerTag))
+}
+
+// Up can get everything running from scratch and server locally.
+func (Job) Up() {
+	mg.SerialDeps(
+		Docker{}.Pull,
+		Docker{}.Build,
+		Mkdocs{}.Serve,
+	)
+}
+
+// ✔️ Init sets up the local tooling for writing and building.
+func Init() error {
+	if ci.IsCI() {
+		pterm.Info.Println("Running in CI, skipping dev specific tooling")
+		mg.SerialDeps(
+			Docker{}.Pull,
+			Docker{}.Build,
+		)
+		return nil
+	}
+	// run these in parallel for a little less waiting around
+	mg.Deps(
+		trunk.Trunk{}.Init,
+		Docker{}.Pull,
+	)
+	mg.SerialDeps(
+		Docker{}.Build,
+	)
+	return nil
 }
