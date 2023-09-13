@@ -7,10 +7,10 @@
       "label": "mage:serve",
       "type": "shell",
       "command": "echo \"⚙️ loading direnv\" && direnv allow .envrc && echo \"⚙️ running mage server\" && mage serve",
-      "runOptions": {
-        "instanceLimit": 1,
-        "runOn": "folderOpen"
-      },
+      // "runOptions": {
+      //   "instanceLimit": 1,
+      //   "runOn": "folderOpen"
+      // },
       "promptOnClose": true,
       "options": {
         "cwd": "${workspaceFolder}",
