@@ -18,3 +18,4 @@ packages:
   - name: direnv/direnv@v2.32.3
   - name: golangci/golangci-lint@v1.54.2
     tags: ['lint']
+  - name: charmbracelet/glow@v1.5.1
