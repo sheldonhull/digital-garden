@@ -12,7 +12,7 @@ series:
 - pulumi
 ---
 
-If you need to work through some issues with a deployment and remove a pending operation in Pulumi state file, you can do this pretty easily manually, or save a quick bit of scrolling and use `gojq` (or `jq` if you want).
+If you need to work through some issues with a deployment and remove a pending operation in Pulumi state file<!-- more -->, you can do this pretty easily manually, or save a quick bit of scrolling and use `gojq` (or `jq` if you want).
 
 - Export: `pulumi stack export --file state.json`
 - Align formatting: `cat state.json | gojq > stateFormatted.json`

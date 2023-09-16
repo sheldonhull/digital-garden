@@ -21,7 +21,7 @@ This is not a comprehensive article, but more a log of the issues and wins as I 
 - Pulumi is pretty powerful.
 - Once you get beyond the basics, it requires a lot of effort since the tooling doesn't have as many examples as I'd hope.
 This is especially true for Kubernetes.
-It's a lot easier to get moving on other providers.
+It's a lot easier to get moving on other providers.<!-- more -->
 - It's more intensive of a pilot to do complex things IMO than Terraform, because you aren't getting pre-built modules that just have all the stack done automatically (at least in Go).[^crosswalk]
 - Certain things that were painful in Terraform just work in Pulumi.
 For example, renaming the underlying org was super easy, removing stuck items from state, and other actions that with Terraform are much trickier.

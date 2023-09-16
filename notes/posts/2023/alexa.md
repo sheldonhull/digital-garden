@@ -1,12 +1,10 @@
 ---
 date: 2023-06-11
-title: Alexa
-slug: alexa
+title: Alexa Customization
+slug: alexa-customization
 tags:
 - tech
 ---
-
-# Customization
 
 This bugged me for a while, as it random notifications were intrusive in when I was working.
 

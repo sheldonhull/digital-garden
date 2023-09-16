@@ -16,7 +16,7 @@ images: images/2023-05-03-how-many-commits-did-you-make-in-last-month.png
 ---
 
 Been playing with [opencommit](https://github.com/di-sukharev/opencommit) and wanted to assess how much using it on every single commit I still could track locally might cost me.
-
+<!-- more -->
 This script loops through all the `${HOME}/git` directories and totals the commits made in last month.
 
 Looks like using OpenAI's api would cost me about $4-$5 if I'd used on every single commit and the size of the commits was smaller.

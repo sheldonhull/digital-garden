@@ -12,7 +12,7 @@ tags:
 > with them amply repays you for the responsibility, if you can only see it.
 > But then you have to go into the depths and take that relationship as a sacred reality and ethical requirement.
 > And you deal with those things casually at your great peril. - Jordan Peterson[^podcast]
-
+<!-- more -->
 This was a beautiful quote that I had to capture from Jordan Peterson.
 It wasn't the main topic, but the discussion of religous terminology came up as the guest speaker said she was raised Catholic, but had rejected this faith.
 Yet, even with the rejection of faith, both her and Dr Peterson found that expressions of deep and core concepts often require borrowing from the domain of the sacred.

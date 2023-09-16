@@ -18,7 +18,7 @@ series: ['pulumi']
 
 ## Logical Names
 
-Pulumi requires unique logical names (URN) for tracking the state of resources.
+Pulumi requires unique logical names (URN) for tracking the state of resources.<!-- more -->
 I ran into an issue with this once I expanded to a multi-cluster deployment since Pulumi began erroring on the logical name not being unique.
 Let's say you are defining a service:
 
