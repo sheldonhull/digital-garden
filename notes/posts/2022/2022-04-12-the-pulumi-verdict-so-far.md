@@ -18,7 +18,7 @@ series: ['pulumi']
 ## What Pulumi Is
 
 - Pulumi is like a muscle car.
-Great if you want full control, power, and flexibility.
+Great if you want full control, power, and flexibility.<!-- more -->
 - Pulumi is fast.
 - Has actual loops.
 Sorry `HCL`... Your loops are just confusing.[^2]

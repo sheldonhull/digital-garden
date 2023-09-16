@@ -9,7 +9,7 @@ tags:
 - working-from-home
 ---
 
-- Take the car into shop to get state inspection that's overdue, since I don't drive it much.
+- Take the car into shop to get state inspection that's overdue, since I don't drive it much.<!-- more -->
 - Find out a check engine light fails the test.
 - Drive towards grocery store near house, and hit a long line of traffic.
 - Decide to be a dilligent budgeter and pick up milk instead of buying coffee.

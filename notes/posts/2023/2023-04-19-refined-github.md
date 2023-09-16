@@ -17,7 +17,7 @@ tags:
 After using this for a while, I figured I'd add this to my my "cool-tools" list.
 
 [![refined-github/refined-github - GitHub](https://gh-card.dev/repos/refined-github/refined-github.svg)](https://github.com/refined-github/refined-github)
-
+<!-- more -->
 The main features I've found useful:
 
 - Use keyboard to flip straight to code review with approve/reject focused.

@@ -10,7 +10,7 @@ tags:
 - microblog
 ---
 
-Split my blog into [notes.sheldonhull.com](https://notes.sheldonhull.com) for evergreen note taking and reference content.
+Split my blog into [notes.sheldonhull.com](https://notes.sheldonhull.com) for evergreen note <!-- more -->taking and reference content.
 I'll still maintain this blog for posts.
 
 Mkdocs allows a minimal friction to publishing and previewing.

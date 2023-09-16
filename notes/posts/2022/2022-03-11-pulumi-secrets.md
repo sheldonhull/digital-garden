@@ -20,7 +20,7 @@ series:
 
 ## Chicken or The Egg
 
-Secrets with infrastructure are a problem.
+Secrets with infrastructure are a problem.<!-- more -->
 
 - I want to source control my secrets, and deploy via CD.
 - I want to use infrastructure-as-code to define my configuration, including secrets.

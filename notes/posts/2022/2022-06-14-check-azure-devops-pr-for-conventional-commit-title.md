@@ -22,7 +22,7 @@ tags:
 
 - Is it needed... No.
 - Is it the only way... No.
-- Is consistency better than inconsistentcy, mostly yes.
+- Is consistency better than inconsistentcy, mostly yes.<!-- more -->
 
 I've used conventional commit most of my career and it's a fine basic standard, even if sometimes it feels strange as you get used to it.
 I think it's far better than inconsistency and is common enough with tooling you can do some nice release, changelog, and versioning with it.

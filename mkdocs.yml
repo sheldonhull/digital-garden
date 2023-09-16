@@ -58,7 +58,11 @@ markdown_extensions:
       # pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -74,30 +78,32 @@ plugins:
       strict: false
       order: desc
       sort_type: natural
-      # order_by: title # ERROR: runs into error with dates
+  # order_by: title # ERROR: runs into error with dates
 
   - blog:
-      enabled: false
+      enabled: true
+      draft_on_serve: true
+      draft_if_future_date: true
+
       blog_dir: .
-      # post_dir: '{blog}/posts'
       post_dir: '{blog}/posts'
-      post_url_date_format: yyyy/MM/dd
+      # post_dir: '{blog}/posts'
+      # post_url_date_format: yyyy/MM/dd
       post_url_format: '{slug}'
       blog_toc: true
-
-      categories: false
-      archive: false
-      archive_name: archive
-      archive_date_format: yyyy
-      archive_url_date_format: ''
-      archive_url_format: '{date}'
-      archive_toc: true
-
       post_excerpt: optional
       post_slugify_separator: '-'
       post_slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+
+      categories: false
+      archive: !ENV CI true
+      archive_name: archive
+      archive_date_format: yyyy
+      archive_url_date_format: 'yyyy'
+      archive_url_format: '{date}'
+      archive_toc: true
 
   - autolinks
   - tags
@@ -138,38 +144,61 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/gist.css
   - stylesheets/code-highlighting.css
+extra_javascript:
+  - https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js
 remote_branch: gh-pages
 # nav:
 #   - Blog:
 #       - posts/index.md
 watch:
   - config/
-
 nav:
-  - posts:
-      - posts/index.md
-      - ... | posts/**
-  #   # - index.md
-  #   - posts:
-
-  #       # - posts/index.md
-  #       # - ... | blog/posts/**
-  #       # - ... | posts/**
-  #       # | blog/posts/**
-
-  #       # - blog/**/*.md
-  #       # - ... | notes/blog/posts/2023/**
-  #       # - ...
-  #       # - ... | notes/blog/posts/2022/**
-
-  #       # - welcome: index.md
-  #       # - posts:
-  #       #     - blog/index.md
-  #       #     # - ... | blog/posts/2023/**
-  #       #     # - archive:
-  #       #     # - ... | archive/**
+  - home: welcome.md
+  - posts: index.md
   - notes:
-      - notes/index.md
       - ... | development/**
       - ... | career/**
-      - ... | technology/**
+
+        # - '/development/':
+        #     - ai: development/ai/index.md
+        #     - aws: development/aws/index.md
+        #     - build-release-engineering: development/build-release-engineering/index.md
+        #     - end: development/front-end/index.md
+        #     - go: development/go/index.md
+        #     - kubernetes: development/kubernetes/index.md
+        #     - observability: development/observability/index.md
+        #     - powershell: development/powershell/index.md
+        #     - shell: development/shell/index.md
+        #     - tooling: development/tooling/index.md
+# nav:
+#   - blog:
+#       - posts/index.md
+# - posts:
+#     - posts/index.md
+#     - ... | posts/**
+
+# - notes:
+#     - notes/index.md
+#     - ... | development/**
+#     - ... | career/**
+#     - ... | technology/**
+
+#   # - index.md
+#   - posts:
+
+#       # - posts/index.md
+#       # - ... | blog/posts/**
+#       # - ... | posts/**
+#       # | blog/posts/**
+
+#       # - blog/**/*.md
+#       # - ... | notes/blog/posts/2023/**
+#       # - ...
+#       # - ... | notes/blog/posts/2022/**
+
+#       # - welcome: index.md
+#       # - posts:
+#       #     - blog/index.md
+#       #     # - ... | blog/posts/2023/**
+#       #     # - archive:
+#       #     # - ... | archive/**

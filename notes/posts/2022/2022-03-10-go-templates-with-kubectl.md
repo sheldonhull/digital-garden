@@ -15,7 +15,7 @@ tags:
 
 ---
 
-An alternative to using jsonpath with kubectl is go templates!
+An alternative to using jsonpath with kubectl is go templates!<!-- more -->
 
 Try switching this:
 

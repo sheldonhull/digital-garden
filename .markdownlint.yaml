@@ -13,18 +13,13 @@ indentation: true
 # Defaults to dash
 MD004:
   style: dash
-MD005: true
-# MD041 - First line in a file should be a top-level heading: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md041---first-line-in-a-file-should-be-a-top-level-heading
 
-MD010:
-  ignore_code_languages: ['go']
-  code_blocks: false
+# MD041 - First line in a file should be a top-level heading: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md041---first-line-in-a-file-should-be-a-top-level-heading
 MD041: true
 # MD007 - Unordered list indentation: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md007---unordered-list-indentation
 # This rule is triggered when list items are not indented by the configured number of spaces (default: 2).
 MD007:
   indent: 4
-  start_indented: false
 no-hard-tabs: true
 
 # enable all whitespace rules, such as:
@@ -50,8 +45,7 @@ MD025: true
 # Try applying semantic line break concept for breaking up longer phrases
 # https://sembr.org/
 MD013:
-  false
-  #line_length: 200
+  line_length: 200
 
 # MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 # This tweaks to allow nested items to have duplicate headers.
@@ -60,6 +54,3 @@ MD024:
   allow_different_nesting: true
   # Only check sibling headings
   siblings_only: true
-
-MD029:
-  ol-prefix: one_or_ordered

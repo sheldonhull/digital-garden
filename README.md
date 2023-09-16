@@ -7,10 +7,35 @@ While my primary blog is still on hugo, the effort to maintain a personal knowle
 
 Instead, I'm trying out mkdocs which I've used in the past for several projects and will see how if it reduces the friction to write.
 
-## Run
+## Devcontainer
 
-- `aqua install`
-- `mage serve`
+- Open in devcontainer or codespaces.
+- Open `zsh-login` terminal, not bash, to ensure all the environment paths are set.
+- Run `direnv allow` to load default environment variables.
+- Run `mage init` to setup anything missing.
+
+> If anything like Go/Mage are missing, run `aqua install --tags first && aqua install` to automatically fix that.
+
+## Mage Commands
+
+Get going by running `mage job:up` to run the docker pull, build, and run the local serve command.
+It will ouput the url, which defaults to [locahost](http://localhost:3001)
+
+```text
+Targets:
+  docker:build            🔨 Run docker build.
+  docker:pull             pulls the squidfunk/mkdocs-material:latest Docker image
+  docker:stop             🛑 Stop the mkdocs dockerized container.
+  init                    ✔️ Init sets up the local tooling for writing and building.
+  job:up                  can get everything running from scratch and server locally.
+  mkdocs:build            Run mkdocs commands contained in docker
+  mkdocs:ghDeploy         Run mkdocs commands contained in docker
+  mkdocs:serve            🌐 Run mkdocs serve via Docker.
+  trunk:init              ⚙️ Init installs trunk and ensures the plugins are setup.
+  trunk:install           ⚙️ InstallTrunk installs trunk.io tooling if it isn't already found.
+  trunk:installPlugins    ⚙️ InstallPlugins ensures the required runtimes are installed.
+  trunk:upgrade           ⚙️ Upgrade upgrades trunk using itself and also the plugins.
+```
 
 ## Why
 

@@ -1,3 +1,4 @@
+---
 version: 0.1
 cli:
   version: 1.14.1
@@ -7,11 +8,12 @@ plugins:
       ref: v1.1.0
       uri: https://github.com/trunk-io/plugins
 lint:
+  disabled:
+    - cspell
+    - renovate
   enabled:
-    - renovate@36.57.4
     - shellcheck@0.9.0
     - shfmt@3.6.0
-    - cspell@7.0.1
     - actionlint@1.6.25
     - hadolint@2.12.0
     - markdownlint@0.35.0
@@ -20,7 +22,7 @@ lint:
     - git-diff-check
     - gitleaks@8.18.0
     - gofmt@1.20.4
-    - golangci-lint@SYSTEM
+    - golangci-lint@1.54.2
     - prettier@3.0.2
     - taplo@0.8.1
     - yamllint@1.32.0
@@ -36,10 +38,13 @@ lint:
       paths:
         - '*'
         - '!notes/**/*.md'
+    - linters: [shellcheck]
+      paths:
+        - .devcontainer/init
 
 runtimes:
   enabled:
-    - go@SYSTEM
+    - go@1.21.1
     - node@18.12.1
     - python@3.10.8
 actions:

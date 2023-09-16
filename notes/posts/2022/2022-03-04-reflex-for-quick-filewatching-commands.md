@@ -17,7 +17,7 @@ tags:
 go install github.com/cespare/reflex@latest
 ```
 
-Then you can run a command like:
+Then you can run a command like:<!-- more -->
 
 ```shell
 reflex -r 'nginx.conf' -- curl -v -L http://127.0.0.1:8080 2>&1 | grep -i "^< location:\|HTTP/1.1"
