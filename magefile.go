@@ -155,14 +155,14 @@ func (Job) Up() {
 }
 
 // ✔️ Init sets up the local tooling for writing and building.
-func Init() error {
+func Init() {
 	if ci.IsCI() {
 		pterm.Info.Println("Running in CI, skipping dev specific tooling")
 		mg.SerialDeps(
 			Docker{}.Pull,
 			Docker{}.Build,
 		)
-		return nil
+		return
 	}
 	// run these in parallel for a little less waiting around
 	mg.Deps(
@@ -172,5 +172,4 @@ func Init() error {
 	mg.SerialDeps(
 		Docker{}.Build,
 	)
-	return nil
 }
