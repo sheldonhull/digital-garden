@@ -54,14 +54,16 @@ Tracking my progress.
     - [ ] build one from scratch
     - [ ] build one that interacts with more security lifecycle operations
 - [x] Shell[^shell]
-
-!!! note things I've decided to archive
-    - [ ] Typescript
-      - [ ] Build a raycast extension
-      - [ ] Build a VSCode extension
-
 - [ ] Rust - someday!
 - [ ] Zig
+
+??? note "things I've decided to archive"
+
+    Things I'll wait on, or am not as interested in anymore.
+
+    - [ ] Typescript
+    - [ ] Build a raycast extension
+    - [ ] Build a VSCode extension
 
 ## Infra
 
