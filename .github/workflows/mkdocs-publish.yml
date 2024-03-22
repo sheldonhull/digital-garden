@@ -38,11 +38,11 @@ jobs:
               - 'mkdocs.yml'
               - '.github/workflows/mkdocs-publish.yml'
       # https://github.com/magnetikonline/action-golang-cache
-      - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-        name: setup-golang-with-cache
-        uses: magnetikonline/action-golang-cache@797f193169d3c8ba6f60d90f50ecdadd2583fbd8 # tag=v3
-        with:
-          go-version-file: go.mod
+      # - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
+      #   name: setup-golang-with-cache
+      #   uses: magnetikonline/action-golang-cache@797f193169d3c8ba6f60d90f50ecdadd2583fbd8 # tag=v3
+      #   with:
+      #     go-version-file: go.mod
       - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
         name: set-aqua-policy-if-file-exists
         run: |
@@ -59,20 +59,24 @@ jobs:
           aqua_opts: '--tags release'
         env:
           AQUA_LOG_LEVEL: debug
-      - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-        uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
-        with:
-          python-version: 3.x
+      # - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
+      #   uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      #   with:
+      #     python-version: 3.x
       - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
         uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3
         with:
           key: ${{ github.ref }}
           path: .cache
       - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-        name: mage-init-build-publish
+        name: mage-docker-build
         run: |
-          mage docker:build mkdocs:build mkdocs:ghdeploy
-
+          mage docker:build
+      - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
+        name: mage-mkdocs-build
+        run: |
+          mage mkdocs:build
+      # mkdocs:ghdeploy
       # - if: steps.changes.outputs.src == 'true'
       #   run: pip install mkdocs-material mkdocs-glightbox mkdocs-rss-plugin mkdocs-awesome-pages-plugin
       # # - run: mkdocs gh-deploy --force
