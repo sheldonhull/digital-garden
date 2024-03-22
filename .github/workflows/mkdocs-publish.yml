@@ -84,16 +84,34 @@ jobs:
         uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c # v2.0.0
         with:
           path: .artifacts/_site
+
+      - name: publish-to-cloudflare-pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+          projectName: digital-garden
+          directory: .artifacts/_site
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Switch what branch you are publishing to.
+          # By default this will be the branch which triggered this workflow
+          branch: gh-pages
+          # Optional: Change the working directory
+          # workingDirectory: my-site
+          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+          # wranglerVersion: '3'
   # Deployment job
-  deploy:
-    needs: build
-    if: ${{ needs.build.outputs.changes == 'true' }} || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: deploy-to-github-pages
-        id: deployment
-        uses: actions/deploy-pages@de14547edc9944350dc0481aa5b7afb08e75f254 # v2
+  # deploy:
+  #   needs: build
+  #   if: ${{ needs.build.outputs.changes == 'true' }} || ${{ github.event.inputs.ForceRedeploy == 'true' }}
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 5
+  #   steps:
+  #     - name: deploy-to-github-pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@de14547edc9944350dc0481aa5b7afb08e75f254 # v2
