@@ -95,6 +95,7 @@ jobs:
 
       - name: publish-to-cloudflare-pages
         uses: cloudflare/pages-action@v1
+        continue-on-error: true # optional
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -116,15 +117,15 @@ jobs:
           echo "Environment: ${{ steps.publish.outputs.environment }}"
           echo "Alias: ${{ steps.publish.outputs.alias }}"
   # Deployment job
-  # deploy:
-  #   needs: build
-  #   if: ${{ needs.build.outputs.changes == 'true' }} || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 5
-  #   steps:
-  #     - name: deploy-to-github-pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@de14547edc9944350dc0481aa5b7afb08e75f254 # v2
+  deploy:
+    needs: build
+    if: ${{ needs.build.outputs.changes == 'true' }} || ${{ github.event.inputs.ForceRedeploy == 'true' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: deploy-to-github-pages
+        id: deployment
+        uses: actions/deploy-pages@de14547edc9944350dc0481aa5b7afb08e75f254 # v2
