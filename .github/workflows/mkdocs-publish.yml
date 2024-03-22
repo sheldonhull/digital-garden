@@ -14,9 +14,10 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: write # NOTE: if using github pages and copying to branch this should be WRITE
-  pages: write
-  id-token: write
+  write-all
+  # contents: write # NOTE: if using github pages and copying to branch this should be WRITE
+  # pages: write
+  # id-token: write
 # Allow one concurrent deployment
 concurrency:
   group: 'pages'
@@ -27,6 +28,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       changes: ${{ steps.changes.outputs.src }}
+    # environment: digital-garden
     steps:
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       - uses: dorny/paths-filter@v2
