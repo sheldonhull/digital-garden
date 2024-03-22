@@ -14,7 +14,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read # NOTE: if using github pages and copying to branch this should be WRITE
+  contents: write # NOTE: if using github pages and copying to branch this should be WRITE
   pages: write
   id-token: write
 # Allow one concurrent deployment
@@ -76,6 +76,10 @@ jobs:
         name: mage-mkdocs-build
         run: |
           mage mkdocs:build
+      - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
+        name: mage-mkdocs-gh-deploy
+        run: |
+          mage mkdocs:ghdeploy
       # mkdocs:ghdeploy
       # - if: steps.changes.outputs.src == 'true'
       #   run: pip install mkdocs-material mkdocs-glightbox mkdocs-rss-plugin mkdocs-awesome-pages-plugin
