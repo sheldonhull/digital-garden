@@ -52,7 +52,7 @@ jobs:
             echo "👉 No aqua-policy.yaml file found, skipping setting AQUA_POLICY_CONFIG"
           fi
       - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-        uses: aquaproj/aqua-installer@36dc5833b04eb63f06e3bb818aa6b7a6e6db99a9 # v2.1.2
+        uses: aquaproj/aqua-installer@fd2089d1f56724d6456f24d58605e6964deae124 # v2.3.2
         with:
           aqua_version: v2.25.0
           # working_directory:
@@ -60,11 +60,11 @@ jobs:
         env:
           AQUA_LOG_LEVEL: debug
       - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
+        uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: 3.x
       - if: steps.changes.outputs.src == 'true' || ${{ github.event.inputs.ForceRedeploy == 'true' }}
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
+        uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3
         with:
           key: ${{ github.ref }}
           path: .cache
@@ -96,4 +96,4 @@ jobs:
     steps:
       - name: deploy-to-github-pages
         id: deployment
-        uses: actions/deploy-pages@9dbe3824824f8a1377b8e298bafde1a50ede43e5 # v2
+        uses: actions/deploy-pages@de14547edc9944350dc0481aa5b7afb08e75f254 # v2
