@@ -28,7 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@types/node", "npm:18.19.24"],\
+            ["@types/node", "npm:18.19.26"],\
             ["i", "npm:0.3.7"],\
             ["imagemin", "npm:8.0.1"],\
             ["imagemin-jpegtran", "npm:7.0.0"],\
@@ -104,10 +104,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:18.19.24", {\
-          "packageLocation": "../../../../cache/others/berry/cache/@types-node-npm-18.19.24-f382e9a75a-8.zip/node_modules/@types/node/",\
+        ["npm:18.19.26", {\
+          "packageLocation": "../../../../cache/others/berry/cache/@types-node-npm-18.19.26-4dbcede8d8-8.zip/node_modules/@types/node/",\
           "packageDependencies": [\
-            ["@types/node", "npm:18.19.24"],\
+            ["@types/node", "npm:18.19.26"],\
             ["undici-types", "npm:5.26.5"]\
           ],\
           "linkType": "HARD"\
@@ -615,7 +615,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["digital-garden", "workspace:."],\
-            ["@types/node", "npm:18.19.24"],\
+            ["@types/node", "npm:18.19.26"],\
             ["i", "npm:0.3.7"],\
             ["imagemin", "npm:8.0.1"],\
             ["imagemin-jpegtran", "npm:7.0.0"],\
