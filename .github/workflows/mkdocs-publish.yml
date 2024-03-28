@@ -96,7 +96,7 @@ jobs:
           path: .artifacts/_site
 
       - name: publish-to-cloudflare-pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
         continue-on-error: true # optional
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
