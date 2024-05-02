@@ -31,6 +31,7 @@ lint:
       paths:
         - vendor/**
         - notes/.obsidian/**
+        - '*.gen.*'
     - linters: [prettier]
       paths:
         - .markdownlint.yaml
@@ -44,7 +45,7 @@ lint:
 
 runtimes:
   enabled:
-    - go@1.21.1
+    - go@1.22.2
     - node@18.12.1
     - python@3.10.8
 actions:
