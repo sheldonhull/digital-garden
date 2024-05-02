@@ -19,3 +19,4 @@ packages:
   - name: golangci/golangci-lint@v1.57.2
     tags: ['lint']
   - name: charmbracelet/glow@v1.5.1
+  - name: dagger/dagger@v0.11.2
