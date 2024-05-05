@@ -7,6 +7,11 @@ While my primary blog is still on hugo, the effort to maintain a personal knowle
 
 Instead, I'm trying out mkdocs which I've used in the past for several projects and will see how if it reduces the friction to write.
 
+## Dagger
+
+- build: `dagger call mkdocs-build --dir ${PWD} export --path .artifacts`
+- server: `dagger call mkdocs-service --dir . up --ports 8000:8000`
+
 ## Devcontainer
 
 - Open in devcontainer or codespaces.

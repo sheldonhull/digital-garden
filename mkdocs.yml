@@ -15,20 +15,24 @@ theme:
     # text: Raleway
     code: Fira Code
 
-  palette:
-    # Palette toggle for light mode
-    - media: '(prefers-color-scheme: light)'
-      scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+  pallete:
+    scheme: slate
+    primary: black
+    accent: green
+  # palette:
+  #   # Palette toggle for light mode
+  #   - media: '(prefers-color-scheme: light)'
+  #     scheme: default
+  #     toggle:
+  #       icon: material/brightness-7
+  #       name: Switch to dark mode
 
-    # Palette toggle for dark mode
-    - media: '(prefers-color-scheme: dark)'
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  #   # Palette toggle for dark mode
+  #   - media: '(prefers-color-scheme: dark)'
+  #     scheme: slate
+  #     toggle:
+  #       icon: material/brightness-4
+  #       name: Switch to light mode
   features:
     - navigation.indexes
     - navigation.instant
@@ -202,3 +206,5 @@ nav:
 #       #     # - ... | blog/posts/2023/**
 #       #     # - archive:
 #       #     # - ... | archive/**
+# hooks:
+#   - archive-page.py
