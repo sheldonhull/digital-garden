@@ -1,0 +1,2647 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../dynamic-sql-and-a-char-crash/">
+      
+      
+        <link rel="next" href="../snippet-designate-a-certain-time-of-the-day-in-getdate%28%29/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>Native SSMS a second class citizen no longer... - digital garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/timeago.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/gist.css">
+    
+      <link rel="stylesheet" href="../stylesheets/code-highlighting.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cut-above-the-competition" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="digital garden" class="md-header__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../assets/images/sheldon-avatar.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            digital garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Native SSMS a second class citizen no longer...
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../welcome/" class="md-tabs__link">
+        
+  
+    
+  
+  home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  posts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../development/tooling/task/" class="md-tabs__link">
+          
+  
+    
+  
+  notes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../2023/" class="md-tabs__link">
+          
+  
+    
+  
+  archive
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="digital garden" class="md-nav__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../assets/images/sheldon-avatar.jpg" alt="logo">
+
+    </a>
+    digital garden
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    posts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/tooling/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tooling
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tooling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/tooling/task/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    task
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/tooling/precommit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    precommit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/tooling/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/tooling/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/tooling/direnv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    direnv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/tooling/aqua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aqua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/shell/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Shell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/shell/shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/powershell/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Powershell
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Powershell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/powershell/powershell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    powershell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/powershell/pester/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pester
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/powershell/dbatools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dbatools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/observability/observability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    observability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/level-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Level-Up
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/kubernetes/kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/go/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Go
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_8" id="__nav_3_1_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_8">
+            <span class="md-nav__icon md-icon"></span>
+            Go
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/vscode-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VSCode Configuration for Go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/using-go-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Go Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/pre-commit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pre-Commit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/mage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Logging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/goroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    goroutines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/go/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/effective-go/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective Go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/dagger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dagger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/go/code-coverage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/front-end/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Front end
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_9" id="__nav_3_1_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_9">
+            <span class="md-nav__icon md-icon"></span>
+            Front end
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/front-end/yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Yarn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/build-release-engineering/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Build release engineering
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_10" id="__nav_3_1_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_10">
+            <span class="md-nav__icon md-icon"></span>
+            Build release engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/build-release-engineering/renovate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    renovate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/build-release-engineering/azure-pipelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/aws/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Aws
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_11" id="__nav_3_1_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_11">
+            <span class="md-nav__icon md-icon"></span>
+            Aws
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/aws/s5cmd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syncing Files Using S5Cmd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/aws/aws-powershell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS PowerShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/aws/aws-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aws-cli
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../development/ai/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Ai
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_12" id="__nav_3_1_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_12">
+            <span class="md-nav__icon md-icon"></span>
+            Ai
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/ai/copilot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/ai/chat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    chat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Career
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Career
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../career/management-dynamics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management Dynamics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../career/eponymous-laws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eponymous Laws
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../career/engineering-culture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Engineering Culture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../career/communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2021
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2019/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2017/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2014
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../2013/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2013
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cut-above-the-competition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cut above the competition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-forge-sql-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      DB Forge SQL Complete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-options-the-normally-boring-stuff-thats-not-quite-boring" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Options - The Normally Boring Stuff That's Not Quite Boring
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seamless-shortcuts-provide-ssms-satisfaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seamless Shortcuts provide SSMS Satisfaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snippet-templates-are-made-a-reality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snippet Templates are made a reality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting-made-painless" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting made painless
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ugly-duckling-sql-turned-into-the-beautified-sql-youd-be-proud-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ugly Duckling SQL turned into the beautified SQL you'd be proud of
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Thoughts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disclaimer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href=".." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2013-04-22 00:00:00" class="md-ellipsis">April 22, 2013</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              9 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+  
+
+<nav class="md-tags" >
+  
+    
+    
+    
+      <span class="md-tag">sql-server</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">cool-tools</span>
+    
+  
+</nav>
+
+
+  
+  
+
+
+  <h1>Native SSMS a second class citizen no longer...</h1>
+
+<p>Intellisense can be a boon to adding quick development. Quick hints on scope specific variables, syntax suggestions, function descriptions and more provide a valuable tool to productive coding.Coding in SQL Server Management Studio (SSMS) has greatly improved over the version releases, but it still lags behind the power of Visual Studio's intellisense, template insertions with "fill in the blank" functionality .</p>
+<p>Additionally, the lack of automatic indentation means that lining up sub-queries and levels of logic can be annoyingly time consuming... especially when not everyone on a team following the exact same coding standards. Legibility can easily suffer. Intellisense fails to properly update at times and reads pending statements as errors in syntax disabling the prompts from providing help. Automatic SQL formatting has been a long missed feature in SSMS. Trying to line up levels of nested queries can be very time consuming, and variances in the way people layout the query can effect readability.</p>
+<p>As a developer, I'm constantly looking for ways to improve my coding experience and streamline repetitive bits of coding. One such tool is SSMSBoost which provides many valuable shortcuts and features that SSMS omitted. The SSMSBoost team provides a free community edition to their fellow developers and responds to feedback promptly. I'd highly recommend <a href="http://www.ssmsboost.com/" title="SSMSBoost site link">checking them out</a>.</p>
+<p>However, SSMS Intellisense improvement is by far the most powerful and productive coding tool that developers can look to improve. This tool enables quick hints to job the foggy mind missing that all important cup of espresso in the morning!</p>
+<h2 id="cut-above-the-competition">Cut above the competition<a class="headerlink" href="#cut-above-the-competition" title="Permanent link">🔗</a></h2>
+<p>In my search for coding tools I've reviewed three main contenders in the arena: ApexSQL Complete, Red Gate SQL Prompt, and DbForge SQL Complete. For me, the best tool ended up being DbForge SQL Complete. The product fills in the gap on intellisense improvements. I've installed in SSMS 2012, which is an improved environment and developers can use while still working with SQL Server 2008R2.</p>
+<p>ApexSQL Complete was offered free to the community with some powerful formatting capabilities. However, I was never able to get the formatting to truly match the clean results of Red Gate SQL Prompt and DbForge SQL Complete. Additionally, ApexSQL Complete had some lag issues originally which seem to have been improved in recent releases, but still seemed to get in the way more than the other tools. Their object info prompts were rudimentary and not formatted well.</p>
+<p>Red Gate SQL Prompt is a fine product, and rates highly. However, the customization offered in the formatting profiles was very limited and seemed focused on simplicity rather than offering complete control. It also seemed to have some unpolished edges, such as typing INSERT INTO TABLE, would provide the template of columns and value upon accepting the intellisense prompt, but the insertion didn't follow the same formatting standards you had setup, and thus was harder to work with. It also was an expensive option compared to the others, with a Professional license running over $300+ for just a year of upgrades and support. DbForge SQL Complete offered the best solution for my needs. The amount of customization offered was incredible and the end result was a powerful formatting tool with amazing results, and a intellisense tool that truly improved my coding experience (enough that I wanted to share with others this tool!) This tool is also compatible with Visual Studio, so now those doing SQL work in Visual studio will have a great tool to help fill the deficiencies of VS for SQL development.</p>
+<p>Before reviewing the tool, I'd also mention that DBForge offers a user vote/forum with which I've had feedback on almost every single issue right away. Their communication seems top notch, in additional to providing special programs and discounts for their products. One bug I found in the formatting was addressed with a new update within 2 weeks. That's a responsive company!</p>
+<h2 id="db-forge-sql-complete"><a href="http://www.devart.com/dbforge/sql/sqlcomplete/">DB Forge SQL Complete</a><a class="headerlink" href="#db-forge-sql-complete" title="Permanent link">🔗</a></h2>
+<p>This review is performed on the full version. An express version is also offered to the community as a service. This tool has a portion of the full version's functionality to whet the eager developer's appetite. A free trial is offered on the full version... but beware you won't be able to be satisfied with native SSMS features after this!</p>
+<h2 id="general-options-the-normally-boring-stuff-thats-not-quite-boring">General Options - The Normally Boring Stuff That's Not Quite Boring<a class="headerlink" href="#general-options-the-normally-boring-stuff-thats-not-quite-boring" title="Permanent link">🔗</a></h2>
+<p>Improvements to the SSMS Coding environment are shown. A shortcut to refresh the cache of intellisense, formatting options, a command to execute the currently selected statement, outline the structure of the document, snippet management, and feedback. I'll review only the portions that seem to have the greatest impact, as most of it is self explanatory.</p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteMainMenuDropDown.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteMainMenuDropDown" src="../2013/images/SQLCompleteMainMenuDropDown.jpg" /></a></p>
+<p>Of particular note is the "automatically trigger after" option. For users that want intellisense to help out only after a long pause and not constantly change while typing, this option is helpful. Setting a longer time on the ms will keep the box from showing up unless a command is pressed to initiate the intellisense showing up (Default: Control-Space).</p>
+<p>The highlight occurrences option is a great feature added by Devart. When a particular object is selected in the query editor window, other occurrences are highlighted for easy viewing.</p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteOptionsGeneral_vmf6ip.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteOptionsGeneral_vmf6ip" src="../2013/images/SQLCompleteOptionsGeneral_vmf6ip.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteHighlightedOccurrences_rdk7hk.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteHighlightedOccurrences_rdk7hk" src="../2013/images/SQLCompleteHighlightedOccurrences_rdk7hk.jpg" /></a></p>
+<p>Automatic alias generation is another boon to the developer. SQL Complete is will automatically generate an alias for you upon object selection from intellisense. This also means that column selections later on will be correctly assign the alias, reducing typing.
+select * from company c -- this alias was auto generated when selected</p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteOptionsAdvanced_inycqx.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteOptionsAdvanced_inycqx" src="../2013/images/SQLCompleteOptionsAdvanced_inycqx.jpg" /></a></p>
+<h2 id="seamless-shortcuts-provide-ssms-satisfaction">Seamless Shortcuts provide SSMS Satisfaction<a class="headerlink" href="#seamless-shortcuts-provide-ssms-satisfaction" title="Permanent link">🔗</a></h2>
+<p>Alias generation is powerful, but overshadowed by one of the simplest yet much needed features that SSMS Native Intellisense lacks: column selection and wild card expansion.</p>
+<p>Dragging the column names from object explorer results in a list of columns delimited by commas, but not stacked vertically, it also doesn't handle multiple table columns being dragged at the same time, or a "limited selection of columns."</p>
+<p>SQL Complete fills this gap. Pressing tab allows expansion of columns in a stacked list, with alias's already assigned correctly. The column select appends to the same line, but with the automatic formatting tool, the finished list is easily stacked vertically with the press of the format shortcut. These are simple examples, but I've found to extremely helpful when working with complex queries involving numerous tables. Expanding all the columns available or selecting, with correct alias generation is a major improvement to the SSMS development environment</p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteTabToExpand_yylpqd.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteTabToExpand_yylpqd" src="../2013/images/SQLCompleteTabToExpand_yylpqd.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteTabbedExpanded_xqzeg2.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteTabbedExpanded_xqzeg2" src="../2013/images/SQLCompleteTabbedExpanded_xqzeg2.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteColumnSelector_yfmgrl.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteColumnSelector_yfmgrl" src="../2013/images/SQLCompleteColumnSelector_yfmgrl.jpg" /></a></p>
+<p>Insert statements are "auto completed" helping provide quick statement generation, this is a lifesaver!</p>
+<p><a class="glightbox" href="../2013/images/SCCompleteInsertColumnSelector_jwqie9.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCCompleteInsertColumnSelector_jwqie9" src="../2013/images/SCCompleteInsertColumnSelector_jwqie9.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SCAutoGenerateInsertCompleted_llmscx.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCAutoGenerateInsertCompleted_llmscx" src="../2013/images/SCAutoGenerateInsertCompleted_llmscx.jpg" /></a></p>
+<p>Prompts also help developers know the table structure of objects/views, stored procedure parameters, and function usage. Might save some folks MSDN googling just to remind themselves about the correct function usage!</p>
+<p><a class="glightbox" href="../2013/images/SCTableInfoPrompt_uzpbwk.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCTableInfoPrompt_uzpbwk" src="../2013/images/SCTableInfoPrompt_uzpbwk.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SCFunctionInfo_kigj4r.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCFunctionInfo_kigj4r" src="../2013/images/SCFunctionInfo_kigj4r.jpg" /></a></p>
+<p>Compare this to the native function prompt:</p>
+<p><a class="glightbox" href="../2013/images/NativeIntellisenseFunctionPrompt_fpi1hn.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="NativeIntellisenseFunctionPrompt_fpi1hn" src="../2013/images/NativeIntellisenseFunctionPrompt_fpi1hn.jpg" /></a></p>
+<h2 id="snippet-templates-are-made-a-reality">Snippet Templates are made a reality<a class="headerlink" href="#snippet-templates-are-made-a-reality" title="Permanent link">🔗</a></h2>
+<p><code>&lt;enter mind blown event&gt;</code> Snippet tools are helpful for saving some typing, but until now they've been typically limited to just pasting in text. The full functioned snippet functionality of Visual Studio with field selection by navigating with tab hasn't existed in SSMS.... till now.</p>
+<p>Snippets are brought to us with SQL Complete with an amazing thought to detail. Not only are the snippets brought into our editor window, but are also displayed in intellisense, with"fields" provided to navigate to to "fill in the blanks." Variables for customization are offered and the sky is the limit here!</p>
+<p><a class="glightbox" href="../2013/images/SCSnippetManager-W620_qqkamh.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="W620_qqkamh" src="../2013/images/SCSnippetManager-W620_qqkamh.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SCSnippetIndex-W620_vknnlx.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="W620_vknnlx" src="../2013/images/SCSnippetIndex-W620_vknnlx.jpg" /></a></p>
+<p>Below I demonstrate a cursor snippet. The only keystrokes I used to complete this action were:</p>
+<p>cu + Tab @MyCustom + Tab + custom_name_i_entered_in_one_place
+Total Keystrokes = 48 (10.9% Cost ) Total keystrokes without addin (and no mistakes) = 440 (89.1% cost) Would you keep an execution plan version that was 89% higher cost... 392 keystrokes later?</p>
+<p><a class="glightbox" href="../2013/images/CursorSnippet_pimadx.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CursorSnippet_pimadx" src="../2013/images/CursorSnippet_pimadx.jpg" /></a></p>
+<h2 id="formatting-made-painless">Formatting made painless<a class="headerlink" href="#formatting-made-painless" title="Permanent link">🔗</a></h2>
+<p>Formatting SQL code manually can be a pain. There are online tools offered with some limited functionality, but who really wants to use a web based formatting tool with production code? Addins for SSMS formatting are limited in number. Parsing the logical construct of a SQL statement isn't quite a simple as indenting a foreach loop in C#. SQL Complete offers one of the best SSMS SQL formatters I've come across.</p>
+<p>The level of customization is intense. A few screenshots are provided, but I will not go into all the levels of customization, instead I'll provide you with some MSDN code samples that SQL Complete beautified. Running the format can be done on a selection or an entire document. Settings can be saved so a team could easily share a formatting standard. This would prevent each person from having to configure all their settings manually, a major plus in setup for any team!</p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteOptionsFormattingGeneral_tqna9q.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteOptionsFormattingGeneral_tqna9q" src="../2013/images/SQLCompleteOptionsFormattingGeneral_tqna9q.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SQLCompleteOptionsProfiles_dt4tge.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SQLCompleteOptionsProfiles_dt4tge" src="../2013/images/SQLCompleteOptionsProfiles_dt4tge.jpg" /></a></p>
+<h2 id="ugly-duckling-sql-turned-into-the-beautified-sql-youd-be-proud-of">Ugly Duckling SQL turned into the beautified SQL you'd be proud of<a class="headerlink" href="#ugly-duckling-sql-turned-into-the-beautified-sql-youd-be-proud-of" title="Permanent link">🔗</a></h2>
+<p><a class="glightbox" href="../2013/images/SCFormatExampleCaseAlignment-W620_vstmxq.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="W620_vstmxq" src="../2013/images/SCFormatExampleCaseAlignment-W620_vstmxq.jpg" /></a></p>
+<p><a class="glightbox" href="../2013/images/SCFormatExampleCommented-W620_xjl8xy.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="W620_xjl8xy" src="../2013/images/SCFormatExampleCommented-W620_xjl8xy.jpg" /></a></p>
+<p>Here are some examples of the formatting tool at work in order from a simple query to a complex recursive CTE. I believe this tool handles it beautifully!</p>
+<p>BEFORE</p>
+<p><a class="glightbox" href="../2013/images/SCFormat2SimpleBefore_xadxgx.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCFormat2SimpleBefore_xadxgx" src="../2013/images/SCFormat2SimpleBefore_xadxgx.jpg" /></a></p>
+<p>AFTER</p>
+<p><a class="glightbox" href="../2013/images/SCFormat2SimpleAfter_pfanu0.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCFormat2SimpleAfter_pfanu0" src="../2013/images/SCFormat2SimpleAfter_pfanu0.jpg" /></a></p>
+<p>BEFORE</p>
+<p><a class="glightbox" href="../2013/images/SCFormat1Before_sngzy2.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCFormat1Before_sngzy2" src="../2013/images/SCFormat1Before_sngzy2.jpg" /></a></p>
+<p>After: *line breaks handled with union's</p>
+<p><a class="glightbox" href="../2013/images/ScFormat1After_fil4zn.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ScFormat1After_fil4zn" src="../2013/images/ScFormat1After_fil4zn.jpg" /></a></p>
+<p><strong>BEFORE</strong>: Complex CTE</p>
+<p><a class="glightbox" href="../2013/images/SCFormatComplexCTEBefore_g613ip.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCFormatComplexCTEBefore_g613ip" src="../2013/images/SCFormatComplexCTEBefore_g613ip.jpg" /></a></p>
+<p><strong>AFTER</strong></p>
+<p><a class="glightbox" href="../2013/images/SCFormatComplexCTEAfter_b1jzrb.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCFormatComplexCTEAfter_b1jzrb" src="../2013/images/SCFormatComplexCTEAfter_b1jzrb.jpg" /></a></p>
+<h2 id="final-thoughts">Final Thoughts<a class="headerlink" href="#final-thoughts" title="Permanent link">🔗</a></h2>
+<p>Additional features are available, such as automatically finding object in object explorer when selected in query window, outlining of document, contextually based join statements, and more. I covered only the features I considered the highest impact on my workflow. Finding a tool to enhance the development process in SSMS should be something SQL developer's consider.</p>
+<p>Once you utilize a tool like this, you'll find that the improvements help you focus on the more important things. Spending time thinking about "lining" up code is a waste of time when a developer could be focused on the content. Formatting all code to be lined up the same with a press of your shortcut keys also helps you not focus on trying to discern the formatting standards of others, and instead get down to the important work! The continual improvements and responsiveness of Devart to feedback and resolving issues I had makes me give their product a two thumbs up award!</p>
+<h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">🔗</a></h2>
+<p>I do not work for Devart or any competing product. I reviewed this program since I've been sold on the value of it, and wanted to participate in their High Five program which helps developers that like their products share with others, and be eligible for discount/reward if a review of their product is completed. I believe the tool to be useful, and has improved my experience with SSMS. I hope other SQL developers can benefit, especially those who were unaware of the availability of such a great addin.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-06-11T20:55:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-06-11</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-06-11T20:55:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-06-11</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.follow", "navigation.top", "navigation.path", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="../js/timeago.min.js"></script>
+      
+        <script src="../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

@@ -1,0 +1,3411 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../shell/">
+      
+      
+        <link rel="next" href="../pester/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>powershell - digital garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/gist.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/code-highlighting.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requirements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="digital garden" class="md-header__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/images/sheldon-avatar.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            digital garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              powershell
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../welcome/" class="md-tabs__link">
+        
+  
+    
+  
+  home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  posts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../tooling/task/" class="md-tabs__link">
+          
+  
+    
+  
+  notes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2023/" class="md-tabs__link">
+          
+  
+    
+  
+  archive
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="digital garden" class="md-nav__button md-logo" aria-label="digital garden" data-md-component="logo">
+      
+  <img src="../../../assets/images/sheldon-avatar.jpg" alt="logo">
+
+    </a>
+    digital garden
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sheldonhull/digital-garden" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    posts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tooling/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tooling
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tooling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/task/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    task
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/precommit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    precommit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/direnv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    direnv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/aqua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aqua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../shell/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Shell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Powershell
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Powershell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    powershell
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    powershell
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#psframework" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSFramework
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development (Optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Formatting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math-number-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math &amp; Number Conversions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-time-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Date &amp; Time Conversion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credential Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-basic-authorization-with-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Basic Authorization With REST
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-functions-from-a-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Functions from a Folder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-object-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Select Object Manipulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Select Object Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expanding-nested-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanding Nested Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-set-accessors-in-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get / Set Accessors in PowerShell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-tips-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Tips &amp; Tricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-various-iteration-methods-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Various Iteration Methods Possible
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Various Iteration Methods Possible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForEach-Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach-magic-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForEach Magic Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      foreach loop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linq
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cool-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cool Tricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puzzles-fizz-buzz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Puzzles - Fizz Buzz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Manipulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare-seperate-machine-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compare Seperate Machine Files
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pester/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pester
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbatools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dbatools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../observability/observability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    observability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Level-Up
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../go/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Go
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_8" id="__nav_3_1_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_8">
+            <span class="md-nav__icon md-icon"></span>
+            Go
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/vscode-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VSCode Configuration for Go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/using-go-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Go Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/pre-commit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pre-Commit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/mage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Logging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/goroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    goroutines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/go/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/effective-go/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective Go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/dagger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dagger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/code-coverage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../front-end/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Front end
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_9" id="__nav_3_1_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_9">
+            <span class="md-nav__icon md-icon"></span>
+            Front end
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../front-end/yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Yarn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../build-release-engineering/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Build release engineering
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_10" id="__nav_3_1_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_10">
+            <span class="md-nav__icon md-icon"></span>
+            Build release engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-release-engineering/renovate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    renovate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-release-engineering/azure-pipelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../aws/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Aws
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_11" id="__nav_3_1_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_11">
+            <span class="md-nav__icon md-icon"></span>
+            Aws
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aws/s5cmd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syncing Files Using S5Cmd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aws/aws-powershell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS PowerShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aws/aws-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aws-cli
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Ai
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1_12" id="__nav_3_1_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_12">
+            <span class="md-nav__icon md-icon"></span>
+            Ai
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/copilot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/chat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    chat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Career
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Career
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/management-dynamics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management Dynamics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/eponymous-laws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eponymous Laws
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/engineering-culture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Engineering Culture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2022/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2021
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2020/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2019/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2018/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2017/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2016/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2014/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2014
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2013/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2013
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#psframework" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSFramework
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development (Optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Formatting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math-number-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math &amp; Number Conversions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-time-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Date &amp; Time Conversion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credential Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-basic-authorization-with-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Basic Authorization With REST
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-functions-from-a-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Functions from a Folder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-object-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Select Object Manipulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Select Object Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expanding-nested-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanding Nested Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-set-accessors-in-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get / Set Accessors in PowerShell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-tips-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Tips &amp; Tricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-various-iteration-methods-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Various Iteration Methods Possible
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Various Iteration Methods Possible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForEach-Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach-magic-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForEach Magic Operator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      foreach loop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linq
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cool-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cool Tricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puzzles-fizz-buzz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Puzzles - Fizz Buzz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Manipulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare-seperate-machine-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compare Seperate Machine Files
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <span class="md-tag">development</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">powershell</span>
+    
+  
+</nav>
+
+
+  
+  
+
+
+  <h1>powershell</h1>
+
+<div class="admonition info">
+<p class="admonition-title">Any requests?</p>
+<p>If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
+I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
+Cheers! 👍</p>
+</div>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">🔗</a></h2>
+<ul>
+<li>Going forward most examples will focus on Powershell (&gt;= v7), the modern successor to Windows PowerShell &amp; PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run <code>choco upgrade powershell powershell-core -y --source chocolatey</code> and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no <img alt="🌮" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f32e.svg" title=":taco:" /> for you, just get upgraded already. Linux has it's own set of directions.</li>
+<li>Anything manipulating system might need admin, so run as admin in prompt.</li>
+<li><code>Install-Module PSFramework</code> // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular <code>Write-Verbose</code> commands and just use the <code>Write-PSFMessage -Level Verbose -Message 'TacoBear'</code> instead.</li>
+</ul>
+<h3 id="psframework">PSFramework<a class="headerlink" href="#psframework" title="Permanent link">🔗</a></h3>
+<p>I use <a href="http://bit.ly/2LHNpkE">PSFramework</a> on all my instances, as it's fantastic expansion to some core areas with PowerShell. This great module (along with other ancillary supporting ones like <code>PSModuleDevelopment</code> are well tested and usable for solving some issues in a much more elegant and robust manner than what is natively offered.</p>
+<p>A few key elements it can help with are:</p>
+<ul>
+<li>Improving Configuration and variable handling without complex scope issues</li>
+<li>Improving overall logging and troubleshooting</li>
+<li>Improving object manipulation</li>
+<li>Runspace usability enhancements</li>
+<li>Scripted properties</li>
+</ul>
+<h2 id="development-optional">Development (Optional)<a class="headerlink" href="#development-optional" title="Permanent link">🔗</a></h2>
+<ol>
+<li>Install VSCode (Users)</li>
+<li><code>choco upgrade vscode-powershell -y</code> or install in extension panel in VSCode. If you are using ISE primarily.... move on already.</li>
+</ol>
+<h2 id="string-formatting">String Formatting<a class="headerlink" href="#string-formatting" title="Permanent link">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>Output</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Formatting Switch</td>
+<td>'select {0} from sys.tables' -f 'name'</td>
+<td>select name from sys.tables</td>
+<td>Same concept as .NET [string]::Format(). Token based replacement</td>
+</tr>
+<tr>
+<td>.NET String Format</td>
+<td>[string]::Format('select {0} from sys.tables','name')</td>
+<td>select name from sys.tables</td>
+<td>Why would you do this? Because you want to showoff your .NET chops?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="math-number-conversions">Math &amp; Number Conversions<a class="headerlink" href="#math-number-conversions" title="Permanent link">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>Example</th>
+<th>Output</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scientific notation</td>
+<td>Decimal</td>
+<td>2.19095E+08 / 1MB</td>
+<td>208.945274353027 MB</td>
+<td>Native PowerShell, supports 1MB, 1KB, 1GB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="date-time-conversion">Date &amp; Time Conversion<a class="headerlink" href="#date-time-conversion" title="Permanent link">🔗</a></h2>
+<p>Converting dates to Unix Epoc time can be challenging without using the correct .NET classes. There is some built in functionality for converting dates such as <code>(Get-Date).ToUniversalTime() -UFormat '%s'</code> but this can have problems with time zone offsets. A more consistent approach would be to leverage the following. This was very helpful to me in working with Grafana and InfluxDb which commonly leverage Unix Epoc time format with seconds or milliseconds precision.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">$CurrentTime</span> <span class="p">=</span> <span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="no">[datetime]</span><span class="p">::</span><span class="n">now</span><span class="p">,</span><span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">Now</span><span class="p">.</span><span class="n">Offset</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c"># Unix Epoc time starts from this date</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">$UnixStartTime</span> <span class="p">=</span> <span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">1970</span><span class="p">,</span> <span class="n">1</span><span class="p">,</span> <span class="n">1</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span><span class="no">[DateTimeOffset]</span><span class="p">::</span><span class="n">Now</span><span class="p">.</span><span class="n">Offset</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c"># To Use This Now On Timestamp you could run the following</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nv">$UnixTimeInMilliseconds</span> <span class="p">=</span> <span class="no">[Math]</span><span class="p">::</span><span class="n">Floor</span><span class="p">(</span> <span class="p">((</span><span class="nb">get-date</span> <span class="nv">$CurrentTime</span><span class="p">)</span> <span class="p">-</span> <span class="nv">$UnixStartTime</span><span class="p">).</span><span class="n">TotalMilliseconds</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c"># To Use with Different Time just change the `$CurrentTime` to another value like so</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">$UnixTimeInMilliseconds</span> <span class="p">=</span> <span class="no">[Math]</span><span class="p">::</span><span class="n">Floor</span><span class="p">(</span> <span class="p">((</span><span class="nb">get-date</span> <span class="nv">$MyDateValue</span><span class="p">)</span> <span class="p">-</span> <span class="nv">$UnixStartTime</span><span class="p">).</span><span class="n">TotalMilliseconds</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="credential-management">Credential Management<a class="headerlink" href="#credential-management" title="Permanent link">🔗</a></h2>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">🔗</a></h3>
+<p>Look at <a href="https://github.com/PowerShell/SecretManagement">SecretsManagement</a>.</p>
+<p>SecureString should be considered deprecated.
+It provides a false illusion of security mostly, and it's better to approach with other methods.</p>
+<ul>
+<li><a href="https://github.com/dotnet/runtime/issues/30612#issuecomment-523534346">Obsolete the SecureString Type Discussion</a></li>
+<li><a href="https://github.com/dotnet/platform-compat/blob/master/docs/DE0001.md">DE0001</a></li>
+</ul>
+<p>Depending on your technology stack, the best way handle this is to authenticate using a credential library.</p>
+<p>For example, if pulling service account credentials for SQL Server in AWS, you could put these in AWS Secrets Manager and use something like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Import-module</span> <span class="n">AWS</span><span class="p">.</span><span class="n">Tools</span><span class="p">.</span><span class="n">SecretsManager</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">Write-Warning</span> <span class="s2">&quot;Poor Example&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">Write-Warning</span> <span class="s2">&quot;This exposes the credential in local memory and potentionally logging. It is for demo purposes&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">$SecretString</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-SECSecretValue</span> <span class="s1">&#39;service-accounts/sql-admin&#39;</span> <span class="n">-ProfileName</span> <span class="s1">&#39;myprofile&#39;</span><span class="p">).</span><span class="n">SecretString</span> <span class="p">|</span> <span class="nb">ConvertFrom-Json</span> <span class="n">-Depth</span> <span class="n">1</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">$SecretString</span><span class="p">.</span><span class="n">UserName</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">$SecretString</span><span class="p">.</span><span class="n">Password</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">Write-Host</span> <span class="s2">&quot;A better way, you could use this to directly create a secure credential object without creating a variable to store the plain text&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">(</span><span class="nb">Get-SECSecretValue</span> <span class="s1">&#39;service-accounts/sql-admin&#39;</span> <span class="n">-ProfileName</span> <span class="s1">&#39;myprofile&#39;</span><span class="p">).</span><span class="n">SecretString</span> <span class="p">|</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">ConvertFrom-Json</span> <span class="n">-Depth</span> <span class="n">1</span> <span class="p">|</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="no">[pscredential]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span> <span class="nv">$_</span><span class="p">.</span><span class="n">username</span><span class="p">,</span> <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">password</span> <span class="p">|</span> <span class="nb">ConvertTo-SecureString</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span><span class="p">))</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>The SecretsManagement powershell module supports a variety of backends such as 1Password, Thycotic Secrets Server, Lastpass, and more.</p>
+<p><a href="https://www.powershellgallery.com/packages?q=Tags%3A%22SecretManagement%22">↗️ List of Secrets Management Modules</a></p>
+<h3 id="using-basic-authorization-with-rest">Using Basic Authorization With REST<a class="headerlink" href="#using-basic-authorization-with-rest" title="Permanent link">🔗</a></h3>
+<p>When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c">#seems to work for both version 5.1 and 6.1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">param</span><span class="p">(</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="nv">$Uri</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c"># Load From SecretsManagement module ideally</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nv">$AccessId</span> <span class="p">=</span> <span class="nv">$cred</span><span class="p">.</span><span class="n">GetNetworkCredential</span><span class="p">().</span><span class="n">UserName</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nv">$AccessKey</span> <span class="p">=</span> <span class="nv">$cred</span><span class="p">.</span><span class="n">GetNetworkCredential</span><span class="p">().</span><span class="n">Password</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nv">$Headers</span> <span class="p">=</span> <span class="p">@{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">Authorization</span> <span class="p">=</span> <span class="s1">&#39;Basic &#39;</span> <span class="p">+</span> <span class="no">[Convert]</span><span class="p">::</span><span class="n">ToBase64String</span><span class="p">(</span><span class="no">[Text.Encoding]</span><span class="p">::</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;{0}:{1}&#39;</span> <span class="o">-f</span> <span class="nv">$AccessId</span><span class="p">,</span> <span class="nv">$AccessKey</span><span class="p">)</span> <span class="p">))</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nv">$results</span> <span class="p">=</span> <span class="nb">Invoke-RestMethod</span> <span class="n">-Uri</span> <span class="nv">$Uri</span> <span class="n">-Header</span> <span class="nv">$Headers</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nv">$results</span>
+</code></pre></div>
+<h2 id="load-functions-from-a-folder">Load Functions from a Folder<a class="headerlink" href="#load-functions-from-a-folder" title="Permanent link">🔗</a></h2>
+<p>Prefer to use modules, but for quick adhoc work, you can organize your work in a folder and use a subfolder called functions. I find this better than trying to create one large script file with multiple functions in it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">$FunctionsFolder</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$toolsDir</span> <span class="s1">&#39;functions&#39;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$FunctionsFolder</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ps1</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="nb">Write-PSFMessage</span> <span class="n">-Level</span> <span class="n">Verbose</span> <span class="n">-Message</span> <span class="s2">&quot;Loading: </span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">.</span> <span class="s2">&quot;</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="select-object-manipulation">Select Object Manipulation<a class="headerlink" href="#select-object-manipulation" title="Permanent link">🔗</a></h2>
+<h3 id="expanding-nested-objects">Expanding Nested Objects<a class="headerlink" href="#expanding-nested-objects" title="Permanent link">🔗</a></h3>
+<p>One thing that I've had challenges with is expanding nested objects with AWSPowershell, as a lot of the types aren't formatted for easy usage without expansion.
+For example, when expanding the basic results of <code>Get-EC2Instance</code> you can try to parse out the state, but it won't behave as expected.</p>
+<p>For example, if you run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">(</span><span class="nb">Get-EC2Instance</span> <span class="n">-Filter</span> <span class="nv">$ec2Filter</span><span class="p">).</span><span class="n">Instances</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">InstanceId</span><span class="p">,</span> <span class="n">State</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>InstanceId</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i-taco1</td>
+<td>Amazon.EC2.Model.InstanceState</td>
+</tr>
+<tr>
+<td>i-taco2</td>
+<td>Amazon.EC2.Model.InstanceState</td>
+</tr>
+<tr>
+<td>i-taco3</td>
+<td>Amazon.EC2.Model.InstanceState</td>
+</tr>
+</tbody>
+</table>
+<p>Trying to expand gets you the state, but now you don't have the original object alongside it.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>16</td>
+<td>running</td>
+</tr>
+</tbody>
+</table>
+<p>PSFramework makes this easy to work with by simply referencing the object properties for parsing in the <code>Select-PSFObject</code> statement.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">(</span><span class="nb">Get-EC2Instance</span> <span class="n">-Filter</span> <span class="nv">$ec2Filter</span><span class="p">).</span><span class="n">Instances</span> <span class="p">|</span> <span class="nb">Select-PSFObject</span> <span class="n">InstanceId</span><span class="p">,</span> <span class="s1">&#39;State.Code as StateCode&#39;</span><span class="p">,</span> <span class="s1">&#39;State.Name as StateName&#39;</span>
+</code></pre></div>
+<p>The result is exactly you'd you need to work with</p>
+<table>
+<thead>
+<tr>
+<th>InstanceId</th>
+<th>StateCode</th>
+<th>StateName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i-taco1</td>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>i-taco2</td>
+<td>16</td>
+<td>running</td>
+</tr>
+<tr>
+<td>i-taco3</td>
+<td>16</td>
+<td>running</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-set-accessors-in-powershell">Get / Set Accessors in PowerShell<a class="headerlink" href="#get-set-accessors-in-powershell" title="Permanent link">🔗</a></h3>
+<p>In C# you use get/set accessors to have more control over your properties. In PowerShell, thanks to PSFramework, you can simplify object pipelines by using <code>Select-PSFObject</code> to do the equivalent and have a scripted property that handles a script block to provide a scripted property on your object.</p>
+<p>For example, in leveraging AWS Profiles, I wanted to get a region name mapped to a specific profile as a default region. You can do this in a couple steps using <code>ForEach-Object</code> and leverage <code>[pscustomobject]</code>, or you can simplify it greatly by running <code>Select-PSFObject</code> like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">Get-AWSCredentials</span> <span class="n">-ListProfileDetail</span>  <span class="p">|</span>  <span class="nb">Select-PSFObject</span> <span class="n">-Property</span> <span class="n">ProfileName</span> <span class="n">-ScriptProperty</span> <span class="p">@{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">region</span> <span class="p">=</span> <span class="p">@{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="n">get</span> <span class="p">=</span> <span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>            <span class="k">switch</span> <span class="p">(</span><span class="nv">$this</span><span class="p">.</span><span class="n">ProfileName</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            <span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>                <span class="s1">&#39;taco1&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>                <span class="s1">&#39;taco2&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>                <span class="s1">&#39;taco3&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>                <span class="s1">&#39;taco4&#39;</span> <span class="p">{</span><span class="s1">&#39;eu-west-1&#39;</span><span class="p">}</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>                <span class="s1">&#39;taco5&#39;</span> <span class="p">{</span><span class="s1">&#39;us-west-2&#39;</span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>                <span class="s1">&#39;taco6&#39;</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>                <span class="k">default</span> <span class="p">{</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">}</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>            <span class="p">}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="p">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="p">}</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>Another good example might be the desire to parse out the final key section from S3, to determine what the file name would actually be for easier filtering or searching. In this case, a simple script property could parse out the name, and then return the last item in the array using Powershell's shortcut of <code>$array[-1]</code> to get the last item.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">Get-S3Object</span> <span class="n">-BucketName</span> <span class="s1">&#39;tacoland&#39;</span> <span class="p">|</span> <span class="nb">Select-PSFObject</span> <span class="n">-ScriptProperty</span> <span class="p">@{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">BaseName</span> <span class="p">=</span> <span class="p">@{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        <span class="n">get</span>  <span class="p">=</span> <span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>            <span class="p">((</span><span class="nv">$this</span><span class="p">.</span><span class="n">Name</span>  <span class="n">-split</span> <span class="s1">&#39;/&#39;</span><span class="p">)[-</span><span class="n">1</span><span class="p">])</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="p">}</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="p">}</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="parallel-tips-tricks">Parallel Tips &amp; Tricks<a class="headerlink" href="#parallel-tips-tricks" title="Permanent link">🔗</a></h2>
+<p>If you are using <code>-Parallel</code> with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on.
+In my case, I wanted to be able to see the progress for build process running in parallel and found using the synchronized hashtable I was able to do this.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">$hash</span> <span class="p">=</span> <span class="no">[hashtable]</span><span class="p">::</span><span class="n">Synchronized</span><span class="p">(@{})</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span> <span class="p">=</span> <span class="n">1</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">@(</span><span class="n">1</span><span class="p">..</span><span class="n">100</span><span class="p">)</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="n">-Throttle</span> <span class="n">8</span> <span class="n">-Parallel</span> <span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nv">$hash</span> <span class="p">=</span> <span class="nv">$using</span><span class="p">:</span><span class="n">hash</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span><span class="p">++</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="nb">Write-Host</span> <span class="s2">&quot;Progress: </span><span class="p">$(</span><span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span><span class="p">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="nb">Start-Sleep</span> <span class="n">-Milliseconds</span> <span class="p">(</span><span class="nb">Get-Random</span> <span class="n">-Minimum</span> <span class="n">1</span> <span class="n">-Maximum</span> <span class="n">10</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span>
+</code></pre></div>
+<p>I put the delay in there to show that the asynchronous nature doesn't mean 1-100, it could do some faster than others and this shows on the output with content like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Progress: 1
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Progress: 2
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Progress: 3
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Progress: 4
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Progress: 6 &lt;---- parallel, no promise of which runspace finishes first
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Progress: 5
+</code></pre></div>
+<p>A more advanced way to use this might be to help guage how long something might take to complete when running parallel SQL Server queries.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c">#################################################################</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c"># Quick Estimate of Pipeline Completion with Parallel Runspaces #</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c">#################################################################</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nv">$TotalToProcess</span> <span class="p">=</span> <span class="n">150</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nv">$StopwatchProcess</span> <span class="p">=</span> <span class="no">[diagnostics.stopwatch]</span><span class="p">::</span><span class="n">StartNew</span><span class="p">()</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nv">$hash</span> <span class="p">=</span> <span class="no">[hashtable]</span><span class="p">::</span><span class="n">Synchronized</span><span class="p">(@{</span> <span class="p">})</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span> <span class="p">=</span> <span class="n">1</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">@(</span><span class="n">1</span><span class="p">..</span><span class="nv">$TotalToProcess</span> <span class="p">)</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="n">-Throttle</span> <span class="n">8</span> <span class="n">-Parallel</span> <span class="p">{</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="nv">$d</span> <span class="p">=</span> <span class="nv">$_</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="nv">$PerItemStopwatch</span> <span class="p">=</span> <span class="no">[diagnostics.stopwatch]</span><span class="p">::</span><span class="n">StartNew</span><span class="p">()</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    <span class="nv">$hash</span> <span class="p">=</span> <span class="nv">$using</span><span class="p">:</span><span class="n">hash</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>    <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span><span class="p">++</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="nv">$x</span> <span class="p">=</span> <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    <span class="nv">$ApproxSecondsEachSoFar</span> <span class="p">=</span> <span class="nv">$hash</span><span class="p">.</span><span class="n">counter</span> <span class="p">/</span> <span class="nv">$using</span><span class="p">:</span><span class="n">StopwatchProcess</span><span class="p">.</span><span class="n">Elapsed</span><span class="p">.</span><span class="n">TotalSeconds</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="nv">$RemainingCount</span> <span class="p">=</span> <span class="nv">$using</span><span class="p">:</span><span class="n">TotalToProcess</span> <span class="p">-</span> <span class="nv">$x</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>    <span class="nv">$ApproxRemainingTime</span> <span class="p">=</span>  <span class="nv">$RemainingCount</span> <span class="p">*</span> <span class="nv">$ApproxSecondsEachSoFar</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>    <span class="nb">Write-Host</span> <span class="p">(</span> <span class="s2">&quot;{0:hh\:mm\:ss\.fff} | {1} | $x of $using:TotalToProcess | remaining time {3} | {2}&quot;</span> <span class="o">-f</span> <span class="nv">$PerItemStopwatch</span><span class="p">.</span><span class="n">Elapsed</span><span class="p">,</span> <span class="s1">&#39;Run-ThisStuff&#39;</span><span class="p">,</span> <span class="nv">$d</span><span class="p">,</span> <span class="no">[timespan]</span><span class="p">::</span><span class="n">FromSeconds</span><span class="p">(</span><span class="nv">$ApproxRemainingTime</span><span class="p">).</span><span class="n">ToString</span><span class="p">())</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    <span class="nb">Start-Sleep</span> <span class="n">-Milliseconds</span> <span class="p">(</span><span class="nb">Get-Random</span> <span class="n">-Minimum</span> <span class="n">1</span> <span class="n">-Maximum</span> <span class="n">1500</span><span class="p">)</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="the-various-iteration-methods-possible">The Various Iteration Methods Possible<a class="headerlink" href="#the-various-iteration-methods-possible" title="Permanent link">🔗</a></h2>
+<p>PowerShell supports a wide range of iteration options.
+Not all are idiomatic to the language, but can be useful to know about.</p>
+<p>I recommend when possible to default to <code>$Items | ForEach-Object { }</code> as your default approach.
+This ensures a pipeline driven solution that can be enhanced later or piped to other cmdlets that are compatible with the pipeline.</p>
+<div class="admonition warning">
+<p class="admonition-title">Gotcha</p>
+<p>This is a cmdlet, not a PowerShell language feature. This means that the behavior of break, continue, and return all operate differently in this ForEach-Object process block than when doing a <code>foreach</code> loop.</p>
+</div>
+<p>These are ranked in the order I recommend using by default.</p>
+<p>Setup the results to test with.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">$Items</span> <span class="p">=</span> <span class="nb">Get-ChildItem</span>
+</code></pre></div>
+<h3 id="foreach-object">ForEach-Object<a class="headerlink" href="#foreach-object" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">$Items</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>The default go to for major loop work.</li>
+<li>Default first positional argument is <code>-Process {}</code> but mostly that is not provided and just the curly braces.</li>
+<li>It is by default the slowest on a scale of raw performance.</li>
+<li>Each item is loaded into memory, and it frees memory as it goes through pipeline.</li>
+<li>Pipelines can be chained passing input as the pipeline progresses.</li>
+<li>
+<p>Break, continue, return behave differently as you are using a function, not a language operator.</p>
+</li>
+<li>
+<p>Magic operator.</p>
+</li>
+<li>Seriously, I've seen it called that.</li>
+<li>It's only in version &gt;= 4 <a href="https://bit.ly/3l1i3Vn">Magic Operators</a>.</li>
+<li>Loads all results into memory before running, so can be great performance boost for certain scenarios that a <code>ForEach-Object</code> would be slower at.</li>
+</ul>
+<h3 id="foreach-magic-operator">ForEach Magic Operator<a class="headerlink" href="#foreach-magic-operator" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">$Items</span><span class="p">.</span><span class="k">ForEach</span><span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>This is the standard <code>foreach</code> loop.</li>
+<li>It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with <code>ForEach-Object</code> as your default for idiomatic PowerShell if you are learning.</li>
+<li>Standard break, continue, return behavior is a bit easier to understand.</li>
+</ul>
+<h3 id="foreach-loop">foreach loop<a class="headerlink" href="#foreach-loop" title="Permanent link">🔗</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$item</span> <span class="k">in</span> <span class="nv">$Items</span><span class="p">)</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div>
+<h3 id="linq">Linq<a class="headerlink" href="#linq" title="Permanent link">🔗</a></h3>
+<p>If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">$f</span> <span class="p">=</span> <span class="no">[System.Func[string, string]]</span> <span class="p">{</span> <span class="k">param</span><span class="p">(</span><span class="nv">$i</span><span class="p">)</span> <span class="nv">$i</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">ToLower</span><span class="p">()</span> <span class="p">}</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">$f</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="nv">$Items</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="cool-tricks">Cool Tricks<a class="headerlink" href="#cool-tricks" title="Permanent link">🔗</a></h2>
+<p>Output the results of your code into a Console GUI Gridview.
+This recent module provides a fantastic solution to allowing filtering and selection of results passed into it.</p>
+<p>Install it with: <code>Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser -Confirm:$false</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c"># Gather filtered list of EC2 Instances from AWS and then provide a console gui to select and filter the results further</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nv">$Filters</span> <span class="p">=</span> <span class="p">@(</span><span class="no">[Amazon.EC2.Model.Filter]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;tag:{{TAGHERE}}&#39;</span><span class="p">,</span><span class="s1">&#39;{{TAG VALUE}}&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">(</span><span class="nb">Get-EC2Instance</span> <span class="n">-Filter</span> <span class="nv">$Filters</span><span class="p">)).</span><span class="n">Instances</span><span class="p">|</span> <span class="nb">Select-PSFObject</span> <span class="n">InstanceId</span><span class="p">,</span> <span class="n">PublicIpAddress</span><span class="p">,</span><span class="n">PrivateIpAddress</span><span class="p">,</span><span class="n">Tags</span><span class="p">,</span><span class="s1">&#39;State.Code as StateCode&#39;</span><span class="p">,</span> <span class="s1">&#39;State.Name as StateName&#39;</span>  <span class="n">-ScriptProperty</span> <span class="p">@{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="n">Name</span> <span class="p">=</span> <span class="p">@{</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        <span class="n">get</span>  <span class="p">=</span> <span class="p">{</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>            <span class="nv">$this</span><span class="p">.</span><span class="n">Tags</span><span class="p">.</span><span class="n">GetEnumerator</span><span class="p">().</span><span class="n">Where</span><span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Key</span> <span class="o">-eq</span> <span class="s1">&#39;Name&#39;</span><span class="p">}.</span><span class="n">Value</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="p">}</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="p">}</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="p">}</span> <span class="p">|</span> <span class="nb">Out-ConsoleGridView</span>
+</code></pre></div>
+<p>For quick access, save this to a Visual Studio Code snippet like below:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">&quot;ec2-filtered-list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="nt">&quot;prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ec2-filtered-list&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Get EC2 Filtered results and output to interactive ConsoleGridView&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">        </span><span class="s2">&quot;# Gather filtered list of EC2 Instances from AWS and then provide a console gui to select and filter the results further&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span><span class="s2">&quot;\\$Filters = @([Amazon.EC2.Model.Filter]::new(&#39;tag:${1:TagKey}&#39;,&#39;${2:TagValue}&#39;)&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="s2">&quot;(Get-EC2Instance -Filter \\$Filters)).Instances| Select-PSFObject InstanceId, PublicIpAddress,PrivateIpAddress,Tags,&#39;State.Code as StateCode&#39;, &#39;State.Name as StateName&#39;  -ScriptProperty @{&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="s2">&quot;    Name = @{&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">        </span><span class="s2">&quot;        get  = {&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">        </span><span class="s2">&quot;            \\$this.Tags.GetEnumerator().Where{\\$_.Key -eq &#39;Name&#39;}.Value&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">        </span><span class="s2">&quot;        }&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">        </span><span class="s2">&quot;    }&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">        </span><span class="s2">&quot;} | Out-ConsoleGridView&quot;</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="puzzles-fizz-buzz">Puzzles - Fizz Buzz<a class="headerlink" href="#puzzles-fizz-buzz" title="Permanent link">🔗</a></h2>
+<p>I did this to participate in Code Golf, and felt pretty good that I landed in 112 🤣 with this.
+Really pains me to write in the code-golf style.</p>
+<script src="https://gist.github.com/sheldonhull/3ea6fd6cafe210edb1d71b5e8d3d1696.js"></script>
+
+<h2 id="file-manipulation">File Manipulation<a class="headerlink" href="#file-manipulation" title="Permanent link">🔗</a></h2>
+<p>Rename Images With a Counter in A Directory</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nv">$dir</span> <span class="p">=</span> <span class="s1">&#39;images&#39;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nv">$imagegroup</span> <span class="p">=</span> <span class="s1">&#39;my-images&#39;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nb">Get-ChildItem</span> <span class="nv">$dir</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">png</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="n">-Begin</span> <span class="p">{</span> <span class="nv">$x</span> <span class="p">=</span> <span class="n">0</span> <span class="p">}</span> <span class="n">-Process</span> <span class="p">{</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="nv">$file</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="nv">$newname</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="p">(</span><span class="nv">$file</span> <span class="p">|</span> <span class="nb">Split-Path</span>  <span class="p">)</span> <span class="s2">&quot;$imagegroup-$x.png&quot;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="nv">$x</span><span class="p">++</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    <span class="nb">Rename-Item</span> <span class="nv">$file</span> <span class="nv">$newname</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="compare-seperate-machine-files">Compare Seperate Machine Files<a class="headerlink" href="#compare-seperate-machine-files" title="Permanent link">🔗</a></h2>
+<p>When I was working on a project involving Windows and an installed product, I found some mismatches in the library files that were on a machine.</p>
+<p>Since the dlls were mismatching this caused issues with the application.</p>
+<p>Here's a way to simplify checking for this in the future.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">$MyDirectory</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">Function</span> <span class="nb">Format-FileSize</span> <span class="p">{</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">Param</span> <span class="p">(</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="no">[int]</span><span class="nv">$size</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="p">)</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>  <span class="k">If</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1TB</span><span class="p">)</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} TB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1TB</span><span class="p">)}</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1GB</span><span class="p">)</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} GB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1GB</span><span class="p">)}</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1MB</span><span class="p">)</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} MB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1MB</span><span class="p">)}</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">1KB</span><span class="p">)</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} kB&quot;</span><span class="p">,</span> <span class="nv">$size</span> <span class="p">/</span> <span class="n">1KB</span><span class="p">)}</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>  <span class="k">ElseIf</span> <span class="p">(</span><span class="nv">$size</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>  <span class="p">{</span><span class="no">[string]</span><span class="p">::</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;{0:0.00} B&quot;</span><span class="p">,</span> <span class="nv">$size</span><span class="p">)}</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>  <span class="k">Else</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>  <span class="p">{</span><span class="s2">&quot;&quot;</span><span class="p">}</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="p">}</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="nv">$results</span> <span class="p">=</span> <span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$MyDirectory</span> <span class="n">-Recurse</span>  <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">PSIsContainer</span> <span class="o">-eq</span> <span class="nv">$false</span><span class="p">}</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>  <span class="no">[System.IO.FileInfo]</span><span class="nv">$FileInfo</span> <span class="p">=</span> <span class="nb">Get-Item</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span>
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>  <span class="k">try</span> <span class="p">{</span>
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>    <span class="nv">$FileVersion</span> <span class="p">=</span> <span class="nv">$FileInfoVersionInfo</span><span class="p">.</span><span class="n">FileVersion</span>
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>    <span class="nv">$FileVersion</span> <span class="p">=</span> <span class="nv">$null</span>
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>  <span class="p">}</span>
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>  <span class="k">try</span> <span class="p">{</span>
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>    <span class="nv">$AssemblyVersion</span> <span class="p">=</span> <span class="no">[Reflection.AssemblyName]</span><span class="p">::</span><span class="n">GetAssemblyName</span><span class="p">(</span><span class="nv">$FileInfo</span><span class="p">.</span><span class="n">FullName</span><span class="p">).</span><span class="n">Version</span>
+<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>    <span class="nv">$AssemblyVersion</span> <span class="p">=</span> <span class="nv">$null</span>
+<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>  <span class="p">}</span>
+<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>  <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>    <span class="n">Name</span>          <span class="p">=</span> <span class="nv">$FileInfo</span><span class="p">.</span><span class="n">Name</span>
+<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>    <span class="n">Size</span>          <span class="p">=</span> <span class="nb">Format-FileSize</span> <span class="nv">$FileInfo</span><span class="p">.</span><span class="n">Length</span>
+<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>    <span class="n">FileVersion</span>   <span class="p">=</span> <span class="nv">$FileVersionAssembly</span>
+<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>    <span class="n">Version</span>       <span class="p">=</span> <span class="nv">$AssemblyVersion</span>
+<a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>    <span class="n">Directory</span>     <span class="p">=</span> <span class="nv">$FileInfo</span><span class="p">.</span><span class="n">Directory</span>
+<a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>  <span class="p">}</span>
+<a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a><span class="p">}</span>
+<a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a><span class="nv">$results</span> <span class="p">|</span> <span class="nb">Export-CLIXML</span> <span class="n">-path</span> <span class="n">report</span><span class="p">.</span><span class="n">xml</span> <span class="n">-Encoding</span> <span class="n">UTF8</span> <span class="n">-Force</span>
+</code></pre></div>
+<p>Once you run this on a system that works like you expect you’ll get a serialized xml file that can be used to compare what another machine might have.</p>
+<p>You could then compare the results with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nv">$Original</span> <span class="p">=</span> <span class="nb">Import-CLIXML</span> <span class="n">-path</span> <span class="nv">$OriginalFile</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">$Expected</span> <span class="p">=</span> <span class="nb">Import-CLIXML</span> <span class="n">-path</span> <span class="nv">$ExpectedFile</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">Compare-Object</span> <span class="n">-ReferenceObject</span> <span class="nv">$Original</span> <span class="n">-DifferenceObject</span> <span class="nv">$Expected</span> <span class="n">-Property</span> <span class="n">Name</span><span class="p">,</span><span class="n">Size</span><span class="p">,</span><span class="n">FileVersion</span><span class="p">,</span><span class="n">AssemblyVersion</span>
+</code></pre></div>
+<p>The output should look similar to this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Name            : Newtonsoft.Json.dll
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Size            : 443.11 kB
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>FileVersion     :
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>AssemblyVersion : 9.0.0.0
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>SideIndicator   : =&gt;
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>Name            : Newtonsoft.Json.dll
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>Size            : 509.00 kB
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>FileVersion     :
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>AssemblyVersion : 8.0.0.0
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>SideIndicator   : &lt;=
+</code></pre></div>
+<p>If you are dealing with the dreaded GAC (Global Assembly Cache) try using this model to a comparison as well.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">if</span><span class="p">(@(</span><span class="nb">Get-Module</span> <span class="n">GAC</span> <span class="n">-ListAvailable</span> <span class="n">-EA</span> <span class="n">0</span><span class="p">).</span><span class="n">Count</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">){</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nb">Install-Module</span> <span class="n">GAC</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">}</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nb">Import-Module</span> <span class="n">Gac</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="nb">Get-GACAssembly</span> <span class="n">-name</span> <span class="s1">&#39;*AssemblyNames*&#39;</span> <span class="p">|</span> <span class="nb">Export-CLIXML</span> <span class="n">-path</span> <span class="n">report</span><span class="p">.</span><span class="n">xml</span>
+</code></pre></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-06-11T20:55:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-06-11</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-06-11T20:55:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-06-11</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.follow", "navigation.top", "navigation.path", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
