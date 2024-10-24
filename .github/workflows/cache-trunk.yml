@@ -19,6 +19,6 @@ jobs:
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
       - name: Trunk Check
-        uses: trunk-io/trunk-action@bd686325615e9cf5a4ef98372ba94a472f9b5238 # v1
+        uses: trunk-io/trunk-action@2eaee169140ec559bd556208f9f99cdfdf468da8 # v1
         with:
           check-mode: populate_cache_only
