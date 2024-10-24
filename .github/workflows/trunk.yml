@@ -23,4 +23,4 @@ jobs:
         env:
           AQUA_LOG_LEVEL: debug
       - name: Trunk Check
-        uses: trunk-io/trunk-action@bd686325615e9cf5a4ef98372ba94a472f9b5238 # v1
+        uses: trunk-io/trunk-action@2eaee169140ec559bd556208f9f99cdfdf468da8 # v1
